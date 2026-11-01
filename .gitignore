@@ -4,6 +4,7 @@ tests/
 linsolver/cpp/stagesolver.dll
 linsolver/cpp/build/
 __pycache__/
+.venv/
 
 # gcc-compiled MPC NLP functions (mpc/core/ocp.py compiled_nlpsol)
 mpc/core/build/

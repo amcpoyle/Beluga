@@ -1,6 +1,6 @@
-mingw32-make: Entering directory 'C:/Users/Owner/Beluga/fmu'
+mingw32-make: Entering directory 'C:/Users/amcpo/Beluga/fmu'
 rm -f 113.fmutmp/sources/AlyssaVehicle_init.xml
-cp -a "C:/Program Files/OpenModelica1.25.7-64bit/share/omc/runtime/c/fmi/buildproject/"* 113.fmutmp/sources
+cp -a "C:/Program Files/OpenModelica1.25.4-64bit/share/omc/runtime/c/fmi/buildproject/"* 113.fmutmp/sources
 cp -a AlyssaVehicle_FMU.libs 113.fmutmp/sources/
-mingw32-make: Leaving directory 'C:/Users/Owner/Beluga/fmu'
+mingw32-make: Leaving directory 'C:/Users/amcpo/Beluga/fmu'
 RESULT: 0 
