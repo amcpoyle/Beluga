@@ -1,0 +1,16 @@
+// Build a Model Exchange FMU 2.0 of the vehicle for lap time optimization in Python/CasADi.
+// Run from this directory:  omc build_fmu.mos
+// Produces AlyssaVehicle.fmu and AlyssaVehicle_info.json (states: see laptime_core/vehicle.py, inputs: pedal rates, steer).
+// The model is this repo's ../AlyssaModel.mo (it holds the Experiments.OptimalControlFMU wrapper). The committed
+// AlyssaVehicle.fmu and AlyssaVehicle_info.json were built from it (= branch suspensionRestructure, commit 487cc63);
+// commit all three together after a rebuild.
+loadModel(Modelica, {"4.0.0"}); getErrorString();
+loadFile("../AlyssaModel.mo"); getErrorString();
+// The rack and tie rod loops give a ~340-unknown linear system in the ODE; OMC only tears linear systems
+// up to 200 unknowns by default. Torn, it is a 44-variable system.
+// No -d=-disableDirectionalDerivatives (exact FMU Jacobians): with the tie rod joints (JointSSR) OMC's
+// generated initialization Jacobian calls derivatives of Vectors.norm and selectBranch it never writes, and
+// the C code does not compile. The FMU path therefore uses CasADi's finite differences for Jacobians;
+// omc2casadi_opt/vehicle_casadi.py (omc2casadi) has exact derivatives of any order.
+setCommandLineOptions("--maxSizeLinearTearing=1000"); getErrorString();
+buildModelFMU(AlyssaModel.Experiments.OptimalControlFMU, version = "2.0", fmuType = "me", fileNamePrefix = "AlyssaVehicle", platforms = {"static"}); getErrorString();

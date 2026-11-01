@@ -1,0 +1,4 @@
+cd Beluga\fmu
+& "C:\Program Files\OpenModelica1.25.7-64bit\bin\omc.exe" build_fmu.mos
+
+OR put omc on PATH and then just type "omc build_fmu.mos"

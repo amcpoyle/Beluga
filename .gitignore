@@ -1,0 +1,20 @@
+tests/
+
+# linsolver build outputs (each machine builds its own DLL)
+linsolver/cpp/stagesolver.dll
+linsolver/cpp/build/
+__pycache__/
+
+# gcc-compiled MPC NLP functions (mpc/core/ocp.py compiled_nlpsol)
+mpc/core/build/
+
+*.mtx
+*.pdf
+
+# run outputs: the folders are kept (.gitkeep), their contents are not
+results/*
+!results/.gitkeep
+post/*
+!post/.gitkeep
+mpc/results/runs/*
+!mpc/results/runs/.gitkeep

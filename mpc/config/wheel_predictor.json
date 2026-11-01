@@ -1,0 +1,219 @@
+{
+  "tire_model": "pacejka",
+  "coupling": "independent",
+  "vehicle": {
+    "mass": 768.0,
+    "yaw_inertia": 924.7744068884437,
+    "lf": 1.8869900742093,
+    "lr": 1.713013615123507,
+    "wheel_radius": 0.33,
+    "max_torque": 10000.0,
+    "gravity": 9.80665
+  },
+  "parameters": {
+    "eta_B_f": 0.006320549520826674,
+    "eta_C_f": 1.9999984113756863,
+    "eta_D_f": 0.47676284579147,
+    "eta_B_r": 0.0552369006721106,
+    "eta_C_r": 1.9999999999999998,
+    "eta_D_r": 0.5232371542085299,
+    "Cr0": 0.0477679027285752,
+    "Cr1": 3.7483724496444687e-32,
+    "Cr2": 0.6479182085557277,
+    "B_f": 12.025914587245532,
+    "C_f": 1.4960691494640443,
+    "D_f": 5858.090940569119,
+    "E_f": -0.029272269300462284,
+    "B_r": 20.273946123181943,
+    "C_r": 0.5000000000000182,
+    "D_r": 10333.138096726765,
+    "E_r": -1.1701373852897659,
+    "load_exp_f": 0.5453500572664094,
+    "load_exp_r": 0.7710189954782498
+  },
+  "min_speed": 1.0,
+  "min_frenet_denominator": 0.05,
+  "reference_offset": [
+    0.013022190051331836,
+    1.2214847283179933e-07
+  ],
+  "fit_dataset_sha256": "ee7d4b89bcb63b10692717b03ac16cb1d2de8217f0b27421f035b576b4d2b65b",
+  "status": "closed-loop derivative fit (thesis Sec. 7.2.4); closed-loop MPC not yet validated; copy with smoothing 0.02 at pedal sign change and torque/power crossover (same fitted parameters); plus axle traction saturation (inside-wheel capacity), same fitted parameters; plus plant mu_y for per-axle combined demand",
+  "load_scaling": {
+    "tires": [
+      {
+        "rim.J": 1.2,
+        "rim.rEff": 0.33,
+        "rim.dSpin": 0.01,
+        "rim.crr": 0.015,
+        "rim.wEps": 1.0,
+        "slipDynamics.sigmaX": 0.3,
+        "slipDynamics.sigmaY": 0.5,
+        "slipDynamics.vMin": 1.0,
+        "fzRef1": 2000.0,
+        "fzRef2": 6000.0,
+        "muXMax1": 1.75,
+        "muXMax2": 1.4,
+        "muYMax1": 1.8,
+        "muYMax2": 1.45,
+        "kappaMax1": 0.11,
+        "kappaMax2": 0.1,
+        "alphaMax1": 0.15707963267948966,
+        "alphaMax2": 0.13962634015954636,
+        "qx": 1.9,
+        "qy": 1.9,
+        "smoothingEpsilon": 1e-06
+      },
+      {
+        "rim.J": 1.2,
+        "rim.rEff": 0.33,
+        "rim.dSpin": 0.01,
+        "rim.crr": 0.015,
+        "rim.wEps": 1.0,
+        "slipDynamics.sigmaX": 0.3,
+        "slipDynamics.sigmaY": 0.5,
+        "slipDynamics.vMin": 1.0,
+        "fzRef1": 2000.0,
+        "fzRef2": 6000.0,
+        "muXMax1": 1.75,
+        "muXMax2": 1.4,
+        "muYMax1": 1.8,
+        "muYMax2": 1.45,
+        "kappaMax1": 0.11,
+        "kappaMax2": 0.1,
+        "alphaMax1": 0.15707963267948966,
+        "alphaMax2": 0.13962634015954636,
+        "qx": 1.9,
+        "qy": 1.9,
+        "smoothingEpsilon": 1e-06
+      },
+      {
+        "rim.J": 1.2,
+        "rim.rEff": 0.33,
+        "rim.dSpin": 0.01,
+        "rim.crr": 0.015,
+        "rim.wEps": 1.0,
+        "slipDynamics.sigmaX": 0.3,
+        "slipDynamics.sigmaY": 0.5,
+        "slipDynamics.vMin": 1.0,
+        "fzRef1": 2000.0,
+        "fzRef2": 6000.0,
+        "muXMax1": 1.75,
+        "muXMax2": 1.4,
+        "muYMax1": 1.8,
+        "muYMax2": 1.45,
+        "kappaMax1": 0.11,
+        "kappaMax2": 0.1,
+        "alphaMax1": 0.15707963267948966,
+        "alphaMax2": 0.13962634015954636,
+        "qx": 1.9,
+        "qy": 1.9,
+        "smoothingEpsilon": 1e-06
+      },
+      {
+        "rim.J": 1.2,
+        "rim.rEff": 0.33,
+        "rim.dSpin": 0.01,
+        "rim.crr": 0.015,
+        "rim.wEps": 1.0,
+        "slipDynamics.sigmaX": 0.3,
+        "slipDynamics.sigmaY": 0.5,
+        "slipDynamics.vMin": 1.0,
+        "fzRef1": 2000.0,
+        "fzRef2": 6000.0,
+        "muXMax1": 1.75,
+        "muXMax2": 1.4,
+        "muYMax1": 1.8,
+        "muYMax2": 1.45,
+        "kappaMax1": 0.11,
+        "kappaMax2": 0.1,
+        "alphaMax1": 0.15707963267948966,
+        "alphaMax2": 0.13962634015954636,
+        "qx": 1.9,
+        "qy": 1.9,
+        "smoothingEpsilon": 1e-06
+      }
+    ],
+    "constants": {
+      "rho": 1.225,
+      "A": 1.0,
+      "Cl_f": 2.5,
+      "Cl_r": 2.5
+    },
+    "source": "compiled plant tire/aero constants (ThesisMPC/results/tire_feasibility/report.json)",
+    "tire_report_sha256": "e31c5b56ede1deb05ea2c0912887b6b9173f5a6c39ec2a5b8fae43997107eef2"
+  },
+  "actuator_map": {
+    "actuator": {
+      "brake_torque": 10000.0,
+      "brake_bias": 0.62,
+      "drive_torque": 6000.0,
+      "engine_power": 671129.8844240432
+    },
+    "source": "compiled plant actuator constants (grip.load_grip settings)",
+    "smoothing": 0.02,
+    "traction": {
+      "tire": {
+        "fzRef1": 2000.0,
+        "fzRef2": 6000.0,
+        "muXMax1": 1.75,
+        "muXMax2": 1.4,
+        "muYMax1": 1.8,
+        "muYMax2": 1.45
+      },
+      "constants": {
+        "rho": 1.225,
+        "A": 1.0,
+        "Cl_f": 2.5,
+        "Cl_r": 2.5,
+        "cgHeight": 0.3,
+        "tf": 2.0,
+        "tr": 2.0,
+        "xCoPF": 1.5,
+        "xCoPR": -1.5,
+        "aero_height": 0.3,
+        "Cd": 1.2,
+        "lateral_transfer_f": 0.06922465046258859,
+        "lateral_transfer_r": 0.10701386325874522,
+        "ay_kinematic": 1.0
+      }
+    }
+  },
+  "derived_from": "ThesisMPC\\results\\identification_plant_tire\\pacejka_load_actuator_plant_tire.json",
+  "plant_loads": {
+    "note": "aero geometry from the compiled plant, lateral transfer gains fitted to plant fz",
+    "fit_runs": [
+      "ThesisMPC/results/thesis_structure/ell90r_m50_full_lap.npz",
+      "ThesisMPC/results/thesis_structure/line_margin30_spline_to1850.npz"
+    ],
+    "stride": 20,
+    "samples": 3728
+  },
+  "plant_tire": {
+    "tire": {
+      "fzRef1": 2000.0,
+      "fzRef2": 6000.0,
+      "muXMax1": 1.75,
+      "muXMax2": 1.4,
+      "muYMax1": 1.8,
+      "muYMax2": 1.45,
+      "kappaMax1": 0.11,
+      "kappaMax2": 0.1,
+      "alphaMax1": 0.15707963267948966,
+      "alphaMax2": 0.13962634015954636,
+      "qx": 1.9,
+      "qy": 1.9
+    },
+    "source": "compiled plant MFForces constants (fmu modelDescription)"
+  },
+  "wheel_dynamics": {
+    "J": 1.2,
+    "rEff": 0.33,
+    "dSpin": 0.01,
+    "crr": 0.015,
+    "wEps": 1.0,
+    "vMin": 1.0,
+    "rear_toe": 0.002617993877991494,
+    "source": "compiled plant Rim/SlipDynamics constants"
+  }
+}

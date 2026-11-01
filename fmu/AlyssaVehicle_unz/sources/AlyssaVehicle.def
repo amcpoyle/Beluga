@@ -1,0 +1,54 @@
+EXPORTS
+  ;***************************************************
+  ;Common Functions
+  ;****************************************************
+  AlyssaVehicle_fmiGetTypesPlatform @1
+  AlyssaVehicle_fmiGetVersion @2
+  AlyssaVehicle_fmiSetDebugLogging @3
+  AlyssaVehicle_fmiInstantiate @4
+  AlyssaVehicle_fmiFreeInstance @5
+  AlyssaVehicle_fmiSetupExperiment @6
+  AlyssaVehicle_fmiEnterInitializationMode @7
+  AlyssaVehicle_fmiExitInitializationMode @8
+  AlyssaVehicle_fmiTerminate @9
+  AlyssaVehicle_fmiReset @10
+  AlyssaVehicle_fmiGetReal @11
+  AlyssaVehicle_fmiGetInteger @12
+  AlyssaVehicle_fmiGetBoolean @13
+  AlyssaVehicle_fmiGetString @14
+  AlyssaVehicle_fmiSetReal @15
+  AlyssaVehicle_fmiSetInteger @16
+  AlyssaVehicle_fmiSetBoolean @17
+  AlyssaVehicle_fmiSetString @18
+  AlyssaVehicle_fmiGetFMUstate @19
+  AlyssaVehicle_fmiSetFMUstate @20
+  AlyssaVehicle_fmiFreeFMUstate @21
+  AlyssaVehicle_fmiSerializedFMUstateSize @22
+  AlyssaVehicle_fmiSerializeFMUstate @23
+  AlyssaVehicle_fmiDeSerializeFMUstate @24
+  AlyssaVehicle_fmiGetDirectionalDerivative @25
+  ;***************************************************
+  ;Functions for FMI for Model Exchange
+  ;****************************************************
+  AlyssaVehicle_fmiEnterEventMode @26
+  AlyssaVehicle_fmiNewDiscreteStates @27
+  AlyssaVehicle_fmiEnterContinuousTimeMode @28
+  AlyssaVehicle_fmiCompletedIntegratorStep @29
+  AlyssaVehicle_fmiSetTime @30
+  AlyssaVehicle_fmiSetContinuousStates @31
+  AlyssaVehicle_fmiGetDerivatives @32
+  AlyssaVehicle_fmiGetEventIndicators @33
+  AlyssaVehicle_fmiGetContinuousStates @34
+  AlyssaVehicle_fmiGetNominalsOfContinuousStates @35
+  ;***************************************************
+  ;Functions for FMI for Co-Simulation
+  ;****************************************************
+  AlyssaVehicle_fmiSetRealInputDerivatives @36
+  AlyssaVehicle_fmiGetRealOutputDerivatives @37
+  AlyssaVehicle_fmiDoStep @38
+  AlyssaVehicle_fmiCancelStep @39
+  AlyssaVehicle_fmiGetStatus @40
+  AlyssaVehicle_fmiGetRealStatus @41
+  AlyssaVehicle_fmiGetIntegerStatus @42
+  AlyssaVehicle_fmiGetBooleanStatus @43
+  AlyssaVehicle_fmiGetStringStatus @44

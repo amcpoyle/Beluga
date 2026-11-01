@@ -1,0 +1,39 @@
+{
+  "_doc": "IPOPT settings for fmu_opt/omc2casadi_opt run_min_laptime (loaded by laptime_core/solver_config.py; SETTINGS solver_config picks another file).",
+
+  "linearSolver": "structured",
+
+  "ipopt": {
+    "acceptable_tol": 1e-2,
+    "acceptable_constr_viol_tol": 1e-2,
+    "acceptable_dual_inf_tol": 1e10,
+    "acceptable_compl_inf_tol": 1e-2,
+    "acceptable_obj_change_tol": 1e-6,
+    "acceptable_iter": 15,
+    "mu_strategy": "monotone",
+    "nlp_scaling_method": "gradient-based",
+    "print_frequency_iter": 1
+  },
+
+  "lbfgs": {
+    "_doc": "phase 1: L-BFGS to tol 1e-3; set acceptable_iter 0 here to require tol",
+    "tol": 1e-3,
+    "constr_viol_tol": 1e-3,
+    "max_iter": 500,
+    "hessian_approximation": "limited-memory",
+    "limited_memory_max_history": 30
+  },
+
+  "newton": {
+    "_doc": "phase 2: exact Hessian (FMU second derivatives by forward differences of the FMU Jacobian to tol 1e-6, warm started from phase 1, max_iter 0 skips the phase",
+    "tol": 1e-6,
+    "acceptable_iter": 0,
+    "max_iter": 100,
+    "hessian_approximation": "exact",
+    "warm_start_init_point": "yes",
+    "mu_init": "lbfgs_mu",
+    "warm_start_bound_push": 1e-8,
+    "warm_start_mult_bound_push": "lbfgs_mu",
+    "warm_start_slack_bound_push": 1e-8
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "actuator_limits": {
+    "steer_rate": 5.0,
+    "pedal_rate": 10.0,
+    "steer_angle": 0.35
+  },
+  "plant_step": 0.001,
+  "car_half_width": 1.0,
+  "track_margin": 0.2
+}

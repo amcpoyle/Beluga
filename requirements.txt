@@ -1,0 +1,16 @@
+# Beluga Python environment (install into .venv: python -m venv .venv, then, from the repo root,
+# .venv\Scripts\python -m pip install -r requirements.txt). Pinned to the versions the lap-time runs use;
+# numpy < 2.3 because scipy 1.14.1 requires it.
+numpy==2.2.6
+scipy==1.14.1
+casadi==3.7.2
+matplotlib==3.10.0
+fmpy==0.3.32
+pytest==9.0.2
+# the mpc/diagnostics notebook builders and plotting/PlotHelpers.py
+ipykernel==7.1.0
+ipywidgets==8.1.8
+jupyter_client==8.10.0
+nbformat==5.11.1
+# the omc2casadi_opt path and the MPC plant
+./install/omc2casadi-0.1.0-py3-none-any.whl
