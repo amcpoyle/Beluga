@@ -4,1700 +4,1242 @@ extern "C" {
 #endif
 
 /*
+equation index: 13977
+type: SIMPLE_ASSIGN
+vehicle.frontSuspension.vehicleParams.kFront = vehicle.frontSuspension.vehicleParams.kRideFront * vehicle.frontSuspension.vehicleParams.kz / (vehicle.frontSuspension.vehicleParams.kz - vehicle.frontSuspension.vehicleParams.kRideFront)
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_13977(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,13977};
+  (data->simulationInfo->realParameter[1887] /* vehicle.frontSuspension.vehicleParams.kFront PARAM */) = ((data->simulationInfo->realParameter[1889] /* vehicle.frontSuspension.vehicleParams.kRideFront PARAM */)) * (DIVISION_SIM((data->simulationInfo->realParameter[1893] /* vehicle.frontSuspension.vehicleParams.kz PARAM */),(data->simulationInfo->realParameter[1893] /* vehicle.frontSuspension.vehicleParams.kz PARAM */) - (data->simulationInfo->realParameter[1889] /* vehicle.frontSuspension.vehicleParams.kRideFront PARAM */),"vehicle.frontSuspension.vehicleParams.kz - vehicle.frontSuspension.vehicleParams.kRideFront",equationIndexes));
+  TRACE_POP
+}
+
+/*
+equation index: 13978
+type: SIMPLE_ASSIGN
+vehicle.vehicleBody.vehicleParams.mSprung = vehicle.vehicleBody.vehicleParams.vehicleMass + (-2.0) * (vehicle.vehicleBody.vehicleParams.mUnsprungFront + vehicle.vehicleBody.vehicleParams.mUnsprungRear)
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_13978(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,13978};
+  (data->simulationInfo->realParameter[3527] /* vehicle.vehicleBody.vehicleParams.mSprung PARAM */) = (data->simulationInfo->realParameter[3546] /* vehicle.vehicleBody.vehicleParams.vehicleMass PARAM */) + (-2.0) * ((data->simulationInfo->realParameter[3528] /* vehicle.vehicleBody.vehicleParams.mUnsprungFront PARAM */) + (data->simulationInfo->realParameter[3529] /* vehicle.vehicleBody.vehicleParams.mUnsprungRear PARAM */));
+  TRACE_POP
+}
+
+/*
+equation index: 13979
+type: SIMPLE_ASSIGN
+vehicle.vehicleBody.vehicleParams.F0Rear = 18.632634999999997 * vehicle.vehicleBody.vehicleParams.mSprung / (vehicle.vehicleBody.vehicleParams.wheelbase * 2.0)
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_13979(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,13979};
+  (data->simulationInfo->realParameter[3499] /* vehicle.vehicleBody.vehicleParams.F0Rear PARAM */) = DIVISION_SIM((18.632634999999997) * ((data->simulationInfo->realParameter[3527] /* vehicle.vehicleBody.vehicleParams.mSprung PARAM */)),((data->simulationInfo->realParameter[3547] /* vehicle.vehicleBody.vehicleParams.wheelbase PARAM */)) * (2.0),"vehicle.vehicleBody.vehicleParams.wheelbase * 2.0",equationIndexes);
+  TRACE_POP
+}
+
+/*
+equation index: 13980
+type: SIMPLE_ASSIGN
+vehicle.vehicleBody.vehicleParams.kRideRear = 0.10197162129779283 * vehicle.vehicleBody.vehicleParams.F0Rear * (6.283185307179586 * vehicle.vehicleBody.vehicleParams.fRideRear) ^ 2.0
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_13980(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,13980};
+  modelica_real tmp52;
+  tmp52 = (6.283185307179586) * ((data->simulationInfo->realParameter[3515] /* vehicle.vehicleBody.vehicleParams.fRideRear PARAM */));
+  (data->simulationInfo->realParameter[3523] /* vehicle.vehicleBody.vehicleParams.kRideRear PARAM */) = (0.10197162129779283) * (((data->simulationInfo->realParameter[3499] /* vehicle.vehicleBody.vehicleParams.F0Rear PARAM */)) * ((tmp52 * tmp52)));
+  TRACE_POP
+}
+
+/*
+equation index: 13981
+type: SIMPLE_ASSIGN
+vehicle.vehicleBody.vehicleParams.dWheelRear = 2.0 * vehicle.vehicleBody.vehicleParams.zetaRear * sqrt(vehicle.vehicleBody.vehicleParams.kRideRear * vehicle.vehicleBody.vehicleParams.F0Rear / 9.80665)
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_13981(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,13981};
+  modelica_real tmp53;
+  tmp53 = DIVISION_SIM(((data->simulationInfo->realParameter[3523] /* vehicle.vehicleBody.vehicleParams.kRideRear PARAM */)) * ((data->simulationInfo->realParameter[3499] /* vehicle.vehicleBody.vehicleParams.F0Rear PARAM */)),9.80665,"9.80665",equationIndexes);
+  if(!(tmp53 >= 0.0))
+  {
+    if (data->simulationInfo->noThrowAsserts) {
+      FILE_INFO info = {"",0,0,0,0,0};
+      infoStreamPrintWithEquationIndexes(OMC_LOG_ASSERT, info, 0, equationIndexes, "The following assertion has been violated %sat time %f", initial() ? "during initialization " : "", data->localData[0]->timeValue);
+      data->simulationInfo->needToReThrow = 1;
+    } else {
+      FILE_INFO info = {"",0,0,0,0,0};
+      omc_assert_warning(info, "The following assertion has been violated %sat time %f", initial() ? "during initialization " : "", data->localData[0]->timeValue);
+      throwStreamPrintWithEquationIndexes(threadData, info, equationIndexes, "Model error: Argument of sqrt(vehicle.vehicleBody.vehicleParams.kRideRear * vehicle.vehicleBody.vehicleParams.F0Rear / 9.80665) was %g should be >= 0", tmp53);
+    }
+  }
+  (data->simulationInfo->realParameter[3511] /* vehicle.vehicleBody.vehicleParams.dWheelRear PARAM */) = (2.0) * (((data->simulationInfo->realParameter[3549] /* vehicle.vehicleBody.vehicleParams.zetaRear PARAM */)) * (sqrt(tmp53)));
+  TRACE_POP
+}
+
+/*
+equation index: 13982
+type: SIMPLE_ASSIGN
+vehicle.vehicleBody.vehicleParams.F0Front = 16.671305 * vehicle.vehicleBody.vehicleParams.mSprung / (vehicle.vehicleBody.vehicleParams.wheelbase * 2.0)
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_13982(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,13982};
+  (data->simulationInfo->realParameter[3498] /* vehicle.vehicleBody.vehicleParams.F0Front PARAM */) = DIVISION_SIM((16.671305) * ((data->simulationInfo->realParameter[3527] /* vehicle.vehicleBody.vehicleParams.mSprung PARAM */)),((data->simulationInfo->realParameter[3547] /* vehicle.vehicleBody.vehicleParams.wheelbase PARAM */)) * (2.0),"vehicle.vehicleBody.vehicleParams.wheelbase * 2.0",equationIndexes);
+  TRACE_POP
+}
+
+/*
+equation index: 13983
+type: SIMPLE_ASSIGN
+vehicle.vehicleBody.vehicleParams.kRideFront = 0.10197162129779283 * vehicle.vehicleBody.vehicleParams.F0Front * (6.283185307179586 * vehicle.vehicleBody.vehicleParams.fRideFront) ^ 2.0
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_13983(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,13983};
+  modelica_real tmp54;
+  tmp54 = (6.283185307179586) * ((data->simulationInfo->realParameter[3514] /* vehicle.vehicleBody.vehicleParams.fRideFront PARAM */));
+  (data->simulationInfo->realParameter[3522] /* vehicle.vehicleBody.vehicleParams.kRideFront PARAM */) = (0.10197162129779283) * (((data->simulationInfo->realParameter[3498] /* vehicle.vehicleBody.vehicleParams.F0Front PARAM */)) * ((tmp54 * tmp54)));
+  TRACE_POP
+}
+
+/*
+equation index: 13984
+type: SIMPLE_ASSIGN
+vehicle.vehicleBody.vehicleParams.dWheelFront = 2.0 * vehicle.vehicleBody.vehicleParams.zetaFront * sqrt(vehicle.vehicleBody.vehicleParams.kRideFront * vehicle.vehicleBody.vehicleParams.F0Front / 9.80665)
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_13984(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,13984};
+  modelica_real tmp55;
+  tmp55 = DIVISION_SIM(((data->simulationInfo->realParameter[3522] /* vehicle.vehicleBody.vehicleParams.kRideFront PARAM */)) * ((data->simulationInfo->realParameter[3498] /* vehicle.vehicleBody.vehicleParams.F0Front PARAM */)),9.80665,"9.80665",equationIndexes);
+  if(!(tmp55 >= 0.0))
+  {
+    if (data->simulationInfo->noThrowAsserts) {
+      FILE_INFO info = {"",0,0,0,0,0};
+      infoStreamPrintWithEquationIndexes(OMC_LOG_ASSERT, info, 0, equationIndexes, "The following assertion has been violated %sat time %f", initial() ? "during initialization " : "", data->localData[0]->timeValue);
+      data->simulationInfo->needToReThrow = 1;
+    } else {
+      FILE_INFO info = {"",0,0,0,0,0};
+      omc_assert_warning(info, "The following assertion has been violated %sat time %f", initial() ? "during initialization " : "", data->localData[0]->timeValue);
+      throwStreamPrintWithEquationIndexes(threadData, info, equationIndexes, "Model error: Argument of sqrt(vehicle.vehicleBody.vehicleParams.kRideFront * vehicle.vehicleBody.vehicleParams.F0Front / 9.80665) was %g should be >= 0", tmp55);
+    }
+  }
+  (data->simulationInfo->realParameter[3510] /* vehicle.vehicleBody.vehicleParams.dWheelFront PARAM */) = (2.0) * (((data->simulationInfo->realParameter[3548] /* vehicle.vehicleBody.vehicleParams.zetaFront PARAM */)) * (sqrt(tmp55)));
+  TRACE_POP
+}
+
+/*
+equation index: 13985
+type: SIMPLE_ASSIGN
+vehicle.vehicleBody.vehicleParams.hpPower = 745.7 * vehicle.vehicleBody.vehicleParams.hp
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_13985(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,13985};
+  (data->simulationInfo->realParameter[3519] /* vehicle.vehicleBody.vehicleParams.hpPower PARAM */) = (745.7) * ((data->simulationInfo->realParameter[3518] /* vehicle.vehicleBody.vehicleParams.hp PARAM */));
+  TRACE_POP
+}
+
+/*
+equation index: 13988
+type: SIMPLE_ASSIGN
+vehicle.vehicleBody.vehicleParams.track = vehicle.vehicleBody.vehicleParams.tf + vehicle.vehicleBody.vehicleParams.tr
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_13988(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,13988};
+  (data->simulationInfo->realParameter[3545] /* vehicle.vehicleBody.vehicleParams.track PARAM */) = (data->simulationInfo->realParameter[3543] /* vehicle.vehicleBody.vehicleParams.tf PARAM */) + (data->simulationInfo->realParameter[3544] /* vehicle.vehicleBody.vehicleParams.tr PARAM */);
+  TRACE_POP
+}
+
+/*
+equation index: 13989
+type: SIMPLE_ASSIGN
+vehicle.vehicleBody.vehicleParams.kRear = vehicle.vehicleBody.vehicleParams.kRideRear * vehicle.vehicleBody.vehicleParams.kz / (vehicle.vehicleBody.vehicleParams.kz - vehicle.vehicleBody.vehicleParams.kRideRear)
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_13989(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,13989};
+  (data->simulationInfo->realParameter[3521] /* vehicle.vehicleBody.vehicleParams.kRear PARAM */) = ((data->simulationInfo->realParameter[3523] /* vehicle.vehicleBody.vehicleParams.kRideRear PARAM */)) * (DIVISION_SIM((data->simulationInfo->realParameter[3526] /* vehicle.vehicleBody.vehicleParams.kz PARAM */),(data->simulationInfo->realParameter[3526] /* vehicle.vehicleBody.vehicleParams.kz PARAM */) - (data->simulationInfo->realParameter[3523] /* vehicle.vehicleBody.vehicleParams.kRideRear PARAM */),"vehicle.vehicleBody.vehicleParams.kz - vehicle.vehicleBody.vehicleParams.kRideRear",equationIndexes));
+  TRACE_POP
+}
+
+/*
+equation index: 13990
+type: SIMPLE_ASSIGN
+vehicle.vehicleBody.vehicleParams.kFront = vehicle.vehicleBody.vehicleParams.kRideFront * vehicle.vehicleBody.vehicleParams.kz / (vehicle.vehicleBody.vehicleParams.kz - vehicle.vehicleBody.vehicleParams.kRideFront)
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_13990(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,13990};
+  (data->simulationInfo->realParameter[3520] /* vehicle.vehicleBody.vehicleParams.kFront PARAM */) = ((data->simulationInfo->realParameter[3522] /* vehicle.vehicleBody.vehicleParams.kRideFront PARAM */)) * (DIVISION_SIM((data->simulationInfo->realParameter[3526] /* vehicle.vehicleBody.vehicleParams.kz PARAM */),(data->simulationInfo->realParameter[3526] /* vehicle.vehicleBody.vehicleParams.kz PARAM */) - (data->simulationInfo->realParameter[3522] /* vehicle.vehicleBody.vehicleParams.kRideFront PARAM */),"vehicle.vehicleBody.vehicleParams.kz - vehicle.vehicleBody.vehicleParams.kRideFront",equationIndexes));
+  TRACE_POP
+}
+
+/*
+equation index: 13991
+type: SIMPLE_ASSIGN
+vehicle.vehicleBody.fixedTranslationRear.shape.shapeType = vehicle.vehicleBody.fixedTranslationRear.shapeType
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_13991(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,13991};
+  (data->simulationInfo->stringParameter[157] /* vehicle.vehicleBody.fixedTranslationRear.shape.shapeType PARAM */) = (data->simulationInfo->stringParameter[158] /* vehicle.vehicleBody.fixedTranslationRear.shapeType PARAM */);
+  TRACE_POP
+}
+
+/*
+equation index: 14005
+type: SIMPLE_ASSIGN
+vehicle.vehicleBody.fixedTranslationFront.shape.shapeType = vehicle.vehicleBody.fixedTranslationFront.shapeType
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_14005(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,14005};
+  (data->simulationInfo->stringParameter[155] /* vehicle.vehicleBody.fixedTranslationFront.shape.shapeType PARAM */) = (data->simulationInfo->stringParameter[156] /* vehicle.vehicleBody.fixedTranslationFront.shapeType PARAM */);
+  TRACE_POP
+}
+
+/*
+equation index: 14019
+type: SIMPLE_ASSIGN
+vehicle.vehicleBody.body.sphere.shapeType = "sphere"
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_14019(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,14019};
+  (data->simulationInfo->stringParameter[154] /* vehicle.vehicleBody.body.sphere.shapeType PARAM */) = _OMC_LIT35;
+  TRACE_POP
+}
+
+/*
+equation index: 14020
+type: SIMPLE_ASSIGN
+vehicle.vehicleBody.body.cylinder.shapeType = "cylinder"
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_14020(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,14020};
+  (data->simulationInfo->stringParameter[153] /* vehicle.vehicleBody.body.cylinder.shapeType PARAM */) = _OMC_LIT31;
+  TRACE_POP
+}
+
+/*
+equation index: 14021
+type: SIMPLE_ASSIGN
+vehicle.vehicleBody.body.phi_start[3] = vehicle.vehicleBody.body.angles_start[3]
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_14021(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,14021};
+  (data->simulationInfo->realParameter[3438] /* vehicle.vehicleBody.body.phi_start[3] PARAM */) = (data->simulationInfo->realParameter[3426] /* vehicle.vehicleBody.body.angles_start[3] PARAM */);
+  TRACE_POP
+}
+
+/*
+equation index: 14022
+type: SIMPLE_ASSIGN
+vehicle.vehicleBody.body.phi_start[2] = vehicle.vehicleBody.body.angles_start[2]
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_14022(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,14022};
+  (data->simulationInfo->realParameter[3437] /* vehicle.vehicleBody.body.phi_start[2] PARAM */) = (data->simulationInfo->realParameter[3425] /* vehicle.vehicleBody.body.angles_start[2] PARAM */);
+  TRACE_POP
+}
+
+/*
 equation index: 14023
 type: SIMPLE_ASSIGN
-vehicle.vehicleBody.body.I[2,3] = vehicle.vehicleBody.body.I_32
+vehicle.vehicleBody.body.phi_start[1] = vehicle.vehicleBody.body.angles_start[1]
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14023(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14023};
-  (data->simulationInfo->realParameter[3398] /* vehicle.vehicleBody.body.I[2,3] PARAM */) = (data->simulationInfo->realParameter[3406] /* vehicle.vehicleBody.body.I_32 PARAM */);
+  (data->simulationInfo->realParameter[3436] /* vehicle.vehicleBody.body.phi_start[1] PARAM */) = (data->simulationInfo->realParameter[3424] /* vehicle.vehicleBody.body.angles_start[1] PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14024
+equation index: 14040
 type: SIMPLE_ASSIGN
-vehicle.vehicleBody.Iyy = vehicle.vehicleBody.vehicleParams.Iyy
+vehicle.vehicleBody.Izz = vehicle.vehicleBody.vehicleParams.Izz
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14024(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14040(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14024};
-  (data->simulationInfo->realParameter[3382] /* vehicle.vehicleBody.Iyy PARAM */) = (data->simulationInfo->realParameter[3501] /* vehicle.vehicleBody.vehicleParams.Iyy PARAM */);
+  const int equationIndexes[2] = {1,14040};
+  (data->simulationInfo->realParameter[3383] /* vehicle.vehicleBody.Izz PARAM */) = (data->simulationInfo->realParameter[3502] /* vehicle.vehicleBody.vehicleParams.Izz PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14025
+equation index: 14041
 type: SIMPLE_ASSIGN
-vehicle.vehicleBody.body.I_22 = vehicle.vehicleBody.Iyy
+vehicle.vehicleBody.body.I_33 = vehicle.vehicleBody.Izz
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14025(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14041(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14025};
-  (data->simulationInfo->realParameter[3404] /* vehicle.vehicleBody.body.I_22 PARAM */) = (data->simulationInfo->realParameter[3382] /* vehicle.vehicleBody.Iyy PARAM */);
+  const int equationIndexes[2] = {1,14041};
+  (data->simulationInfo->realParameter[3407] /* vehicle.vehicleBody.body.I_33 PARAM */) = (data->simulationInfo->realParameter[3383] /* vehicle.vehicleBody.Izz PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14026
+equation index: 14042
 type: SIMPLE_ASSIGN
-vehicle.vehicleBody.body.I[2,2] = vehicle.vehicleBody.body.I_22
+vehicle.vehicleBody.body.I[3,3] = vehicle.vehicleBody.body.I_33
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14026(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14042(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14026};
-  (data->simulationInfo->realParameter[3397] /* vehicle.vehicleBody.body.I[2,2] PARAM */) = (data->simulationInfo->realParameter[3404] /* vehicle.vehicleBody.body.I_22 PARAM */);
+  const int equationIndexes[2] = {1,14042};
+  (data->simulationInfo->realParameter[3401] /* vehicle.vehicleBody.body.I[3,3] PARAM */) = (data->simulationInfo->realParameter[3407] /* vehicle.vehicleBody.body.I_33 PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14027
+equation index: 14043
 type: SIMPLE_ASSIGN
-vehicle.vehicleBody.body.I[2,1] = vehicle.vehicleBody.body.I_21
+vehicle.vehicleBody.body.I[3,2] = vehicle.vehicleBody.body.I_32
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14027(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14043(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14027};
-  (data->simulationInfo->realParameter[3396] /* vehicle.vehicleBody.body.I[2,1] PARAM */) = (data->simulationInfo->realParameter[3403] /* vehicle.vehicleBody.body.I_21 PARAM */);
+  const int equationIndexes[2] = {1,14043};
+  (data->simulationInfo->realParameter[3400] /* vehicle.vehicleBody.body.I[3,2] PARAM */) = (data->simulationInfo->realParameter[3406] /* vehicle.vehicleBody.body.I_32 PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14028
+equation index: 14044
 type: SIMPLE_ASSIGN
-vehicle.vehicleBody.body.I[1,3] = vehicle.vehicleBody.body.I_31
+vehicle.vehicleBody.body.I[3,1] = vehicle.vehicleBody.body.I_31
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14028(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14044(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14028};
-  (data->simulationInfo->realParameter[3395] /* vehicle.vehicleBody.body.I[1,3] PARAM */) = (data->simulationInfo->realParameter[3405] /* vehicle.vehicleBody.body.I_31 PARAM */);
-  TRACE_POP
-}
-
-/*
-equation index: 14029
-type: SIMPLE_ASSIGN
-vehicle.vehicleBody.body.I[1,2] = vehicle.vehicleBody.body.I_21
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14029(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14029};
-  (data->simulationInfo->realParameter[3394] /* vehicle.vehicleBody.body.I[1,2] PARAM */) = (data->simulationInfo->realParameter[3403] /* vehicle.vehicleBody.body.I_21 PARAM */);
-  TRACE_POP
-}
-
-/*
-equation index: 14030
-type: SIMPLE_ASSIGN
-vehicle.vehicleBody.Ixx = vehicle.vehicleBody.vehicleParams.Ixx
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14030(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14030};
-  (data->simulationInfo->realParameter[3381] /* vehicle.vehicleBody.Ixx PARAM */) = (data->simulationInfo->realParameter[3500] /* vehicle.vehicleBody.vehicleParams.Ixx PARAM */);
-  TRACE_POP
-}
-
-/*
-equation index: 14031
-type: SIMPLE_ASSIGN
-vehicle.vehicleBody.body.I_11 = vehicle.vehicleBody.Ixx
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14031(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14031};
-  (data->simulationInfo->realParameter[3402] /* vehicle.vehicleBody.body.I_11 PARAM */) = (data->simulationInfo->realParameter[3381] /* vehicle.vehicleBody.Ixx PARAM */);
-  TRACE_POP
-}
-
-/*
-equation index: 14032
-type: SIMPLE_ASSIGN
-vehicle.vehicleBody.body.I[1,1] = vehicle.vehicleBody.body.I_11
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14032(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14032};
-  (data->simulationInfo->realParameter[3393] /* vehicle.vehicleBody.body.I[1,1] PARAM */) = (data->simulationInfo->realParameter[3402] /* vehicle.vehicleBody.body.I_11 PARAM */);
+  const int equationIndexes[2] = {1,14044};
+  (data->simulationInfo->realParameter[3399] /* vehicle.vehicleBody.body.I[3,1] PARAM */) = (data->simulationInfo->realParameter[3405] /* vehicle.vehicleBody.body.I_31 PARAM */);
   TRACE_POP
 }
 
 /*
 equation index: 14045
 type: SIMPLE_ASSIGN
-vehicle.vehicleBody.body.m = vehicle.vehicleBody.vehicleParams.mSprung
+vehicle.vehicleBody.body.I[2,3] = vehicle.vehicleBody.body.I_32
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14045(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14045};
-  (data->simulationInfo->realParameter[3435] /* vehicle.vehicleBody.body.m PARAM */) = (data->simulationInfo->realParameter[3527] /* vehicle.vehicleBody.vehicleParams.mSprung PARAM */);
+  (data->simulationInfo->realParameter[3398] /* vehicle.vehicleBody.body.I[2,3] PARAM */) = (data->simulationInfo->realParameter[3406] /* vehicle.vehicleBody.body.I_32 PARAM */);
+  TRACE_POP
+}
+
+/*
+equation index: 14046
+type: SIMPLE_ASSIGN
+vehicle.vehicleBody.Iyy = vehicle.vehicleBody.vehicleParams.Iyy
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_14046(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,14046};
+  (data->simulationInfo->realParameter[3382] /* vehicle.vehicleBody.Iyy PARAM */) = (data->simulationInfo->realParameter[3501] /* vehicle.vehicleBody.vehicleParams.Iyy PARAM */);
   TRACE_POP
 }
 
 /*
 equation index: 14047
 type: SIMPLE_ASSIGN
-vehicle.vehicleBody.vehicleMass = vehicle.vehicleBody.vehicleParams.vehicleMass
+vehicle.vehicleBody.body.I_22 = vehicle.vehicleBody.Iyy
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14047(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14047};
-  (data->simulationInfo->realParameter[3497] /* vehicle.vehicleBody.vehicleMass PARAM */) = (data->simulationInfo->realParameter[3546] /* vehicle.vehicleBody.vehicleParams.vehicleMass PARAM */);
+  (data->simulationInfo->realParameter[3404] /* vehicle.vehicleBody.body.I_22 PARAM */) = (data->simulationInfo->realParameter[3382] /* vehicle.vehicleBody.Iyy PARAM */);
   TRACE_POP
 }
 
 /*
 equation index: 14048
 type: SIMPLE_ASSIGN
-vehicle.wheelRL.contactPatch.rEff = vehicle.wheelRL.rEff
+vehicle.vehicleBody.body.I[2,2] = vehicle.vehicleBody.body.I_22
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14048(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14048};
-  (data->simulationInfo->realParameter[3787] /* vehicle.wheelRL.contactPatch.rEff PARAM */) = (data->simulationInfo->realParameter[3790] /* vehicle.wheelRL.rEff PARAM */);
+  (data->simulationInfo->realParameter[3397] /* vehicle.vehicleBody.body.I[2,2] PARAM */) = (data->simulationInfo->realParameter[3404] /* vehicle.vehicleBody.body.I_22 PARAM */);
+  TRACE_POP
+}
+
+/*
+equation index: 14049
+type: SIMPLE_ASSIGN
+vehicle.vehicleBody.body.I[2,1] = vehicle.vehicleBody.body.I_21
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_14049(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,14049};
+  (data->simulationInfo->realParameter[3396] /* vehicle.vehicleBody.body.I[2,1] PARAM */) = (data->simulationInfo->realParameter[3403] /* vehicle.vehicleBody.body.I_21 PARAM */);
+  TRACE_POP
+}
+
+/*
+equation index: 14050
+type: SIMPLE_ASSIGN
+vehicle.vehicleBody.body.I[1,3] = vehicle.vehicleBody.body.I_31
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_14050(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,14050};
+  (data->simulationInfo->realParameter[3395] /* vehicle.vehicleBody.body.I[1,3] PARAM */) = (data->simulationInfo->realParameter[3405] /* vehicle.vehicleBody.body.I_31 PARAM */);
+  TRACE_POP
+}
+
+/*
+equation index: 14051
+type: SIMPLE_ASSIGN
+vehicle.vehicleBody.body.I[1,2] = vehicle.vehicleBody.body.I_21
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_14051(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,14051};
+  (data->simulationInfo->realParameter[3394] /* vehicle.vehicleBody.body.I[1,2] PARAM */) = (data->simulationInfo->realParameter[3403] /* vehicle.vehicleBody.body.I_21 PARAM */);
   TRACE_POP
 }
 
 /*
 equation index: 14052
 type: SIMPLE_ASSIGN
-vehicle.wheelRL.rim.damper.d = vehicle.wheelRL.rim.dSpin
+vehicle.vehicleBody.Ixx = vehicle.vehicleBody.vehicleParams.Ixx
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14052(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14052};
-  (data->simulationInfo->realParameter[3794] /* vehicle.wheelRL.rim.damper.d PARAM */) = (data->simulationInfo->realParameter[3793] /* vehicle.wheelRL.rim.dSpin PARAM */);
+  (data->simulationInfo->realParameter[3381] /* vehicle.vehicleBody.Ixx PARAM */) = (data->simulationInfo->realParameter[3500] /* vehicle.vehicleBody.vehicleParams.Ixx PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14058
+equation index: 14053
 type: SIMPLE_ASSIGN
-vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.cylinder.shapeType = "cylinder"
+vehicle.vehicleBody.body.I_11 = vehicle.vehicleBody.Ixx
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14058(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14053(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14058};
-  (data->simulationInfo->stringParameter[161] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.cylinder.shapeType PARAM */) = _OMC_LIT31;
+  const int equationIndexes[2] = {1,14053};
+  (data->simulationInfo->realParameter[3402] /* vehicle.vehicleBody.body.I_11 PARAM */) = (data->simulationInfo->realParameter[3381] /* vehicle.vehicleBody.Ixx PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14059
+equation index: 14054
 type: SIMPLE_ASSIGN
-vehicle.wheelRL.rim.rotor1D.J = vehicle.wheelRL.rim.J
+vehicle.vehicleBody.body.I[1,1] = vehicle.vehicleBody.body.I_11
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14059(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14054(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14059};
-  (data->simulationInfo->realParameter[3807] /* vehicle.wheelRL.rim.rotor1D.J PARAM */) = (data->simulationInfo->realParameter[3791] /* vehicle.wheelRL.rim.J PARAM */);
+  const int equationIndexes[2] = {1,14054};
+  (data->simulationInfo->realParameter[3393] /* vehicle.vehicleBody.body.I[1,1] PARAM */) = (data->simulationInfo->realParameter[3402] /* vehicle.vehicleBody.body.I_11 PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14060
+equation index: 14067
 type: SIMPLE_ASSIGN
-vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.J = vehicle.wheelRL.rim.rotor1D.J
+vehicle.vehicleBody.body.m = vehicle.vehicleBody.vehicleParams.mSprung
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14060(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14067(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14060};
-  (data->simulationInfo->realParameter[3819] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.J PARAM */) = (data->simulationInfo->realParameter[3807] /* vehicle.wheelRL.rim.rotor1D.J PARAM */);
-  TRACE_POP
-}
-
-/*
-equation index: 14062
-type: SIMPLE_ASSIGN
-vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.nJ[3] = vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.e[3]
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14062(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14062};
-  (data->simulationInfo->realParameter[3834] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.nJ[3] PARAM */) = ((data->simulationInfo->realParameter[3819] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3828] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.e[3] PARAM */));
-  TRACE_POP
-}
-
-/*
-equation index: 14064
-type: SIMPLE_ASSIGN
-vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.nJ[2] = vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.e[2]
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14064(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14064};
-  (data->simulationInfo->realParameter[3833] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.nJ[2] PARAM */) = ((data->simulationInfo->realParameter[3819] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3827] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.e[2] PARAM */));
-  TRACE_POP
-}
-
-/*
-equation index: 14066
-type: SIMPLE_ASSIGN
-vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.nJ[1] = vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.e[1]
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14066(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14066};
-  (data->simulationInfo->realParameter[3832] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.nJ[1] PARAM */) = ((data->simulationInfo->realParameter[3819] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3826] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.e[1] PARAM */));
+  const int equationIndexes[2] = {1,14067};
+  (data->simulationInfo->realParameter[3435] /* vehicle.vehicleBody.body.m PARAM */) = (data->simulationInfo->realParameter[3527] /* vehicle.vehicleBody.vehicleParams.mSprung PARAM */);
   TRACE_POP
 }
 
 /*
 equation index: 14069
 type: SIMPLE_ASSIGN
-vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.r_center[3] = vehicle.wheelRL.rim.rotor1D.r_center[3]
+vehicle.vehicleBody.vehicleMass = vehicle.vehicleBody.vehicleParams.vehicleMass
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14069(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14069};
-  (data->simulationInfo->realParameter[3837] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.r_center[3] PARAM */) = (data->simulationInfo->realParameter[3818] /* vehicle.wheelRL.rim.rotor1D.r_center[3] PARAM */);
+  (data->simulationInfo->realParameter[3497] /* vehicle.vehicleBody.vehicleMass PARAM */) = (data->simulationInfo->realParameter[3546] /* vehicle.vehicleBody.vehicleParams.vehicleMass PARAM */);
   TRACE_POP
 }
 
 /*
 equation index: 14070
 type: SIMPLE_ASSIGN
-vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.r_center[2] = vehicle.wheelRL.rim.rotor1D.r_center[2]
+vehicle.wheelRL.contactPatch.rEff = vehicle.wheelRL.rEff
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14070(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14070};
-  (data->simulationInfo->realParameter[3836] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.r_center[2] PARAM */) = (data->simulationInfo->realParameter[3817] /* vehicle.wheelRL.rim.rotor1D.r_center[2] PARAM */);
+  (data->simulationInfo->realParameter[3699] /* vehicle.wheelRL.contactPatch.rEff PARAM */) = (data->simulationInfo->realParameter[3702] /* vehicle.wheelRL.rEff PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14071
+equation index: 14074
 type: SIMPLE_ASSIGN
-vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.r_center[1] = vehicle.wheelRL.rim.rotor1D.r_center[1]
+vehicle.wheelRL.rim.damper.d = vehicle.wheelRL.rim.dSpin
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14071(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14074(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14071};
-  (data->simulationInfo->realParameter[3835] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.r_center[1] PARAM */) = (data->simulationInfo->realParameter[3816] /* vehicle.wheelRL.rim.rotor1D.r_center[1] PARAM */);
+  const int equationIndexes[2] = {1,14074};
+  (data->simulationInfo->realParameter[3706] /* vehicle.wheelRL.rim.damper.d PARAM */) = (data->simulationInfo->realParameter[3705] /* vehicle.wheelRL.rim.dSpin PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14089
+equation index: 14080
 type: SIMPLE_ASSIGN
-vehicle.wheelRL.rim.rEff = vehicle.wheelRL.rEff
+vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.cylinder.shapeType = "cylinder"
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14089(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14080(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14089};
-  (data->simulationInfo->realParameter[3806] /* vehicle.wheelRL.rim.rEff PARAM */) = (data->simulationInfo->realParameter[3790] /* vehicle.wheelRL.rEff PARAM */);
+  const int equationIndexes[2] = {1,14080};
+  (data->simulationInfo->stringParameter[161] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.cylinder.shapeType PARAM */) = _OMC_LIT31;
+  TRACE_POP
+}
+
+/*
+equation index: 14081
+type: SIMPLE_ASSIGN
+vehicle.wheelRL.rim.rotor1D.J = vehicle.wheelRL.rim.J
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_14081(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,14081};
+  (data->simulationInfo->realParameter[3719] /* vehicle.wheelRL.rim.rotor1D.J PARAM */) = (data->simulationInfo->realParameter[3703] /* vehicle.wheelRL.rim.J PARAM */);
+  TRACE_POP
+}
+
+/*
+equation index: 14082
+type: SIMPLE_ASSIGN
+vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.J = vehicle.wheelRL.rim.rotor1D.J
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_14082(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,14082};
+  (data->simulationInfo->realParameter[3731] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.J PARAM */) = (data->simulationInfo->realParameter[3719] /* vehicle.wheelRL.rim.rotor1D.J PARAM */);
+  TRACE_POP
+}
+
+/*
+equation index: 14084
+type: SIMPLE_ASSIGN
+vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.nJ[3] = vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.e[3]
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_14084(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,14084};
+  (data->simulationInfo->realParameter[3746] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.nJ[3] PARAM */) = ((data->simulationInfo->realParameter[3731] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3740] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.e[3] PARAM */));
+  TRACE_POP
+}
+
+/*
+equation index: 14086
+type: SIMPLE_ASSIGN
+vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.nJ[2] = vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.e[2]
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_14086(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,14086};
+  (data->simulationInfo->realParameter[3745] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.nJ[2] PARAM */) = ((data->simulationInfo->realParameter[3731] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3739] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.e[2] PARAM */));
+  TRACE_POP
+}
+
+/*
+equation index: 14088
+type: SIMPLE_ASSIGN
+vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.nJ[1] = vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.e[1]
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_14088(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,14088};
+  (data->simulationInfo->realParameter[3744] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.nJ[1] PARAM */) = ((data->simulationInfo->realParameter[3731] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3738] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.e[1] PARAM */));
   TRACE_POP
 }
 
 /*
 equation index: 14091
 type: SIMPLE_ASSIGN
-vehicle.wheelRL.slipForces.params.mSprung = vehicle.wheelRL.slipForces.params.vehicleMass + (-2.0) * (vehicle.wheelRL.slipForces.params.mUnsprungFront + vehicle.wheelRL.slipForces.params.mUnsprungRear)
+vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.r_center[3] = vehicle.wheelRL.rim.rotor1D.r_center[3]
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14091(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14091};
-  (data->simulationInfo->realParameter[3876] /* vehicle.wheelRL.slipForces.params.mSprung PARAM */) = (data->simulationInfo->realParameter[3895] /* vehicle.wheelRL.slipForces.params.vehicleMass PARAM */) + (-2.0) * ((data->simulationInfo->realParameter[3877] /* vehicle.wheelRL.slipForces.params.mUnsprungFront PARAM */) + (data->simulationInfo->realParameter[3878] /* vehicle.wheelRL.slipForces.params.mUnsprungRear PARAM */));
+  (data->simulationInfo->realParameter[3749] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.r_center[3] PARAM */) = (data->simulationInfo->realParameter[3730] /* vehicle.wheelRL.rim.rotor1D.r_center[3] PARAM */);
   TRACE_POP
 }
 
 /*
 equation index: 14092
 type: SIMPLE_ASSIGN
-vehicle.wheelRL.slipForces.params.F0Rear = 4.903325 * vehicle.wheelRL.slipForces.params.mSprung * vehicle.wheelRL.slipForces.params.a / vehicle.wheelRL.slipForces.params.wheelbase
+vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.r_center[2] = vehicle.wheelRL.rim.rotor1D.r_center[2]
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14092(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14092};
-  (data->simulationInfo->realParameter[3848] /* vehicle.wheelRL.slipForces.params.F0Rear PARAM */) = (4.903325) * (((data->simulationInfo->realParameter[3876] /* vehicle.wheelRL.slipForces.params.mSprung PARAM */)) * (DIVISION_SIM((data->simulationInfo->realParameter[3852] /* vehicle.wheelRL.slipForces.params.a PARAM */),(data->simulationInfo->realParameter[3896] /* vehicle.wheelRL.slipForces.params.wheelbase PARAM */),"vehicle.wheelRL.slipForces.params.wheelbase",equationIndexes)));
+  (data->simulationInfo->realParameter[3748] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.r_center[2] PARAM */) = (data->simulationInfo->realParameter[3729] /* vehicle.wheelRL.rim.rotor1D.r_center[2] PARAM */);
   TRACE_POP
 }
 
 /*
 equation index: 14093
 type: SIMPLE_ASSIGN
-vehicle.wheelRL.slipForces.params.kRideRear = 0.10197162129779283 * vehicle.wheelRL.slipForces.params.F0Rear * (6.283185307179586 * vehicle.wheelRL.slipForces.params.fRideRear) ^ 2.0
+vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.r_center[1] = vehicle.wheelRL.rim.rotor1D.r_center[1]
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14093(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14093};
-  modelica_real tmp56;
-  tmp56 = (6.283185307179586) * ((data->simulationInfo->realParameter[3864] /* vehicle.wheelRL.slipForces.params.fRideRear PARAM */));
-  (data->simulationInfo->realParameter[3872] /* vehicle.wheelRL.slipForces.params.kRideRear PARAM */) = (0.10197162129779283) * (((data->simulationInfo->realParameter[3848] /* vehicle.wheelRL.slipForces.params.F0Rear PARAM */)) * ((tmp56 * tmp56)));
+  (data->simulationInfo->realParameter[3747] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.r_center[1] PARAM */) = (data->simulationInfo->realParameter[3728] /* vehicle.wheelRL.rim.rotor1D.r_center[1] PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14094
+equation index: 14111
 type: SIMPLE_ASSIGN
-vehicle.wheelRL.slipForces.params.dWheelRear = 2.0 * vehicle.wheelRL.slipForces.params.zetaRear * sqrt(vehicle.wheelRL.slipForces.params.kRideRear * vehicle.wheelRL.slipForces.params.F0Rear / 9.80665)
+vehicle.wheelRL.rim.rEff = vehicle.wheelRL.rEff
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14094(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14111(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14094};
-  modelica_real tmp57;
-  tmp57 = DIVISION_SIM(((data->simulationInfo->realParameter[3872] /* vehicle.wheelRL.slipForces.params.kRideRear PARAM */)) * ((data->simulationInfo->realParameter[3848] /* vehicle.wheelRL.slipForces.params.F0Rear PARAM */)),9.80665,"9.80665",equationIndexes);
-  if(!(tmp57 >= 0.0))
-  {
-    if (data->simulationInfo->noThrowAsserts) {
-      FILE_INFO info = {"",0,0,0,0,0};
-      infoStreamPrintWithEquationIndexes(OMC_LOG_ASSERT, info, 0, equationIndexes, "The following assertion has been violated %sat time %f", initial() ? "during initialization " : "", data->localData[0]->timeValue);
-      data->simulationInfo->needToReThrow = 1;
-    } else {
-      FILE_INFO info = {"",0,0,0,0,0};
-      omc_assert_warning(info, "The following assertion has been violated %sat time %f", initial() ? "during initialization " : "", data->localData[0]->timeValue);
-      throwStreamPrintWithEquationIndexes(threadData, info, equationIndexes, "Model error: Argument of sqrt(vehicle.wheelRL.slipForces.params.kRideRear * vehicle.wheelRL.slipForces.params.F0Rear / 9.80665) was %g should be >= 0", tmp57);
-    }
-  }
-  (data->simulationInfo->realParameter[3860] /* vehicle.wheelRL.slipForces.params.dWheelRear PARAM */) = (2.0) * (((data->simulationInfo->realParameter[3898] /* vehicle.wheelRL.slipForces.params.zetaRear PARAM */)) * (sqrt(tmp57)));
+  const int equationIndexes[2] = {1,14111};
+  (data->simulationInfo->realParameter[3718] /* vehicle.wheelRL.rim.rEff PARAM */) = (data->simulationInfo->realParameter[3702] /* vehicle.wheelRL.rEff PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14095
-type: SIMPLE_ASSIGN
-vehicle.wheelRL.slipForces.params.F0Front = 4.903325 * vehicle.wheelRL.slipForces.params.mSprung * vehicle.wheelRL.slipForces.params.b / vehicle.wheelRL.slipForces.params.wheelbase
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14095(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14095};
-  (data->simulationInfo->realParameter[3847] /* vehicle.wheelRL.slipForces.params.F0Front PARAM */) = (4.903325) * (((data->simulationInfo->realParameter[3876] /* vehicle.wheelRL.slipForces.params.mSprung PARAM */)) * (DIVISION_SIM((data->simulationInfo->realParameter[3856] /* vehicle.wheelRL.slipForces.params.b PARAM */),(data->simulationInfo->realParameter[3896] /* vehicle.wheelRL.slipForces.params.wheelbase PARAM */),"vehicle.wheelRL.slipForces.params.wheelbase",equationIndexes)));
-  TRACE_POP
-}
-
-/*
-equation index: 14096
-type: SIMPLE_ASSIGN
-vehicle.wheelRL.slipForces.params.kRideFront = 0.10197162129779283 * vehicle.wheelRL.slipForces.params.F0Front * (6.283185307179586 * vehicle.wheelRL.slipForces.params.fRideFront) ^ 2.0
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14096(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14096};
-  modelica_real tmp58;
-  tmp58 = (6.283185307179586) * ((data->simulationInfo->realParameter[3863] /* vehicle.wheelRL.slipForces.params.fRideFront PARAM */));
-  (data->simulationInfo->realParameter[3871] /* vehicle.wheelRL.slipForces.params.kRideFront PARAM */) = (0.10197162129779283) * (((data->simulationInfo->realParameter[3847] /* vehicle.wheelRL.slipForces.params.F0Front PARAM */)) * ((tmp58 * tmp58)));
-  TRACE_POP
-}
-
-/*
-equation index: 14097
-type: SIMPLE_ASSIGN
-vehicle.wheelRL.slipForces.params.dWheelFront = 2.0 * vehicle.wheelRL.slipForces.params.zetaFront * sqrt(vehicle.wheelRL.slipForces.params.kRideFront * vehicle.wheelRL.slipForces.params.F0Front / 9.80665)
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14097(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14097};
-  modelica_real tmp59;
-  tmp59 = DIVISION_SIM(((data->simulationInfo->realParameter[3871] /* vehicle.wheelRL.slipForces.params.kRideFront PARAM */)) * ((data->simulationInfo->realParameter[3847] /* vehicle.wheelRL.slipForces.params.F0Front PARAM */)),9.80665,"9.80665",equationIndexes);
-  if(!(tmp59 >= 0.0))
-  {
-    if (data->simulationInfo->noThrowAsserts) {
-      FILE_INFO info = {"",0,0,0,0,0};
-      infoStreamPrintWithEquationIndexes(OMC_LOG_ASSERT, info, 0, equationIndexes, "The following assertion has been violated %sat time %f", initial() ? "during initialization " : "", data->localData[0]->timeValue);
-      data->simulationInfo->needToReThrow = 1;
-    } else {
-      FILE_INFO info = {"",0,0,0,0,0};
-      omc_assert_warning(info, "The following assertion has been violated %sat time %f", initial() ? "during initialization " : "", data->localData[0]->timeValue);
-      throwStreamPrintWithEquationIndexes(threadData, info, equationIndexes, "Model error: Argument of sqrt(vehicle.wheelRL.slipForces.params.kRideFront * vehicle.wheelRL.slipForces.params.F0Front / 9.80665) was %g should be >= 0", tmp59);
-    }
-  }
-  (data->simulationInfo->realParameter[3859] /* vehicle.wheelRL.slipForces.params.dWheelFront PARAM */) = (2.0) * (((data->simulationInfo->realParameter[3897] /* vehicle.wheelRL.slipForces.params.zetaFront PARAM */)) * (sqrt(tmp59)));
-  TRACE_POP
-}
-
-/*
-equation index: 14098
-type: SIMPLE_ASSIGN
-vehicle.wheelRL.slipForces.params.hpPower = 745.7 * vehicle.wheelRL.slipForces.params.hp
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14098(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14098};
-  (data->simulationInfo->realParameter[3868] /* vehicle.wheelRL.slipForces.params.hpPower PARAM */) = (745.7) * ((data->simulationInfo->realParameter[3867] /* vehicle.wheelRL.slipForces.params.hp PARAM */));
-  TRACE_POP
-}
-
-/*
-equation index: 14099
-type: SIMPLE_ASSIGN
-vehicle.wheelRL.slipForces.params.track = vehicle.wheelRL.slipForces.params.tf + vehicle.wheelRL.slipForces.params.tr
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14099(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14099};
-  (data->simulationInfo->realParameter[3894] /* vehicle.wheelRL.slipForces.params.track PARAM */) = (data->simulationInfo->realParameter[3892] /* vehicle.wheelRL.slipForces.params.tf PARAM */) + (data->simulationInfo->realParameter[3893] /* vehicle.wheelRL.slipForces.params.tr PARAM */);
-  TRACE_POP
-}
-
-/*
-equation index: 14100
-type: SIMPLE_ASSIGN
-vehicle.wheelRL.slipForces.params.kRear = vehicle.wheelRL.slipForces.params.kRideRear * vehicle.wheelRL.slipForces.params.kz / (vehicle.wheelRL.slipForces.params.kz - vehicle.wheelRL.slipForces.params.kRideRear)
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14100(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14100};
-  (data->simulationInfo->realParameter[3870] /* vehicle.wheelRL.slipForces.params.kRear PARAM */) = ((data->simulationInfo->realParameter[3872] /* vehicle.wheelRL.slipForces.params.kRideRear PARAM */)) * (DIVISION_SIM((data->simulationInfo->realParameter[3875] /* vehicle.wheelRL.slipForces.params.kz PARAM */),(data->simulationInfo->realParameter[3875] /* vehicle.wheelRL.slipForces.params.kz PARAM */) - (data->simulationInfo->realParameter[3872] /* vehicle.wheelRL.slipForces.params.kRideRear PARAM */),"vehicle.wheelRL.slipForces.params.kz - vehicle.wheelRL.slipForces.params.kRideRear",equationIndexes));
-  TRACE_POP
-}
-
-/*
-equation index: 14101
-type: SIMPLE_ASSIGN
-vehicle.wheelRL.slipForces.params.kFront = vehicle.wheelRL.slipForces.params.kRideFront * vehicle.wheelRL.slipForces.params.kz / (vehicle.wheelRL.slipForces.params.kz - vehicle.wheelRL.slipForces.params.kRideFront)
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14101(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14101};
-  (data->simulationInfo->realParameter[3869] /* vehicle.wheelRL.slipForces.params.kFront PARAM */) = ((data->simulationInfo->realParameter[3871] /* vehicle.wheelRL.slipForces.params.kRideFront PARAM */)) * (DIVISION_SIM((data->simulationInfo->realParameter[3875] /* vehicle.wheelRL.slipForces.params.kz PARAM */),(data->simulationInfo->realParameter[3875] /* vehicle.wheelRL.slipForces.params.kz PARAM */) - (data->simulationInfo->realParameter[3871] /* vehicle.wheelRL.slipForces.params.kRideFront PARAM */),"vehicle.wheelRL.slipForces.params.kz - vehicle.wheelRL.slipForces.params.kRideFront",equationIndexes));
-  TRACE_POP
-}
-
-/*
-equation index: 14102
-type: SIMPLE_ASSIGN
-vehicle.wheelRL.slipForces.sy = tan(1.5707963267948966 / vehicle.wheelRL.slipForces.params.qy)
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14102(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14102};
-  (data->simulationInfo->realParameter[3900] /* vehicle.wheelRL.slipForces.sy PARAM */) = tan(DIVISION_SIM(1.5707963267948966,(data->simulationInfo->realParameter[3888] /* vehicle.wheelRL.slipForces.params.qy PARAM */),"vehicle.wheelRL.slipForces.params.qy",equationIndexes));
-  TRACE_POP
-}
-
-/*
-equation index: 14103
-type: SIMPLE_ASSIGN
-vehicle.wheelRL.slipForces.sx = tan(1.5707963267948966 / vehicle.wheelRL.slipForces.params.qx)
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14103(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14103};
-  (data->simulationInfo->realParameter[3899] /* vehicle.wheelRL.slipForces.sx PARAM */) = tan(DIVISION_SIM(1.5707963267948966,(data->simulationInfo->realParameter[3887] /* vehicle.wheelRL.slipForces.params.qx PARAM */),"vehicle.wheelRL.slipForces.params.qx",equationIndexes));
-  TRACE_POP
-}
-
-/*
-equation index: 14105
+equation index: 14114
 type: SIMPLE_ASSIGN
 vehicle.wheelRR.contactPatch.rEff = vehicle.wheelRR.rEff
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14105(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14114(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14105};
-  (data->simulationInfo->realParameter[3904] /* vehicle.wheelRR.contactPatch.rEff PARAM */) = (data->simulationInfo->realParameter[3907] /* vehicle.wheelRR.rEff PARAM */);
+  const int equationIndexes[2] = {1,14114};
+  (data->simulationInfo->realParameter[3772] /* vehicle.wheelRR.contactPatch.rEff PARAM */) = (data->simulationInfo->realParameter[3775] /* vehicle.wheelRR.rEff PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14109
+equation index: 14118
 type: SIMPLE_ASSIGN
 vehicle.wheelRR.rim.damper.d = vehicle.wheelRR.rim.dSpin
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14109(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14118(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14109};
-  (data->simulationInfo->realParameter[3911] /* vehicle.wheelRR.rim.damper.d PARAM */) = (data->simulationInfo->realParameter[3910] /* vehicle.wheelRR.rim.dSpin PARAM */);
+  const int equationIndexes[2] = {1,14118};
+  (data->simulationInfo->realParameter[3779] /* vehicle.wheelRR.rim.damper.d PARAM */) = (data->simulationInfo->realParameter[3778] /* vehicle.wheelRR.rim.dSpin PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14115
+equation index: 14124
 type: SIMPLE_ASSIGN
 vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.cylinder.shapeType = "cylinder"
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14115(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14124(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14115};
+  const int equationIndexes[2] = {1,14124};
   (data->simulationInfo->stringParameter[162] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.cylinder.shapeType PARAM */) = _OMC_LIT31;
   TRACE_POP
 }
 
 /*
-equation index: 14116
+equation index: 14125
 type: SIMPLE_ASSIGN
 vehicle.wheelRR.rim.rotor1D.J = vehicle.wheelRR.rim.J
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14116(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14125(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14116};
-  (data->simulationInfo->realParameter[3924] /* vehicle.wheelRR.rim.rotor1D.J PARAM */) = (data->simulationInfo->realParameter[3908] /* vehicle.wheelRR.rim.J PARAM */);
-  TRACE_POP
-}
-
-/*
-equation index: 14117
-type: SIMPLE_ASSIGN
-vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.J = vehicle.wheelRR.rim.rotor1D.J
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14117(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14117};
-  (data->simulationInfo->realParameter[3936] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.J PARAM */) = (data->simulationInfo->realParameter[3924] /* vehicle.wheelRR.rim.rotor1D.J PARAM */);
-  TRACE_POP
-}
-
-/*
-equation index: 14119
-type: SIMPLE_ASSIGN
-vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.nJ[3] = vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.e[3]
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14119(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14119};
-  (data->simulationInfo->realParameter[3951] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.nJ[3] PARAM */) = ((data->simulationInfo->realParameter[3936] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3945] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.e[3] PARAM */));
-  TRACE_POP
-}
-
-/*
-equation index: 14121
-type: SIMPLE_ASSIGN
-vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.nJ[2] = vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.e[2]
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14121(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14121};
-  (data->simulationInfo->realParameter[3950] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.nJ[2] PARAM */) = ((data->simulationInfo->realParameter[3936] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3944] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.e[2] PARAM */));
-  TRACE_POP
-}
-
-/*
-equation index: 14123
-type: SIMPLE_ASSIGN
-vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.nJ[1] = vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.e[1]
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14123(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14123};
-  (data->simulationInfo->realParameter[3949] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.nJ[1] PARAM */) = ((data->simulationInfo->realParameter[3936] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3943] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.e[1] PARAM */));
+  const int equationIndexes[2] = {1,14125};
+  (data->simulationInfo->realParameter[3792] /* vehicle.wheelRR.rim.rotor1D.J PARAM */) = (data->simulationInfo->realParameter[3776] /* vehicle.wheelRR.rim.J PARAM */);
   TRACE_POP
 }
 
 /*
 equation index: 14126
 type: SIMPLE_ASSIGN
-vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.r_center[3] = vehicle.wheelRR.rim.rotor1D.r_center[3]
+vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.J = vehicle.wheelRR.rim.rotor1D.J
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14126(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14126};
-  (data->simulationInfo->realParameter[3954] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.r_center[3] PARAM */) = (data->simulationInfo->realParameter[3935] /* vehicle.wheelRR.rim.rotor1D.r_center[3] PARAM */);
-  TRACE_POP
-}
-
-/*
-equation index: 14127
-type: SIMPLE_ASSIGN
-vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.r_center[2] = vehicle.wheelRR.rim.rotor1D.r_center[2]
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14127(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14127};
-  (data->simulationInfo->realParameter[3953] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.r_center[2] PARAM */) = (data->simulationInfo->realParameter[3934] /* vehicle.wheelRR.rim.rotor1D.r_center[2] PARAM */);
+  (data->simulationInfo->realParameter[3804] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.J PARAM */) = (data->simulationInfo->realParameter[3792] /* vehicle.wheelRR.rim.rotor1D.J PARAM */);
   TRACE_POP
 }
 
 /*
 equation index: 14128
 type: SIMPLE_ASSIGN
-vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.r_center[1] = vehicle.wheelRR.rim.rotor1D.r_center[1]
+vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.nJ[3] = vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.e[3]
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14128(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14128};
-  (data->simulationInfo->realParameter[3952] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.r_center[1] PARAM */) = (data->simulationInfo->realParameter[3933] /* vehicle.wheelRR.rim.rotor1D.r_center[1] PARAM */);
+  (data->simulationInfo->realParameter[3819] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.nJ[3] PARAM */) = ((data->simulationInfo->realParameter[3804] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3813] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.e[3] PARAM */));
   TRACE_POP
 }
 
 /*
-equation index: 14146
+equation index: 14130
 type: SIMPLE_ASSIGN
-vehicle.wheelRR.rim.rEff = vehicle.wheelRR.rEff
+vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.nJ[2] = vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.e[2]
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14146(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14130(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14146};
-  (data->simulationInfo->realParameter[3923] /* vehicle.wheelRR.rim.rEff PARAM */) = (data->simulationInfo->realParameter[3907] /* vehicle.wheelRR.rEff PARAM */);
+  const int equationIndexes[2] = {1,14130};
+  (data->simulationInfo->realParameter[3818] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.nJ[2] PARAM */) = ((data->simulationInfo->realParameter[3804] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3812] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.e[2] PARAM */));
   TRACE_POP
 }
 
 /*
-equation index: 14148
+equation index: 14132
 type: SIMPLE_ASSIGN
-vehicle.wheelRR.slipForces.params.mSprung = vehicle.wheelRR.slipForces.params.vehicleMass + (-2.0) * (vehicle.wheelRR.slipForces.params.mUnsprungFront + vehicle.wheelRR.slipForces.params.mUnsprungRear)
+vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.nJ[1] = vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.e[1]
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14148(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14132(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14148};
-  (data->simulationInfo->realParameter[3993] /* vehicle.wheelRR.slipForces.params.mSprung PARAM */) = (data->simulationInfo->realParameter[4012] /* vehicle.wheelRR.slipForces.params.vehicleMass PARAM */) + (-2.0) * ((data->simulationInfo->realParameter[3994] /* vehicle.wheelRR.slipForces.params.mUnsprungFront PARAM */) + (data->simulationInfo->realParameter[3995] /* vehicle.wheelRR.slipForces.params.mUnsprungRear PARAM */));
+  const int equationIndexes[2] = {1,14132};
+  (data->simulationInfo->realParameter[3817] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.nJ[1] PARAM */) = ((data->simulationInfo->realParameter[3804] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3811] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.e[1] PARAM */));
   TRACE_POP
 }
 
 /*
-equation index: 14149
+equation index: 14135
 type: SIMPLE_ASSIGN
-vehicle.wheelRR.slipForces.params.F0Rear = 4.903325 * vehicle.wheelRR.slipForces.params.mSprung * vehicle.wheelRR.slipForces.params.a / vehicle.wheelRR.slipForces.params.wheelbase
+vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.r_center[3] = vehicle.wheelRR.rim.rotor1D.r_center[3]
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14149(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14135(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14149};
-  (data->simulationInfo->realParameter[3965] /* vehicle.wheelRR.slipForces.params.F0Rear PARAM */) = (4.903325) * (((data->simulationInfo->realParameter[3993] /* vehicle.wheelRR.slipForces.params.mSprung PARAM */)) * (DIVISION_SIM((data->simulationInfo->realParameter[3969] /* vehicle.wheelRR.slipForces.params.a PARAM */),(data->simulationInfo->realParameter[4013] /* vehicle.wheelRR.slipForces.params.wheelbase PARAM */),"vehicle.wheelRR.slipForces.params.wheelbase",equationIndexes)));
+  const int equationIndexes[2] = {1,14135};
+  (data->simulationInfo->realParameter[3822] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.r_center[3] PARAM */) = (data->simulationInfo->realParameter[3803] /* vehicle.wheelRR.rim.rotor1D.r_center[3] PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14150
+equation index: 14136
 type: SIMPLE_ASSIGN
-vehicle.wheelRR.slipForces.params.kRideRear = 0.10197162129779283 * vehicle.wheelRR.slipForces.params.F0Rear * (6.283185307179586 * vehicle.wheelRR.slipForces.params.fRideRear) ^ 2.0
+vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.r_center[2] = vehicle.wheelRR.rim.rotor1D.r_center[2]
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14150(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14136(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14150};
-  modelica_real tmp60;
-  tmp60 = (6.283185307179586) * ((data->simulationInfo->realParameter[3981] /* vehicle.wheelRR.slipForces.params.fRideRear PARAM */));
-  (data->simulationInfo->realParameter[3989] /* vehicle.wheelRR.slipForces.params.kRideRear PARAM */) = (0.10197162129779283) * (((data->simulationInfo->realParameter[3965] /* vehicle.wheelRR.slipForces.params.F0Rear PARAM */)) * ((tmp60 * tmp60)));
+  const int equationIndexes[2] = {1,14136};
+  (data->simulationInfo->realParameter[3821] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.r_center[2] PARAM */) = (data->simulationInfo->realParameter[3802] /* vehicle.wheelRR.rim.rotor1D.r_center[2] PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14151
+equation index: 14137
 type: SIMPLE_ASSIGN
-vehicle.wheelRR.slipForces.params.dWheelRear = 2.0 * vehicle.wheelRR.slipForces.params.zetaRear * sqrt(vehicle.wheelRR.slipForces.params.kRideRear * vehicle.wheelRR.slipForces.params.F0Rear / 9.80665)
+vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.r_center[1] = vehicle.wheelRR.rim.rotor1D.r_center[1]
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14151(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14137(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14151};
-  modelica_real tmp61;
-  tmp61 = DIVISION_SIM(((data->simulationInfo->realParameter[3989] /* vehicle.wheelRR.slipForces.params.kRideRear PARAM */)) * ((data->simulationInfo->realParameter[3965] /* vehicle.wheelRR.slipForces.params.F0Rear PARAM */)),9.80665,"9.80665",equationIndexes);
-  if(!(tmp61 >= 0.0))
-  {
-    if (data->simulationInfo->noThrowAsserts) {
-      FILE_INFO info = {"",0,0,0,0,0};
-      infoStreamPrintWithEquationIndexes(OMC_LOG_ASSERT, info, 0, equationIndexes, "The following assertion has been violated %sat time %f", initial() ? "during initialization " : "", data->localData[0]->timeValue);
-      data->simulationInfo->needToReThrow = 1;
-    } else {
-      FILE_INFO info = {"",0,0,0,0,0};
-      omc_assert_warning(info, "The following assertion has been violated %sat time %f", initial() ? "during initialization " : "", data->localData[0]->timeValue);
-      throwStreamPrintWithEquationIndexes(threadData, info, equationIndexes, "Model error: Argument of sqrt(vehicle.wheelRR.slipForces.params.kRideRear * vehicle.wheelRR.slipForces.params.F0Rear / 9.80665) was %g should be >= 0", tmp61);
-    }
-  }
-  (data->simulationInfo->realParameter[3977] /* vehicle.wheelRR.slipForces.params.dWheelRear PARAM */) = (2.0) * (((data->simulationInfo->realParameter[4015] /* vehicle.wheelRR.slipForces.params.zetaRear PARAM */)) * (sqrt(tmp61)));
-  TRACE_POP
-}
-
-/*
-equation index: 14152
-type: SIMPLE_ASSIGN
-vehicle.wheelRR.slipForces.params.F0Front = 4.903325 * vehicle.wheelRR.slipForces.params.mSprung * vehicle.wheelRR.slipForces.params.b / vehicle.wheelRR.slipForces.params.wheelbase
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14152(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14152};
-  (data->simulationInfo->realParameter[3964] /* vehicle.wheelRR.slipForces.params.F0Front PARAM */) = (4.903325) * (((data->simulationInfo->realParameter[3993] /* vehicle.wheelRR.slipForces.params.mSprung PARAM */)) * (DIVISION_SIM((data->simulationInfo->realParameter[3973] /* vehicle.wheelRR.slipForces.params.b PARAM */),(data->simulationInfo->realParameter[4013] /* vehicle.wheelRR.slipForces.params.wheelbase PARAM */),"vehicle.wheelRR.slipForces.params.wheelbase",equationIndexes)));
-  TRACE_POP
-}
-
-/*
-equation index: 14153
-type: SIMPLE_ASSIGN
-vehicle.wheelRR.slipForces.params.kRideFront = 0.10197162129779283 * vehicle.wheelRR.slipForces.params.F0Front * (6.283185307179586 * vehicle.wheelRR.slipForces.params.fRideFront) ^ 2.0
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14153(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14153};
-  modelica_real tmp62;
-  tmp62 = (6.283185307179586) * ((data->simulationInfo->realParameter[3980] /* vehicle.wheelRR.slipForces.params.fRideFront PARAM */));
-  (data->simulationInfo->realParameter[3988] /* vehicle.wheelRR.slipForces.params.kRideFront PARAM */) = (0.10197162129779283) * (((data->simulationInfo->realParameter[3964] /* vehicle.wheelRR.slipForces.params.F0Front PARAM */)) * ((tmp62 * tmp62)));
-  TRACE_POP
-}
-
-/*
-equation index: 14154
-type: SIMPLE_ASSIGN
-vehicle.wheelRR.slipForces.params.dWheelFront = 2.0 * vehicle.wheelRR.slipForces.params.zetaFront * sqrt(vehicle.wheelRR.slipForces.params.kRideFront * vehicle.wheelRR.slipForces.params.F0Front / 9.80665)
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14154(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14154};
-  modelica_real tmp63;
-  tmp63 = DIVISION_SIM(((data->simulationInfo->realParameter[3988] /* vehicle.wheelRR.slipForces.params.kRideFront PARAM */)) * ((data->simulationInfo->realParameter[3964] /* vehicle.wheelRR.slipForces.params.F0Front PARAM */)),9.80665,"9.80665",equationIndexes);
-  if(!(tmp63 >= 0.0))
-  {
-    if (data->simulationInfo->noThrowAsserts) {
-      FILE_INFO info = {"",0,0,0,0,0};
-      infoStreamPrintWithEquationIndexes(OMC_LOG_ASSERT, info, 0, equationIndexes, "The following assertion has been violated %sat time %f", initial() ? "during initialization " : "", data->localData[0]->timeValue);
-      data->simulationInfo->needToReThrow = 1;
-    } else {
-      FILE_INFO info = {"",0,0,0,0,0};
-      omc_assert_warning(info, "The following assertion has been violated %sat time %f", initial() ? "during initialization " : "", data->localData[0]->timeValue);
-      throwStreamPrintWithEquationIndexes(threadData, info, equationIndexes, "Model error: Argument of sqrt(vehicle.wheelRR.slipForces.params.kRideFront * vehicle.wheelRR.slipForces.params.F0Front / 9.80665) was %g should be >= 0", tmp63);
-    }
-  }
-  (data->simulationInfo->realParameter[3976] /* vehicle.wheelRR.slipForces.params.dWheelFront PARAM */) = (2.0) * (((data->simulationInfo->realParameter[4014] /* vehicle.wheelRR.slipForces.params.zetaFront PARAM */)) * (sqrt(tmp63)));
+  const int equationIndexes[2] = {1,14137};
+  (data->simulationInfo->realParameter[3820] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.r_center[1] PARAM */) = (data->simulationInfo->realParameter[3801] /* vehicle.wheelRR.rim.rotor1D.r_center[1] PARAM */);
   TRACE_POP
 }
 
 /*
 equation index: 14155
 type: SIMPLE_ASSIGN
-vehicle.wheelRR.slipForces.params.hpPower = 745.7 * vehicle.wheelRR.slipForces.params.hp
+vehicle.wheelRR.rim.rEff = vehicle.wheelRR.rEff
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14155(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14155};
-  (data->simulationInfo->realParameter[3985] /* vehicle.wheelRR.slipForces.params.hpPower PARAM */) = (745.7) * ((data->simulationInfo->realParameter[3984] /* vehicle.wheelRR.slipForces.params.hp PARAM */));
-  TRACE_POP
-}
-
-/*
-equation index: 14156
-type: SIMPLE_ASSIGN
-vehicle.wheelRR.slipForces.params.track = vehicle.wheelRR.slipForces.params.tf + vehicle.wheelRR.slipForces.params.tr
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14156(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14156};
-  (data->simulationInfo->realParameter[4011] /* vehicle.wheelRR.slipForces.params.track PARAM */) = (data->simulationInfo->realParameter[4009] /* vehicle.wheelRR.slipForces.params.tf PARAM */) + (data->simulationInfo->realParameter[4010] /* vehicle.wheelRR.slipForces.params.tr PARAM */);
-  TRACE_POP
-}
-
-/*
-equation index: 14157
-type: SIMPLE_ASSIGN
-vehicle.wheelRR.slipForces.params.kRear = vehicle.wheelRR.slipForces.params.kRideRear * vehicle.wheelRR.slipForces.params.kz / (vehicle.wheelRR.slipForces.params.kz - vehicle.wheelRR.slipForces.params.kRideRear)
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14157(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14157};
-  (data->simulationInfo->realParameter[3987] /* vehicle.wheelRR.slipForces.params.kRear PARAM */) = ((data->simulationInfo->realParameter[3989] /* vehicle.wheelRR.slipForces.params.kRideRear PARAM */)) * (DIVISION_SIM((data->simulationInfo->realParameter[3992] /* vehicle.wheelRR.slipForces.params.kz PARAM */),(data->simulationInfo->realParameter[3992] /* vehicle.wheelRR.slipForces.params.kz PARAM */) - (data->simulationInfo->realParameter[3989] /* vehicle.wheelRR.slipForces.params.kRideRear PARAM */),"vehicle.wheelRR.slipForces.params.kz - vehicle.wheelRR.slipForces.params.kRideRear",equationIndexes));
+  (data->simulationInfo->realParameter[3791] /* vehicle.wheelRR.rim.rEff PARAM */) = (data->simulationInfo->realParameter[3775] /* vehicle.wheelRR.rEff PARAM */);
   TRACE_POP
 }
 
 /*
 equation index: 14158
 type: SIMPLE_ASSIGN
-vehicle.wheelRR.slipForces.params.kFront = vehicle.wheelRR.slipForces.params.kRideFront * vehicle.wheelRR.slipForces.params.kz / (vehicle.wheelRR.slipForces.params.kz - vehicle.wheelRR.slipForces.params.kRideFront)
+vehicle.wheelFL.contactPatch.rEff = vehicle.wheelFL.rEff
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14158(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14158};
-  (data->simulationInfo->realParameter[3986] /* vehicle.wheelRR.slipForces.params.kFront PARAM */) = ((data->simulationInfo->realParameter[3988] /* vehicle.wheelRR.slipForces.params.kRideFront PARAM */)) * (DIVISION_SIM((data->simulationInfo->realParameter[3992] /* vehicle.wheelRR.slipForces.params.kz PARAM */),(data->simulationInfo->realParameter[3992] /* vehicle.wheelRR.slipForces.params.kz PARAM */) - (data->simulationInfo->realParameter[3988] /* vehicle.wheelRR.slipForces.params.kRideFront PARAM */),"vehicle.wheelRR.slipForces.params.kz - vehicle.wheelRR.slipForces.params.kRideFront",equationIndexes));
-  TRACE_POP
-}
-
-/*
-equation index: 14159
-type: SIMPLE_ASSIGN
-vehicle.wheelRR.slipForces.sy = tan(1.5707963267948966 / vehicle.wheelRR.slipForces.params.qy)
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14159(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14159};
-  (data->simulationInfo->realParameter[4017] /* vehicle.wheelRR.slipForces.sy PARAM */) = tan(DIVISION_SIM(1.5707963267948966,(data->simulationInfo->realParameter[4005] /* vehicle.wheelRR.slipForces.params.qy PARAM */),"vehicle.wheelRR.slipForces.params.qy",equationIndexes));
-  TRACE_POP
-}
-
-/*
-equation index: 14160
-type: SIMPLE_ASSIGN
-vehicle.wheelRR.slipForces.sx = tan(1.5707963267948966 / vehicle.wheelRR.slipForces.params.qx)
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14160(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14160};
-  (data->simulationInfo->realParameter[4016] /* vehicle.wheelRR.slipForces.sx PARAM */) = tan(DIVISION_SIM(1.5707963267948966,(data->simulationInfo->realParameter[4004] /* vehicle.wheelRR.slipForces.params.qx PARAM */),"vehicle.wheelRR.slipForces.params.qx",equationIndexes));
+  (data->simulationInfo->realParameter[3553] /* vehicle.wheelFL.contactPatch.rEff PARAM */) = (data->simulationInfo->realParameter[3556] /* vehicle.wheelFL.rEff PARAM */);
   TRACE_POP
 }
 
 /*
 equation index: 14162
 type: SIMPLE_ASSIGN
-vehicle.wheelFL.contactPatch.rEff = vehicle.wheelFL.rEff
+vehicle.wheelFL.rim.damper.d = vehicle.wheelFL.rim.dSpin
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14162(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14162};
-  (data->simulationInfo->realParameter[3553] /* vehicle.wheelFL.contactPatch.rEff PARAM */) = (data->simulationInfo->realParameter[3556] /* vehicle.wheelFL.rEff PARAM */);
+  (data->simulationInfo->realParameter[3560] /* vehicle.wheelFL.rim.damper.d PARAM */) = (data->simulationInfo->realParameter[3559] /* vehicle.wheelFL.rim.dSpin PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14166
+equation index: 14168
 type: SIMPLE_ASSIGN
-vehicle.wheelFL.rim.damper.d = vehicle.wheelFL.rim.dSpin
+vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.cylinder.shapeType = "cylinder"
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14166(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14168(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14166};
-  (data->simulationInfo->realParameter[3560] /* vehicle.wheelFL.rim.damper.d PARAM */) = (data->simulationInfo->realParameter[3559] /* vehicle.wheelFL.rim.dSpin PARAM */);
+  const int equationIndexes[2] = {1,14168};
+  (data->simulationInfo->stringParameter[159] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.cylinder.shapeType PARAM */) = _OMC_LIT31;
+  TRACE_POP
+}
+
+/*
+equation index: 14169
+type: SIMPLE_ASSIGN
+vehicle.wheelFL.rim.rotor1D.J = vehicle.wheelFL.rim.J
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_14169(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,14169};
+  (data->simulationInfo->realParameter[3573] /* vehicle.wheelFL.rim.rotor1D.J PARAM */) = (data->simulationInfo->realParameter[3557] /* vehicle.wheelFL.rim.J PARAM */);
+  TRACE_POP
+}
+
+/*
+equation index: 14170
+type: SIMPLE_ASSIGN
+vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.J = vehicle.wheelFL.rim.rotor1D.J
+*/
+OMC_DISABLE_OPT
+static void AlyssaVehicle_eqFunction_14170(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,14170};
+  (data->simulationInfo->realParameter[3585] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.J PARAM */) = (data->simulationInfo->realParameter[3573] /* vehicle.wheelFL.rim.rotor1D.J PARAM */);
   TRACE_POP
 }
 
 /*
 equation index: 14172
 type: SIMPLE_ASSIGN
-vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.cylinder.shapeType = "cylinder"
+vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.nJ[3] = vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.e[3]
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14172(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14172};
-  (data->simulationInfo->stringParameter[159] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.cylinder.shapeType PARAM */) = _OMC_LIT31;
-  TRACE_POP
-}
-
-/*
-equation index: 14173
-type: SIMPLE_ASSIGN
-vehicle.wheelFL.rim.rotor1D.J = vehicle.wheelFL.rim.J
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14173(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14173};
-  (data->simulationInfo->realParameter[3573] /* vehicle.wheelFL.rim.rotor1D.J PARAM */) = (data->simulationInfo->realParameter[3557] /* vehicle.wheelFL.rim.J PARAM */);
+  (data->simulationInfo->realParameter[3600] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.nJ[3] PARAM */) = ((data->simulationInfo->realParameter[3585] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3594] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.e[3] PARAM */));
   TRACE_POP
 }
 
 /*
 equation index: 14174
 type: SIMPLE_ASSIGN
-vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.J = vehicle.wheelFL.rim.rotor1D.J
+vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.nJ[2] = vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.e[2]
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14174(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14174};
-  (data->simulationInfo->realParameter[3585] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.J PARAM */) = (data->simulationInfo->realParameter[3573] /* vehicle.wheelFL.rim.rotor1D.J PARAM */);
+  (data->simulationInfo->realParameter[3599] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.nJ[2] PARAM */) = ((data->simulationInfo->realParameter[3585] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3593] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.e[2] PARAM */));
   TRACE_POP
 }
 
 /*
 equation index: 14176
 type: SIMPLE_ASSIGN
-vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.nJ[3] = vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.e[3]
+vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.nJ[1] = vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.e[1]
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14176(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14176};
-  (data->simulationInfo->realParameter[3600] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.nJ[3] PARAM */) = ((data->simulationInfo->realParameter[3585] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3594] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.e[3] PARAM */));
+  (data->simulationInfo->realParameter[3598] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.nJ[1] PARAM */) = ((data->simulationInfo->realParameter[3585] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3592] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.e[1] PARAM */));
   TRACE_POP
 }
 
 /*
-equation index: 14178
+equation index: 14179
 type: SIMPLE_ASSIGN
-vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.nJ[2] = vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.e[2]
+vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.r_center[3] = vehicle.wheelFL.rim.rotor1D.r_center[3]
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14178(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14179(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14178};
-  (data->simulationInfo->realParameter[3599] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.nJ[2] PARAM */) = ((data->simulationInfo->realParameter[3585] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3593] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.e[2] PARAM */));
+  const int equationIndexes[2] = {1,14179};
+  (data->simulationInfo->realParameter[3603] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.r_center[3] PARAM */) = (data->simulationInfo->realParameter[3584] /* vehicle.wheelFL.rim.rotor1D.r_center[3] PARAM */);
   TRACE_POP
 }
 
 /*
 equation index: 14180
 type: SIMPLE_ASSIGN
-vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.nJ[1] = vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.e[1]
+vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.r_center[2] = vehicle.wheelFL.rim.rotor1D.r_center[2]
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14180(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14180};
-  (data->simulationInfo->realParameter[3598] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.nJ[1] PARAM */) = ((data->simulationInfo->realParameter[3585] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3592] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.e[1] PARAM */));
-  TRACE_POP
-}
-
-/*
-equation index: 14183
-type: SIMPLE_ASSIGN
-vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.r_center[3] = vehicle.wheelFL.rim.rotor1D.r_center[3]
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14183(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14183};
-  (data->simulationInfo->realParameter[3603] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.r_center[3] PARAM */) = (data->simulationInfo->realParameter[3584] /* vehicle.wheelFL.rim.rotor1D.r_center[3] PARAM */);
-  TRACE_POP
-}
-
-/*
-equation index: 14184
-type: SIMPLE_ASSIGN
-vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.r_center[2] = vehicle.wheelFL.rim.rotor1D.r_center[2]
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14184(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14184};
   (data->simulationInfo->realParameter[3602] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.r_center[2] PARAM */) = (data->simulationInfo->realParameter[3583] /* vehicle.wheelFL.rim.rotor1D.r_center[2] PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14185
+equation index: 14181
 type: SIMPLE_ASSIGN
 vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.r_center[1] = vehicle.wheelFL.rim.rotor1D.r_center[1]
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14185(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14181(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14185};
+  const int equationIndexes[2] = {1,14181};
   (data->simulationInfo->realParameter[3601] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.r_center[1] PARAM */) = (data->simulationInfo->realParameter[3582] /* vehicle.wheelFL.rim.rotor1D.r_center[1] PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14203
+equation index: 14199
 type: SIMPLE_ASSIGN
 vehicle.wheelFL.rim.rEff = vehicle.wheelFL.rEff
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14203(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14199(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14203};
+  const int equationIndexes[2] = {1,14199};
   (data->simulationInfo->realParameter[3572] /* vehicle.wheelFL.rim.rEff PARAM */) = (data->simulationInfo->realParameter[3556] /* vehicle.wheelFL.rEff PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14205
+equation index: 14202
 type: SIMPLE_ASSIGN
-vehicle.wheelFL.slipForces.params.mSprung = vehicle.wheelFL.slipForces.params.vehicleMass + (-2.0) * (vehicle.wheelFL.slipForces.params.mUnsprungFront + vehicle.wheelFL.slipForces.params.mUnsprungRear)
+vehicle.wheelFR.contactPatch.rEff = vehicle.wheelFR.rEff
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14205(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14202(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14205};
-  (data->simulationInfo->realParameter[3642] /* vehicle.wheelFL.slipForces.params.mSprung PARAM */) = (data->simulationInfo->realParameter[3661] /* vehicle.wheelFL.slipForces.params.vehicleMass PARAM */) + (-2.0) * ((data->simulationInfo->realParameter[3643] /* vehicle.wheelFL.slipForces.params.mUnsprungFront PARAM */) + (data->simulationInfo->realParameter[3644] /* vehicle.wheelFL.slipForces.params.mUnsprungRear PARAM */));
+  const int equationIndexes[2] = {1,14202};
+  (data->simulationInfo->realParameter[3626] /* vehicle.wheelFR.contactPatch.rEff PARAM */) = (data->simulationInfo->realParameter[3629] /* vehicle.wheelFR.rEff PARAM */);
   TRACE_POP
 }
 
 /*
 equation index: 14206
 type: SIMPLE_ASSIGN
-vehicle.wheelFL.slipForces.params.F0Rear = 4.903325 * vehicle.wheelFL.slipForces.params.mSprung * vehicle.wheelFL.slipForces.params.a / vehicle.wheelFL.slipForces.params.wheelbase
+vehicle.wheelFR.rim.damper.d = vehicle.wheelFR.rim.dSpin
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14206(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14206};
-  (data->simulationInfo->realParameter[3614] /* vehicle.wheelFL.slipForces.params.F0Rear PARAM */) = (4.903325) * (((data->simulationInfo->realParameter[3642] /* vehicle.wheelFL.slipForces.params.mSprung PARAM */)) * (DIVISION_SIM((data->simulationInfo->realParameter[3618] /* vehicle.wheelFL.slipForces.params.a PARAM */),(data->simulationInfo->realParameter[3662] /* vehicle.wheelFL.slipForces.params.wheelbase PARAM */),"vehicle.wheelFL.slipForces.params.wheelbase",equationIndexes)));
-  TRACE_POP
-}
-
-/*
-equation index: 14207
-type: SIMPLE_ASSIGN
-vehicle.wheelFL.slipForces.params.kRideRear = 0.10197162129779283 * vehicle.wheelFL.slipForces.params.F0Rear * (6.283185307179586 * vehicle.wheelFL.slipForces.params.fRideRear) ^ 2.0
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14207(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14207};
-  modelica_real tmp64;
-  tmp64 = (6.283185307179586) * ((data->simulationInfo->realParameter[3630] /* vehicle.wheelFL.slipForces.params.fRideRear PARAM */));
-  (data->simulationInfo->realParameter[3638] /* vehicle.wheelFL.slipForces.params.kRideRear PARAM */) = (0.10197162129779283) * (((data->simulationInfo->realParameter[3614] /* vehicle.wheelFL.slipForces.params.F0Rear PARAM */)) * ((tmp64 * tmp64)));
-  TRACE_POP
-}
-
-/*
-equation index: 14208
-type: SIMPLE_ASSIGN
-vehicle.wheelFL.slipForces.params.dWheelRear = 2.0 * vehicle.wheelFL.slipForces.params.zetaRear * sqrt(vehicle.wheelFL.slipForces.params.kRideRear * vehicle.wheelFL.slipForces.params.F0Rear / 9.80665)
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14208(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14208};
-  modelica_real tmp65;
-  tmp65 = DIVISION_SIM(((data->simulationInfo->realParameter[3638] /* vehicle.wheelFL.slipForces.params.kRideRear PARAM */)) * ((data->simulationInfo->realParameter[3614] /* vehicle.wheelFL.slipForces.params.F0Rear PARAM */)),9.80665,"9.80665",equationIndexes);
-  if(!(tmp65 >= 0.0))
-  {
-    if (data->simulationInfo->noThrowAsserts) {
-      FILE_INFO info = {"",0,0,0,0,0};
-      infoStreamPrintWithEquationIndexes(OMC_LOG_ASSERT, info, 0, equationIndexes, "The following assertion has been violated %sat time %f", initial() ? "during initialization " : "", data->localData[0]->timeValue);
-      data->simulationInfo->needToReThrow = 1;
-    } else {
-      FILE_INFO info = {"",0,0,0,0,0};
-      omc_assert_warning(info, "The following assertion has been violated %sat time %f", initial() ? "during initialization " : "", data->localData[0]->timeValue);
-      throwStreamPrintWithEquationIndexes(threadData, info, equationIndexes, "Model error: Argument of sqrt(vehicle.wheelFL.slipForces.params.kRideRear * vehicle.wheelFL.slipForces.params.F0Rear / 9.80665) was %g should be >= 0", tmp65);
-    }
-  }
-  (data->simulationInfo->realParameter[3626] /* vehicle.wheelFL.slipForces.params.dWheelRear PARAM */) = (2.0) * (((data->simulationInfo->realParameter[3664] /* vehicle.wheelFL.slipForces.params.zetaRear PARAM */)) * (sqrt(tmp65)));
-  TRACE_POP
-}
-
-/*
-equation index: 14209
-type: SIMPLE_ASSIGN
-vehicle.wheelFL.slipForces.params.F0Front = 4.903325 * vehicle.wheelFL.slipForces.params.mSprung * vehicle.wheelFL.slipForces.params.b / vehicle.wheelFL.slipForces.params.wheelbase
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14209(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14209};
-  (data->simulationInfo->realParameter[3613] /* vehicle.wheelFL.slipForces.params.F0Front PARAM */) = (4.903325) * (((data->simulationInfo->realParameter[3642] /* vehicle.wheelFL.slipForces.params.mSprung PARAM */)) * (DIVISION_SIM((data->simulationInfo->realParameter[3622] /* vehicle.wheelFL.slipForces.params.b PARAM */),(data->simulationInfo->realParameter[3662] /* vehicle.wheelFL.slipForces.params.wheelbase PARAM */),"vehicle.wheelFL.slipForces.params.wheelbase",equationIndexes)));
-  TRACE_POP
-}
-
-/*
-equation index: 14210
-type: SIMPLE_ASSIGN
-vehicle.wheelFL.slipForces.params.kRideFront = 0.10197162129779283 * vehicle.wheelFL.slipForces.params.F0Front * (6.283185307179586 * vehicle.wheelFL.slipForces.params.fRideFront) ^ 2.0
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14210(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14210};
-  modelica_real tmp66;
-  tmp66 = (6.283185307179586) * ((data->simulationInfo->realParameter[3629] /* vehicle.wheelFL.slipForces.params.fRideFront PARAM */));
-  (data->simulationInfo->realParameter[3637] /* vehicle.wheelFL.slipForces.params.kRideFront PARAM */) = (0.10197162129779283) * (((data->simulationInfo->realParameter[3613] /* vehicle.wheelFL.slipForces.params.F0Front PARAM */)) * ((tmp66 * tmp66)));
-  TRACE_POP
-}
-
-/*
-equation index: 14211
-type: SIMPLE_ASSIGN
-vehicle.wheelFL.slipForces.params.dWheelFront = 2.0 * vehicle.wheelFL.slipForces.params.zetaFront * sqrt(vehicle.wheelFL.slipForces.params.kRideFront * vehicle.wheelFL.slipForces.params.F0Front / 9.80665)
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14211(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14211};
-  modelica_real tmp67;
-  tmp67 = DIVISION_SIM(((data->simulationInfo->realParameter[3637] /* vehicle.wheelFL.slipForces.params.kRideFront PARAM */)) * ((data->simulationInfo->realParameter[3613] /* vehicle.wheelFL.slipForces.params.F0Front PARAM */)),9.80665,"9.80665",equationIndexes);
-  if(!(tmp67 >= 0.0))
-  {
-    if (data->simulationInfo->noThrowAsserts) {
-      FILE_INFO info = {"",0,0,0,0,0};
-      infoStreamPrintWithEquationIndexes(OMC_LOG_ASSERT, info, 0, equationIndexes, "The following assertion has been violated %sat time %f", initial() ? "during initialization " : "", data->localData[0]->timeValue);
-      data->simulationInfo->needToReThrow = 1;
-    } else {
-      FILE_INFO info = {"",0,0,0,0,0};
-      omc_assert_warning(info, "The following assertion has been violated %sat time %f", initial() ? "during initialization " : "", data->localData[0]->timeValue);
-      throwStreamPrintWithEquationIndexes(threadData, info, equationIndexes, "Model error: Argument of sqrt(vehicle.wheelFL.slipForces.params.kRideFront * vehicle.wheelFL.slipForces.params.F0Front / 9.80665) was %g should be >= 0", tmp67);
-    }
-  }
-  (data->simulationInfo->realParameter[3625] /* vehicle.wheelFL.slipForces.params.dWheelFront PARAM */) = (2.0) * (((data->simulationInfo->realParameter[3663] /* vehicle.wheelFL.slipForces.params.zetaFront PARAM */)) * (sqrt(tmp67)));
+  (data->simulationInfo->realParameter[3633] /* vehicle.wheelFR.rim.damper.d PARAM */) = (data->simulationInfo->realParameter[3632] /* vehicle.wheelFR.rim.dSpin PARAM */);
   TRACE_POP
 }
 
 /*
 equation index: 14212
 type: SIMPLE_ASSIGN
-vehicle.wheelFL.slipForces.params.hpPower = 745.7 * vehicle.wheelFL.slipForces.params.hp
+vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.cylinder.shapeType = "cylinder"
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14212(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14212};
-  (data->simulationInfo->realParameter[3634] /* vehicle.wheelFL.slipForces.params.hpPower PARAM */) = (745.7) * ((data->simulationInfo->realParameter[3633] /* vehicle.wheelFL.slipForces.params.hp PARAM */));
+  (data->simulationInfo->stringParameter[160] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.cylinder.shapeType PARAM */) = _OMC_LIT31;
   TRACE_POP
 }
 
 /*
 equation index: 14213
 type: SIMPLE_ASSIGN
-vehicle.wheelFL.slipForces.params.track = vehicle.wheelFL.slipForces.params.tf + vehicle.wheelFL.slipForces.params.tr
+vehicle.wheelFR.rim.rotor1D.J = vehicle.wheelFR.rim.J
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14213(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14213};
-  (data->simulationInfo->realParameter[3660] /* vehicle.wheelFL.slipForces.params.track PARAM */) = (data->simulationInfo->realParameter[3658] /* vehicle.wheelFL.slipForces.params.tf PARAM */) + (data->simulationInfo->realParameter[3659] /* vehicle.wheelFL.slipForces.params.tr PARAM */);
+  (data->simulationInfo->realParameter[3646] /* vehicle.wheelFR.rim.rotor1D.J PARAM */) = (data->simulationInfo->realParameter[3630] /* vehicle.wheelFR.rim.J PARAM */);
   TRACE_POP
 }
 
 /*
 equation index: 14214
 type: SIMPLE_ASSIGN
-vehicle.wheelFL.slipForces.params.kRear = vehicle.wheelFL.slipForces.params.kRideRear * vehicle.wheelFL.slipForces.params.kz / (vehicle.wheelFL.slipForces.params.kz - vehicle.wheelFL.slipForces.params.kRideRear)
+vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.J = vehicle.wheelFR.rim.rotor1D.J
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14214(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14214};
-  (data->simulationInfo->realParameter[3636] /* vehicle.wheelFL.slipForces.params.kRear PARAM */) = ((data->simulationInfo->realParameter[3638] /* vehicle.wheelFL.slipForces.params.kRideRear PARAM */)) * (DIVISION_SIM((data->simulationInfo->realParameter[3641] /* vehicle.wheelFL.slipForces.params.kz PARAM */),(data->simulationInfo->realParameter[3641] /* vehicle.wheelFL.slipForces.params.kz PARAM */) - (data->simulationInfo->realParameter[3638] /* vehicle.wheelFL.slipForces.params.kRideRear PARAM */),"vehicle.wheelFL.slipForces.params.kz - vehicle.wheelFL.slipForces.params.kRideRear",equationIndexes));
-  TRACE_POP
-}
-
-/*
-equation index: 14215
-type: SIMPLE_ASSIGN
-vehicle.wheelFL.slipForces.params.kFront = vehicle.wheelFL.slipForces.params.kRideFront * vehicle.wheelFL.slipForces.params.kz / (vehicle.wheelFL.slipForces.params.kz - vehicle.wheelFL.slipForces.params.kRideFront)
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14215(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14215};
-  (data->simulationInfo->realParameter[3635] /* vehicle.wheelFL.slipForces.params.kFront PARAM */) = ((data->simulationInfo->realParameter[3637] /* vehicle.wheelFL.slipForces.params.kRideFront PARAM */)) * (DIVISION_SIM((data->simulationInfo->realParameter[3641] /* vehicle.wheelFL.slipForces.params.kz PARAM */),(data->simulationInfo->realParameter[3641] /* vehicle.wheelFL.slipForces.params.kz PARAM */) - (data->simulationInfo->realParameter[3637] /* vehicle.wheelFL.slipForces.params.kRideFront PARAM */),"vehicle.wheelFL.slipForces.params.kz - vehicle.wheelFL.slipForces.params.kRideFront",equationIndexes));
+  (data->simulationInfo->realParameter[3658] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.J PARAM */) = (data->simulationInfo->realParameter[3646] /* vehicle.wheelFR.rim.rotor1D.J PARAM */);
   TRACE_POP
 }
 
 /*
 equation index: 14216
 type: SIMPLE_ASSIGN
-vehicle.wheelFL.slipForces.sy = tan(1.5707963267948966 / vehicle.wheelFL.slipForces.params.qy)
+vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.nJ[3] = vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.e[3]
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14216(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14216};
-  (data->simulationInfo->realParameter[3666] /* vehicle.wheelFL.slipForces.sy PARAM */) = tan(DIVISION_SIM(1.5707963267948966,(data->simulationInfo->realParameter[3654] /* vehicle.wheelFL.slipForces.params.qy PARAM */),"vehicle.wheelFL.slipForces.params.qy",equationIndexes));
+  (data->simulationInfo->realParameter[3673] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.nJ[3] PARAM */) = ((data->simulationInfo->realParameter[3658] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3667] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.e[3] PARAM */));
   TRACE_POP
 }
 
 /*
-equation index: 14217
+equation index: 14218
 type: SIMPLE_ASSIGN
-vehicle.wheelFL.slipForces.sx = tan(1.5707963267948966 / vehicle.wheelFL.slipForces.params.qx)
+vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.nJ[2] = vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.e[2]
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14217(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14218(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14217};
-  (data->simulationInfo->realParameter[3665] /* vehicle.wheelFL.slipForces.sx PARAM */) = tan(DIVISION_SIM(1.5707963267948966,(data->simulationInfo->realParameter[3653] /* vehicle.wheelFL.slipForces.params.qx PARAM */),"vehicle.wheelFL.slipForces.params.qx",equationIndexes));
+  const int equationIndexes[2] = {1,14218};
+  (data->simulationInfo->realParameter[3672] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.nJ[2] PARAM */) = ((data->simulationInfo->realParameter[3658] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3666] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.e[2] PARAM */));
   TRACE_POP
 }
 
 /*
-equation index: 14219
+equation index: 14220
 type: SIMPLE_ASSIGN
-vehicle.wheelFR.contactPatch.rEff = vehicle.wheelFR.rEff
+vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.nJ[1] = vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.e[1]
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14219(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14220(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14219};
-  (data->simulationInfo->realParameter[3670] /* vehicle.wheelFR.contactPatch.rEff PARAM */) = (data->simulationInfo->realParameter[3673] /* vehicle.wheelFR.rEff PARAM */);
+  const int equationIndexes[2] = {1,14220};
+  (data->simulationInfo->realParameter[3671] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.nJ[1] PARAM */) = ((data->simulationInfo->realParameter[3658] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3665] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.e[1] PARAM */));
   TRACE_POP
 }
 
 /*
 equation index: 14223
 type: SIMPLE_ASSIGN
-vehicle.wheelFR.rim.damper.d = vehicle.wheelFR.rim.dSpin
+vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.r_center[3] = vehicle.wheelFR.rim.rotor1D.r_center[3]
 */
 OMC_DISABLE_OPT
 static void AlyssaVehicle_eqFunction_14223(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,14223};
-  (data->simulationInfo->realParameter[3677] /* vehicle.wheelFR.rim.damper.d PARAM */) = (data->simulationInfo->realParameter[3676] /* vehicle.wheelFR.rim.dSpin PARAM */);
+  (data->simulationInfo->realParameter[3676] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.r_center[3] PARAM */) = (data->simulationInfo->realParameter[3657] /* vehicle.wheelFR.rim.rotor1D.r_center[3] PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14229
-type: SIMPLE_ASSIGN
-vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.cylinder.shapeType = "cylinder"
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14229(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14229};
-  (data->simulationInfo->stringParameter[160] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.cylinder.shapeType PARAM */) = _OMC_LIT31;
-  TRACE_POP
-}
-
-/*
-equation index: 14230
-type: SIMPLE_ASSIGN
-vehicle.wheelFR.rim.rotor1D.J = vehicle.wheelFR.rim.J
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14230(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14230};
-  (data->simulationInfo->realParameter[3690] /* vehicle.wheelFR.rim.rotor1D.J PARAM */) = (data->simulationInfo->realParameter[3674] /* vehicle.wheelFR.rim.J PARAM */);
-  TRACE_POP
-}
-
-/*
-equation index: 14231
-type: SIMPLE_ASSIGN
-vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.J = vehicle.wheelFR.rim.rotor1D.J
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14231(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14231};
-  (data->simulationInfo->realParameter[3702] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.J PARAM */) = (data->simulationInfo->realParameter[3690] /* vehicle.wheelFR.rim.rotor1D.J PARAM */);
-  TRACE_POP
-}
-
-/*
-equation index: 14233
-type: SIMPLE_ASSIGN
-vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.nJ[3] = vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.e[3]
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14233(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14233};
-  (data->simulationInfo->realParameter[3717] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.nJ[3] PARAM */) = ((data->simulationInfo->realParameter[3702] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3711] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.e[3] PARAM */));
-  TRACE_POP
-}
-
-/*
-equation index: 14235
-type: SIMPLE_ASSIGN
-vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.nJ[2] = vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.e[2]
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14235(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14235};
-  (data->simulationInfo->realParameter[3716] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.nJ[2] PARAM */) = ((data->simulationInfo->realParameter[3702] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3710] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.e[2] PARAM */));
-  TRACE_POP
-}
-
-/*
-equation index: 14237
-type: SIMPLE_ASSIGN
-vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.nJ[1] = vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.J * vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.e[1]
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14237(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14237};
-  (data->simulationInfo->realParameter[3715] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.nJ[1] PARAM */) = ((data->simulationInfo->realParameter[3702] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.J PARAM */)) * ((data->simulationInfo->realParameter[3709] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.e[1] PARAM */));
-  TRACE_POP
-}
-
-/*
-equation index: 14240
-type: SIMPLE_ASSIGN
-vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.r_center[3] = vehicle.wheelFR.rim.rotor1D.r_center[3]
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14240(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14240};
-  (data->simulationInfo->realParameter[3720] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.r_center[3] PARAM */) = (data->simulationInfo->realParameter[3701] /* vehicle.wheelFR.rim.rotor1D.r_center[3] PARAM */);
-  TRACE_POP
-}
-
-/*
-equation index: 14241
+equation index: 14224
 type: SIMPLE_ASSIGN
 vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.r_center[2] = vehicle.wheelFR.rim.rotor1D.r_center[2]
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14241(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14224(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14241};
-  (data->simulationInfo->realParameter[3719] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.r_center[2] PARAM */) = (data->simulationInfo->realParameter[3700] /* vehicle.wheelFR.rim.rotor1D.r_center[2] PARAM */);
+  const int equationIndexes[2] = {1,14224};
+  (data->simulationInfo->realParameter[3675] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.r_center[2] PARAM */) = (data->simulationInfo->realParameter[3656] /* vehicle.wheelFR.rim.rotor1D.r_center[2] PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14242
+equation index: 14225
 type: SIMPLE_ASSIGN
 vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.r_center[1] = vehicle.wheelFR.rim.rotor1D.r_center[1]
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14242(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14225(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14242};
-  (data->simulationInfo->realParameter[3718] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.r_center[1] PARAM */) = (data->simulationInfo->realParameter[3699] /* vehicle.wheelFR.rim.rotor1D.r_center[1] PARAM */);
+  const int equationIndexes[2] = {1,14225};
+  (data->simulationInfo->realParameter[3674] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.r_center[1] PARAM */) = (data->simulationInfo->realParameter[3655] /* vehicle.wheelFR.rim.rotor1D.r_center[1] PARAM */);
   TRACE_POP
 }
 
 /*
-equation index: 14260
+equation index: 14243
 type: SIMPLE_ASSIGN
 vehicle.wheelFR.rim.rEff = vehicle.wheelFR.rEff
 */
 OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14260(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_14243(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,14260};
-  (data->simulationInfo->realParameter[3689] /* vehicle.wheelFR.rim.rEff PARAM */) = (data->simulationInfo->realParameter[3673] /* vehicle.wheelFR.rEff PARAM */);
+  const int equationIndexes[2] = {1,14243};
+  (data->simulationInfo->realParameter[3645] /* vehicle.wheelFR.rim.rEff PARAM */) = (data->simulationInfo->realParameter[3629] /* vehicle.wheelFR.rEff PARAM */);
   TRACE_POP
 }
+extern void AlyssaVehicle_eqFunction_6653(DATA *data, threadData_t *threadData);
 
-/*
-equation index: 14262
-type: SIMPLE_ASSIGN
-vehicle.wheelFR.slipForces.params.mSprung = vehicle.wheelFR.slipForces.params.vehicleMass + (-2.0) * (vehicle.wheelFR.slipForces.params.mUnsprungFront + vehicle.wheelFR.slipForces.params.mUnsprungRear)
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14262(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14262};
-  (data->simulationInfo->realParameter[3759] /* vehicle.wheelFR.slipForces.params.mSprung PARAM */) = (data->simulationInfo->realParameter[3778] /* vehicle.wheelFR.slipForces.params.vehicleMass PARAM */) + (-2.0) * ((data->simulationInfo->realParameter[3760] /* vehicle.wheelFR.slipForces.params.mUnsprungFront PARAM */) + (data->simulationInfo->realParameter[3761] /* vehicle.wheelFR.slipForces.params.mUnsprungRear PARAM */));
-  TRACE_POP
-}
+extern void AlyssaVehicle_eqFunction_6652(DATA *data, threadData_t *threadData);
 
-/*
-equation index: 14263
-type: SIMPLE_ASSIGN
-vehicle.wheelFR.slipForces.params.F0Rear = 4.903325 * vehicle.wheelFR.slipForces.params.mSprung * vehicle.wheelFR.slipForces.params.a / vehicle.wheelFR.slipForces.params.wheelbase
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14263(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14263};
-  (data->simulationInfo->realParameter[3731] /* vehicle.wheelFR.slipForces.params.F0Rear PARAM */) = (4.903325) * (((data->simulationInfo->realParameter[3759] /* vehicle.wheelFR.slipForces.params.mSprung PARAM */)) * (DIVISION_SIM((data->simulationInfo->realParameter[3735] /* vehicle.wheelFR.slipForces.params.a PARAM */),(data->simulationInfo->realParameter[3779] /* vehicle.wheelFR.slipForces.params.wheelbase PARAM */),"vehicle.wheelFR.slipForces.params.wheelbase",equationIndexes)));
-  TRACE_POP
-}
+extern void AlyssaVehicle_eqFunction_6651(DATA *data, threadData_t *threadData);
 
-/*
-equation index: 14264
-type: SIMPLE_ASSIGN
-vehicle.wheelFR.slipForces.params.kRideRear = 0.10197162129779283 * vehicle.wheelFR.slipForces.params.F0Rear * (6.283185307179586 * vehicle.wheelFR.slipForces.params.fRideRear) ^ 2.0
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14264(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14264};
-  modelica_real tmp68;
-  tmp68 = (6.283185307179586) * ((data->simulationInfo->realParameter[3747] /* vehicle.wheelFR.slipForces.params.fRideRear PARAM */));
-  (data->simulationInfo->realParameter[3755] /* vehicle.wheelFR.slipForces.params.kRideRear PARAM */) = (0.10197162129779283) * (((data->simulationInfo->realParameter[3731] /* vehicle.wheelFR.slipForces.params.F0Rear PARAM */)) * ((tmp68 * tmp68)));
-  TRACE_POP
-}
+extern void AlyssaVehicle_eqFunction_6650(DATA *data, threadData_t *threadData);
 
-/*
-equation index: 14265
-type: SIMPLE_ASSIGN
-vehicle.wheelFR.slipForces.params.dWheelRear = 2.0 * vehicle.wheelFR.slipForces.params.zetaRear * sqrt(vehicle.wheelFR.slipForces.params.kRideRear * vehicle.wheelFR.slipForces.params.F0Rear / 9.80665)
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14265(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14265};
-  modelica_real tmp69;
-  tmp69 = DIVISION_SIM(((data->simulationInfo->realParameter[3755] /* vehicle.wheelFR.slipForces.params.kRideRear PARAM */)) * ((data->simulationInfo->realParameter[3731] /* vehicle.wheelFR.slipForces.params.F0Rear PARAM */)),9.80665,"9.80665",equationIndexes);
-  if(!(tmp69 >= 0.0))
-  {
-    if (data->simulationInfo->noThrowAsserts) {
-      FILE_INFO info = {"",0,0,0,0,0};
-      infoStreamPrintWithEquationIndexes(OMC_LOG_ASSERT, info, 0, equationIndexes, "The following assertion has been violated %sat time %f", initial() ? "during initialization " : "", data->localData[0]->timeValue);
-      data->simulationInfo->needToReThrow = 1;
-    } else {
-      FILE_INFO info = {"",0,0,0,0,0};
-      omc_assert_warning(info, "The following assertion has been violated %sat time %f", initial() ? "during initialization " : "", data->localData[0]->timeValue);
-      throwStreamPrintWithEquationIndexes(threadData, info, equationIndexes, "Model error: Argument of sqrt(vehicle.wheelFR.slipForces.params.kRideRear * vehicle.wheelFR.slipForces.params.F0Rear / 9.80665) was %g should be >= 0", tmp69);
-    }
-  }
-  (data->simulationInfo->realParameter[3743] /* vehicle.wheelFR.slipForces.params.dWheelRear PARAM */) = (2.0) * (((data->simulationInfo->realParameter[3781] /* vehicle.wheelFR.slipForces.params.zetaRear PARAM */)) * (sqrt(tmp69)));
-  TRACE_POP
-}
+extern void AlyssaVehicle_eqFunction_6649(DATA *data, threadData_t *threadData);
 
-/*
-equation index: 14266
-type: SIMPLE_ASSIGN
-vehicle.wheelFR.slipForces.params.F0Front = 4.903325 * vehicle.wheelFR.slipForces.params.mSprung * vehicle.wheelFR.slipForces.params.b / vehicle.wheelFR.slipForces.params.wheelbase
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14266(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14266};
-  (data->simulationInfo->realParameter[3730] /* vehicle.wheelFR.slipForces.params.F0Front PARAM */) = (4.903325) * (((data->simulationInfo->realParameter[3759] /* vehicle.wheelFR.slipForces.params.mSprung PARAM */)) * (DIVISION_SIM((data->simulationInfo->realParameter[3739] /* vehicle.wheelFR.slipForces.params.b PARAM */),(data->simulationInfo->realParameter[3779] /* vehicle.wheelFR.slipForces.params.wheelbase PARAM */),"vehicle.wheelFR.slipForces.params.wheelbase",equationIndexes)));
-  TRACE_POP
-}
+extern void AlyssaVehicle_eqFunction_6648(DATA *data, threadData_t *threadData);
 
-/*
-equation index: 14267
-type: SIMPLE_ASSIGN
-vehicle.wheelFR.slipForces.params.kRideFront = 0.10197162129779283 * vehicle.wheelFR.slipForces.params.F0Front * (6.283185307179586 * vehicle.wheelFR.slipForces.params.fRideFront) ^ 2.0
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14267(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14267};
-  modelica_real tmp70;
-  tmp70 = (6.283185307179586) * ((data->simulationInfo->realParameter[3746] /* vehicle.wheelFR.slipForces.params.fRideFront PARAM */));
-  (data->simulationInfo->realParameter[3754] /* vehicle.wheelFR.slipForces.params.kRideFront PARAM */) = (0.10197162129779283) * (((data->simulationInfo->realParameter[3730] /* vehicle.wheelFR.slipForces.params.F0Front PARAM */)) * ((tmp70 * tmp70)));
-  TRACE_POP
-}
+extern void AlyssaVehicle_eqFunction_6647(DATA *data, threadData_t *threadData);
 
-/*
-equation index: 14268
-type: SIMPLE_ASSIGN
-vehicle.wheelFR.slipForces.params.dWheelFront = 2.0 * vehicle.wheelFR.slipForces.params.zetaFront * sqrt(vehicle.wheelFR.slipForces.params.kRideFront * vehicle.wheelFR.slipForces.params.F0Front / 9.80665)
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14268(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14268};
-  modelica_real tmp71;
-  tmp71 = DIVISION_SIM(((data->simulationInfo->realParameter[3754] /* vehicle.wheelFR.slipForces.params.kRideFront PARAM */)) * ((data->simulationInfo->realParameter[3730] /* vehicle.wheelFR.slipForces.params.F0Front PARAM */)),9.80665,"9.80665",equationIndexes);
-  if(!(tmp71 >= 0.0))
-  {
-    if (data->simulationInfo->noThrowAsserts) {
-      FILE_INFO info = {"",0,0,0,0,0};
-      infoStreamPrintWithEquationIndexes(OMC_LOG_ASSERT, info, 0, equationIndexes, "The following assertion has been violated %sat time %f", initial() ? "during initialization " : "", data->localData[0]->timeValue);
-      data->simulationInfo->needToReThrow = 1;
-    } else {
-      FILE_INFO info = {"",0,0,0,0,0};
-      omc_assert_warning(info, "The following assertion has been violated %sat time %f", initial() ? "during initialization " : "", data->localData[0]->timeValue);
-      throwStreamPrintWithEquationIndexes(threadData, info, equationIndexes, "Model error: Argument of sqrt(vehicle.wheelFR.slipForces.params.kRideFront * vehicle.wheelFR.slipForces.params.F0Front / 9.80665) was %g should be >= 0", tmp71);
-    }
-  }
-  (data->simulationInfo->realParameter[3742] /* vehicle.wheelFR.slipForces.params.dWheelFront PARAM */) = (2.0) * (((data->simulationInfo->realParameter[3780] /* vehicle.wheelFR.slipForces.params.zetaFront PARAM */)) * (sqrt(tmp71)));
-  TRACE_POP
-}
+extern void AlyssaVehicle_eqFunction_6646(DATA *data, threadData_t *threadData);
 
-/*
-equation index: 14269
-type: SIMPLE_ASSIGN
-vehicle.wheelFR.slipForces.params.hpPower = 745.7 * vehicle.wheelFR.slipForces.params.hp
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14269(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14269};
-  (data->simulationInfo->realParameter[3751] /* vehicle.wheelFR.slipForces.params.hpPower PARAM */) = (745.7) * ((data->simulationInfo->realParameter[3750] /* vehicle.wheelFR.slipForces.params.hp PARAM */));
-  TRACE_POP
-}
+extern void AlyssaVehicle_eqFunction_6645(DATA *data, threadData_t *threadData);
 
-/*
-equation index: 14270
-type: SIMPLE_ASSIGN
-vehicle.wheelFR.slipForces.params.track = vehicle.wheelFR.slipForces.params.tf + vehicle.wheelFR.slipForces.params.tr
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14270(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14270};
-  (data->simulationInfo->realParameter[3777] /* vehicle.wheelFR.slipForces.params.track PARAM */) = (data->simulationInfo->realParameter[3775] /* vehicle.wheelFR.slipForces.params.tf PARAM */) + (data->simulationInfo->realParameter[3776] /* vehicle.wheelFR.slipForces.params.tr PARAM */);
-  TRACE_POP
-}
+extern void AlyssaVehicle_eqFunction_6644(DATA *data, threadData_t *threadData);
 
-/*
-equation index: 14271
-type: SIMPLE_ASSIGN
-vehicle.wheelFR.slipForces.params.kRear = vehicle.wheelFR.slipForces.params.kRideRear * vehicle.wheelFR.slipForces.params.kz / (vehicle.wheelFR.slipForces.params.kz - vehicle.wheelFR.slipForces.params.kRideRear)
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14271(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14271};
-  (data->simulationInfo->realParameter[3753] /* vehicle.wheelFR.slipForces.params.kRear PARAM */) = ((data->simulationInfo->realParameter[3755] /* vehicle.wheelFR.slipForces.params.kRideRear PARAM */)) * (DIVISION_SIM((data->simulationInfo->realParameter[3758] /* vehicle.wheelFR.slipForces.params.kz PARAM */),(data->simulationInfo->realParameter[3758] /* vehicle.wheelFR.slipForces.params.kz PARAM */) - (data->simulationInfo->realParameter[3755] /* vehicle.wheelFR.slipForces.params.kRideRear PARAM */),"vehicle.wheelFR.slipForces.params.kz - vehicle.wheelFR.slipForces.params.kRideRear",equationIndexes));
-  TRACE_POP
-}
+extern void AlyssaVehicle_eqFunction_6643(DATA *data, threadData_t *threadData);
 
-/*
-equation index: 14272
-type: SIMPLE_ASSIGN
-vehicle.wheelFR.slipForces.params.kFront = vehicle.wheelFR.slipForces.params.kRideFront * vehicle.wheelFR.slipForces.params.kz / (vehicle.wheelFR.slipForces.params.kz - vehicle.wheelFR.slipForces.params.kRideFront)
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14272(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14272};
-  (data->simulationInfo->realParameter[3752] /* vehicle.wheelFR.slipForces.params.kFront PARAM */) = ((data->simulationInfo->realParameter[3754] /* vehicle.wheelFR.slipForces.params.kRideFront PARAM */)) * (DIVISION_SIM((data->simulationInfo->realParameter[3758] /* vehicle.wheelFR.slipForces.params.kz PARAM */),(data->simulationInfo->realParameter[3758] /* vehicle.wheelFR.slipForces.params.kz PARAM */) - (data->simulationInfo->realParameter[3754] /* vehicle.wheelFR.slipForces.params.kRideFront PARAM */),"vehicle.wheelFR.slipForces.params.kz - vehicle.wheelFR.slipForces.params.kRideFront",equationIndexes));
-  TRACE_POP
-}
+extern void AlyssaVehicle_eqFunction_6642(DATA *data, threadData_t *threadData);
 
-/*
-equation index: 14273
-type: SIMPLE_ASSIGN
-vehicle.wheelFR.slipForces.sy = tan(1.5707963267948966 / vehicle.wheelFR.slipForces.params.qy)
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14273(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14273};
-  (data->simulationInfo->realParameter[3783] /* vehicle.wheelFR.slipForces.sy PARAM */) = tan(DIVISION_SIM(1.5707963267948966,(data->simulationInfo->realParameter[3771] /* vehicle.wheelFR.slipForces.params.qy PARAM */),"vehicle.wheelFR.slipForces.params.qy",equationIndexes));
-  TRACE_POP
-}
+extern void AlyssaVehicle_eqFunction_6641(DATA *data, threadData_t *threadData);
 
-/*
-equation index: 14274
-type: SIMPLE_ASSIGN
-vehicle.wheelFR.slipForces.sx = tan(1.5707963267948966 / vehicle.wheelFR.slipForces.params.qx)
-*/
-OMC_DISABLE_OPT
-static void AlyssaVehicle_eqFunction_14274(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,14274};
-  (data->simulationInfo->realParameter[3782] /* vehicle.wheelFR.slipForces.sx PARAM */) = tan(DIVISION_SIM(1.5707963267948966,(data->simulationInfo->realParameter[3770] /* vehicle.wheelFR.slipForces.params.qx PARAM */),"vehicle.wheelFR.slipForces.params.qx",equationIndexes));
-  TRACE_POP
-}
+extern void AlyssaVehicle_eqFunction_6640(DATA *data, threadData_t *threadData);
+
+extern void AlyssaVehicle_eqFunction_6639(DATA *data, threadData_t *threadData);
+
 extern void AlyssaVehicle_eqFunction_6638(DATA *data, threadData_t *threadData);
 
 extern void AlyssaVehicle_eqFunction_6637(DATA *data, threadData_t *threadData);
@@ -2432,122 +1974,119 @@ extern void AlyssaVehicle_eqFunction_6273(DATA *data, threadData_t *threadData);
 
 extern void AlyssaVehicle_eqFunction_6272(DATA *data, threadData_t *threadData);
 
+extern void AlyssaVehicle_eqFunction_6271(DATA *data, threadData_t *threadData);
+
+extern void AlyssaVehicle_eqFunction_6270(DATA *data, threadData_t *threadData);
+
+extern void AlyssaVehicle_eqFunction_6269(DATA *data, threadData_t *threadData);
+
+extern void AlyssaVehicle_eqFunction_6268(DATA *data, threadData_t *threadData);
+
+extern void AlyssaVehicle_eqFunction_6267(DATA *data, threadData_t *threadData);
+
 OMC_DISABLE_OPT
 void AlyssaVehicle_updateBoundParameters_3(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
+  AlyssaVehicle_eqFunction_13977(data, threadData);
+  AlyssaVehicle_eqFunction_13978(data, threadData);
+  AlyssaVehicle_eqFunction_13979(data, threadData);
+  AlyssaVehicle_eqFunction_13980(data, threadData);
+  AlyssaVehicle_eqFunction_13981(data, threadData);
+  AlyssaVehicle_eqFunction_13982(data, threadData);
+  AlyssaVehicle_eqFunction_13983(data, threadData);
+  AlyssaVehicle_eqFunction_13984(data, threadData);
+  AlyssaVehicle_eqFunction_13985(data, threadData);
+  AlyssaVehicle_eqFunction_13988(data, threadData);
+  AlyssaVehicle_eqFunction_13989(data, threadData);
+  AlyssaVehicle_eqFunction_13990(data, threadData);
+  AlyssaVehicle_eqFunction_13991(data, threadData);
+  AlyssaVehicle_eqFunction_14005(data, threadData);
+  AlyssaVehicle_eqFunction_14019(data, threadData);
+  AlyssaVehicle_eqFunction_14020(data, threadData);
+  AlyssaVehicle_eqFunction_14021(data, threadData);
+  AlyssaVehicle_eqFunction_14022(data, threadData);
   AlyssaVehicle_eqFunction_14023(data, threadData);
-  AlyssaVehicle_eqFunction_14024(data, threadData);
-  AlyssaVehicle_eqFunction_14025(data, threadData);
-  AlyssaVehicle_eqFunction_14026(data, threadData);
-  AlyssaVehicle_eqFunction_14027(data, threadData);
-  AlyssaVehicle_eqFunction_14028(data, threadData);
-  AlyssaVehicle_eqFunction_14029(data, threadData);
-  AlyssaVehicle_eqFunction_14030(data, threadData);
-  AlyssaVehicle_eqFunction_14031(data, threadData);
-  AlyssaVehicle_eqFunction_14032(data, threadData);
+  AlyssaVehicle_eqFunction_14040(data, threadData);
+  AlyssaVehicle_eqFunction_14041(data, threadData);
+  AlyssaVehicle_eqFunction_14042(data, threadData);
+  AlyssaVehicle_eqFunction_14043(data, threadData);
+  AlyssaVehicle_eqFunction_14044(data, threadData);
   AlyssaVehicle_eqFunction_14045(data, threadData);
+  AlyssaVehicle_eqFunction_14046(data, threadData);
   AlyssaVehicle_eqFunction_14047(data, threadData);
   AlyssaVehicle_eqFunction_14048(data, threadData);
+  AlyssaVehicle_eqFunction_14049(data, threadData);
+  AlyssaVehicle_eqFunction_14050(data, threadData);
+  AlyssaVehicle_eqFunction_14051(data, threadData);
   AlyssaVehicle_eqFunction_14052(data, threadData);
-  AlyssaVehicle_eqFunction_14058(data, threadData);
-  AlyssaVehicle_eqFunction_14059(data, threadData);
-  AlyssaVehicle_eqFunction_14060(data, threadData);
-  AlyssaVehicle_eqFunction_14062(data, threadData);
-  AlyssaVehicle_eqFunction_14064(data, threadData);
-  AlyssaVehicle_eqFunction_14066(data, threadData);
+  AlyssaVehicle_eqFunction_14053(data, threadData);
+  AlyssaVehicle_eqFunction_14054(data, threadData);
+  AlyssaVehicle_eqFunction_14067(data, threadData);
   AlyssaVehicle_eqFunction_14069(data, threadData);
   AlyssaVehicle_eqFunction_14070(data, threadData);
-  AlyssaVehicle_eqFunction_14071(data, threadData);
-  AlyssaVehicle_eqFunction_14089(data, threadData);
+  AlyssaVehicle_eqFunction_14074(data, threadData);
+  AlyssaVehicle_eqFunction_14080(data, threadData);
+  AlyssaVehicle_eqFunction_14081(data, threadData);
+  AlyssaVehicle_eqFunction_14082(data, threadData);
+  AlyssaVehicle_eqFunction_14084(data, threadData);
+  AlyssaVehicle_eqFunction_14086(data, threadData);
+  AlyssaVehicle_eqFunction_14088(data, threadData);
   AlyssaVehicle_eqFunction_14091(data, threadData);
   AlyssaVehicle_eqFunction_14092(data, threadData);
   AlyssaVehicle_eqFunction_14093(data, threadData);
-  AlyssaVehicle_eqFunction_14094(data, threadData);
-  AlyssaVehicle_eqFunction_14095(data, threadData);
-  AlyssaVehicle_eqFunction_14096(data, threadData);
-  AlyssaVehicle_eqFunction_14097(data, threadData);
-  AlyssaVehicle_eqFunction_14098(data, threadData);
-  AlyssaVehicle_eqFunction_14099(data, threadData);
-  AlyssaVehicle_eqFunction_14100(data, threadData);
-  AlyssaVehicle_eqFunction_14101(data, threadData);
-  AlyssaVehicle_eqFunction_14102(data, threadData);
-  AlyssaVehicle_eqFunction_14103(data, threadData);
-  AlyssaVehicle_eqFunction_14105(data, threadData);
-  AlyssaVehicle_eqFunction_14109(data, threadData);
-  AlyssaVehicle_eqFunction_14115(data, threadData);
-  AlyssaVehicle_eqFunction_14116(data, threadData);
-  AlyssaVehicle_eqFunction_14117(data, threadData);
-  AlyssaVehicle_eqFunction_14119(data, threadData);
-  AlyssaVehicle_eqFunction_14121(data, threadData);
-  AlyssaVehicle_eqFunction_14123(data, threadData);
+  AlyssaVehicle_eqFunction_14111(data, threadData);
+  AlyssaVehicle_eqFunction_14114(data, threadData);
+  AlyssaVehicle_eqFunction_14118(data, threadData);
+  AlyssaVehicle_eqFunction_14124(data, threadData);
+  AlyssaVehicle_eqFunction_14125(data, threadData);
   AlyssaVehicle_eqFunction_14126(data, threadData);
-  AlyssaVehicle_eqFunction_14127(data, threadData);
   AlyssaVehicle_eqFunction_14128(data, threadData);
-  AlyssaVehicle_eqFunction_14146(data, threadData);
-  AlyssaVehicle_eqFunction_14148(data, threadData);
-  AlyssaVehicle_eqFunction_14149(data, threadData);
-  AlyssaVehicle_eqFunction_14150(data, threadData);
-  AlyssaVehicle_eqFunction_14151(data, threadData);
-  AlyssaVehicle_eqFunction_14152(data, threadData);
-  AlyssaVehicle_eqFunction_14153(data, threadData);
-  AlyssaVehicle_eqFunction_14154(data, threadData);
+  AlyssaVehicle_eqFunction_14130(data, threadData);
+  AlyssaVehicle_eqFunction_14132(data, threadData);
+  AlyssaVehicle_eqFunction_14135(data, threadData);
+  AlyssaVehicle_eqFunction_14136(data, threadData);
+  AlyssaVehicle_eqFunction_14137(data, threadData);
   AlyssaVehicle_eqFunction_14155(data, threadData);
-  AlyssaVehicle_eqFunction_14156(data, threadData);
-  AlyssaVehicle_eqFunction_14157(data, threadData);
   AlyssaVehicle_eqFunction_14158(data, threadData);
-  AlyssaVehicle_eqFunction_14159(data, threadData);
-  AlyssaVehicle_eqFunction_14160(data, threadData);
   AlyssaVehicle_eqFunction_14162(data, threadData);
-  AlyssaVehicle_eqFunction_14166(data, threadData);
+  AlyssaVehicle_eqFunction_14168(data, threadData);
+  AlyssaVehicle_eqFunction_14169(data, threadData);
+  AlyssaVehicle_eqFunction_14170(data, threadData);
   AlyssaVehicle_eqFunction_14172(data, threadData);
-  AlyssaVehicle_eqFunction_14173(data, threadData);
   AlyssaVehicle_eqFunction_14174(data, threadData);
   AlyssaVehicle_eqFunction_14176(data, threadData);
-  AlyssaVehicle_eqFunction_14178(data, threadData);
+  AlyssaVehicle_eqFunction_14179(data, threadData);
   AlyssaVehicle_eqFunction_14180(data, threadData);
-  AlyssaVehicle_eqFunction_14183(data, threadData);
-  AlyssaVehicle_eqFunction_14184(data, threadData);
-  AlyssaVehicle_eqFunction_14185(data, threadData);
-  AlyssaVehicle_eqFunction_14203(data, threadData);
-  AlyssaVehicle_eqFunction_14205(data, threadData);
+  AlyssaVehicle_eqFunction_14181(data, threadData);
+  AlyssaVehicle_eqFunction_14199(data, threadData);
+  AlyssaVehicle_eqFunction_14202(data, threadData);
   AlyssaVehicle_eqFunction_14206(data, threadData);
-  AlyssaVehicle_eqFunction_14207(data, threadData);
-  AlyssaVehicle_eqFunction_14208(data, threadData);
-  AlyssaVehicle_eqFunction_14209(data, threadData);
-  AlyssaVehicle_eqFunction_14210(data, threadData);
-  AlyssaVehicle_eqFunction_14211(data, threadData);
   AlyssaVehicle_eqFunction_14212(data, threadData);
   AlyssaVehicle_eqFunction_14213(data, threadData);
   AlyssaVehicle_eqFunction_14214(data, threadData);
-  AlyssaVehicle_eqFunction_14215(data, threadData);
   AlyssaVehicle_eqFunction_14216(data, threadData);
-  AlyssaVehicle_eqFunction_14217(data, threadData);
-  AlyssaVehicle_eqFunction_14219(data, threadData);
+  AlyssaVehicle_eqFunction_14218(data, threadData);
+  AlyssaVehicle_eqFunction_14220(data, threadData);
   AlyssaVehicle_eqFunction_14223(data, threadData);
-  AlyssaVehicle_eqFunction_14229(data, threadData);
-  AlyssaVehicle_eqFunction_14230(data, threadData);
-  AlyssaVehicle_eqFunction_14231(data, threadData);
-  AlyssaVehicle_eqFunction_14233(data, threadData);
-  AlyssaVehicle_eqFunction_14235(data, threadData);
-  AlyssaVehicle_eqFunction_14237(data, threadData);
-  AlyssaVehicle_eqFunction_14240(data, threadData);
-  AlyssaVehicle_eqFunction_14241(data, threadData);
-  AlyssaVehicle_eqFunction_14242(data, threadData);
-  AlyssaVehicle_eqFunction_14260(data, threadData);
-  AlyssaVehicle_eqFunction_14262(data, threadData);
-  AlyssaVehicle_eqFunction_14263(data, threadData);
-  AlyssaVehicle_eqFunction_14264(data, threadData);
-  AlyssaVehicle_eqFunction_14265(data, threadData);
-  AlyssaVehicle_eqFunction_14266(data, threadData);
-  AlyssaVehicle_eqFunction_14267(data, threadData);
-  AlyssaVehicle_eqFunction_14268(data, threadData);
-  AlyssaVehicle_eqFunction_14269(data, threadData);
-  AlyssaVehicle_eqFunction_14270(data, threadData);
-  AlyssaVehicle_eqFunction_14271(data, threadData);
-  AlyssaVehicle_eqFunction_14272(data, threadData);
-  AlyssaVehicle_eqFunction_14273(data, threadData);
-  AlyssaVehicle_eqFunction_14274(data, threadData);
+  AlyssaVehicle_eqFunction_14224(data, threadData);
+  AlyssaVehicle_eqFunction_14225(data, threadData);
+  AlyssaVehicle_eqFunction_14243(data, threadData);
+  AlyssaVehicle_eqFunction_6653(data, threadData);
+  AlyssaVehicle_eqFunction_6652(data, threadData);
+  AlyssaVehicle_eqFunction_6651(data, threadData);
+  AlyssaVehicle_eqFunction_6650(data, threadData);
+  AlyssaVehicle_eqFunction_6649(data, threadData);
+  AlyssaVehicle_eqFunction_6648(data, threadData);
+  AlyssaVehicle_eqFunction_6647(data, threadData);
+  AlyssaVehicle_eqFunction_6646(data, threadData);
+  AlyssaVehicle_eqFunction_6645(data, threadData);
+  AlyssaVehicle_eqFunction_6644(data, threadData);
+  AlyssaVehicle_eqFunction_6643(data, threadData);
+  AlyssaVehicle_eqFunction_6642(data, threadData);
+  AlyssaVehicle_eqFunction_6641(data, threadData);
+  AlyssaVehicle_eqFunction_6640(data, threadData);
+  AlyssaVehicle_eqFunction_6639(data, threadData);
   AlyssaVehicle_eqFunction_6638(data, threadData);
   AlyssaVehicle_eqFunction_6637(data, threadData);
   AlyssaVehicle_eqFunction_6636(data, threadData);
@@ -2915,6 +2454,11 @@ void AlyssaVehicle_updateBoundParameters_3(DATA *data, threadData_t *threadData)
   AlyssaVehicle_eqFunction_6274(data, threadData);
   AlyssaVehicle_eqFunction_6273(data, threadData);
   AlyssaVehicle_eqFunction_6272(data, threadData);
+  AlyssaVehicle_eqFunction_6271(data, threadData);
+  AlyssaVehicle_eqFunction_6270(data, threadData);
+  AlyssaVehicle_eqFunction_6269(data, threadData);
+  AlyssaVehicle_eqFunction_6268(data, threadData);
+  AlyssaVehicle_eqFunction_6267(data, threadData);
   TRACE_POP
 }
 #if defined(__cplusplus)

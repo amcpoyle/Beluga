@@ -224,7 +224,7 @@ package AlyssaModel
         Modelica.Mechanics.MultiBody.Interfaces.Frame_b wheelConnect annotation(
           Placement(transformation(origin = {100, 0}, extent = {{-16, -16}, {16, 16}}), iconTransformation(origin = {74, 4}, extent = {{-16, -16}, {16, 16}})));
         Modelica.Mechanics.MultiBody.Interfaces.Frame_a tieRodInner annotation(
-          Placement(transformation(origin = {-100, 40}, extent = {{-16, -16}, {16, 16}}), iconTransformation(origin = {-104, 50}, extent = {{-16, -16}, {16, 16}})));
+          Placement(transformation(origin = {-100, -40}, extent = {{-16, -16}, {16, 16}}), iconTransformation(origin = {-104, 50}, extent = {{-16, -16}, {16, 16}})));
       equation
 
       end BaseCorner;
@@ -283,17 +283,17 @@ package AlyssaModel
         parameter SI.Angle staticToe = 0 "positive = toe in";
         parameter SI.Mass mUnsprung = 0 "upright mass";
   Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR tieRod(rod1Length = Modelica.Math.Vectors.norm(rTieOuter - rTieInner), rod1Mass = 0, n_b = Functions.mirrorY(nKingpin, side), rRod2_ib = Functions.mirrorY(rTieOuter - rKingpinTop, side), phi_guess = 0)  annotation(
-          Placement(transformation(origin = {-56, 38}, extent = {{-20, -20}, {20, 20}})));
+          Placement(transformation(origin = {-42, -40}, extent = {{-20, -20}, {20, 20}})));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation spindle(r = Functions.mirrorY(rWC - rKingpinTop, side))  annotation(
-          Placement(transformation(origin = {-22, 78}, extent = {{-10, -10}, {10, 10}})));
+          Placement(transformation(origin = {26, 0}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Mechanics.MultiBody.Parts.FixedRotation staticAlign(rotationType = Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence, sequence = {3, 1, 2}, angles = {-side*Modelica.Units.Conversions.to_deg(staticToe), side*Modelica.Units.Conversions.to_deg(staticCamber), 0})  annotation(
-          Placement(transformation(origin = {12, 78}, extent = {{-10, -10}, {10, 10}})));
+          Placement(transformation(origin = {52, 0}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Mechanics.MultiBody.Parts.Body upright(r_CM = {0, 0, 0}, m = mUnsprung)  annotation(
-          Placement(transformation(origin = {10, 42}, extent = {{-10, -10}, {10, 10}})));
+          Placement(transformation(origin = {36, -28}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Mechanics.MultiBody.Sensors.RelativeAngles wheelAngles(sequence = {3, 1, 2})  annotation(
-          Placement(transformation(origin = {-50, -12}, extent = {{-10, -10}, {10, 10}})));
+          Placement(transformation(origin = {-70, -100}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Mechanics.MultiBody.Sensors.RelativePosition wheelPosition annotation(
-          Placement(transformation(origin = {-48, -44}, extent = {{-10, -10}, {10, 10}})));
+          Placement(transformation(origin = {-48, -100}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Interfaces.RealOutput travel(unit="m") annotation(
           Placement(transformation(origin = {100, 60}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {74, 78}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Interfaces.RealOutput camber(unit="rad") annotation(
@@ -301,29 +301,29 @@ package AlyssaModel
   Modelica.Blocks.Interfaces.RealOutput toe(unit="rad") annotation(
           Placement(transformation(origin = {100, 20}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {68, 22}, extent = {{-10, -10}, {10, 10}})));
       equation
-  connect(tieRodInner, tieRod.frame_a) annotation(
-          Line(points = {{-100, 40}, {-76, 40}, {-76, 38}}));
   connect(tieRod.frame_ib, spindle.frame_a) annotation(
-          Line(points = {{-40, 58}, {-32, 58}, {-32, 78}}, color = {95, 95, 95}));
+          Line(points = {{-26, -20}, {-26, -9.5}, {14, -9.5}, {14, 0}, {16, 0}}, color = {95, 95, 95}));
   connect(spindle.frame_b, staticAlign.frame_a) annotation(
-          Line(points = {{-12, 78}, {2, 78}}, color = {95, 95, 95}));
+          Line(points = {{36, 0}, {42, 0}}, color = {95, 95, 95}));
   connect(staticAlign.frame_b, wheelConnect) annotation(
-          Line(points = {{22, 78}, {54, 78}, {54, 0}, {100, 0}}, color = {95, 95, 95}));
+          Line(points = {{62, 0}, {100, 0}}, color = {95, 95, 95}));
   connect(spindle.frame_b, upright.frame_a) annotation(
-          Line(points = {{-12, 78}, {-12, 42}, {0, 42}}, color = {95, 95, 95}));
+          Line(points = {{36, 0}, {36, -18}}, color = {95, 95, 95}));
   connect(chassisConnect, wheelAngles.frame_a) annotation(
-          Line(points = {{-100, 0}, {-60, 0}, {-60, -12}}));
+          Line(points = {{-100, 0}, {-100, -100}, {-80, -100}}));
   connect(wheelConnect, wheelAngles.frame_b) annotation(
-          Line(points = {{100, 0}, {-40, 0}, {-40, -12}}));
-  connect(chassisConnect, wheelPosition.frame_a) annotation(
-          Line(points = {{-100, 0}, {-74, 0}, {-74, -44}, {-58, -44}}));
+          Line(points = {{100, 0}, {100, -100}, {-60, -100}}));
   connect(wheelPosition.frame_b, wheelConnect) annotation(
-          Line(points = {{-38, -44}, {100, -44}, {100, 0}}, color = {95, 95, 95}));
+          Line(points = {{-38, -100}, {91, -100}, {91, 0}, {100, 0}}, color = {95, 95, 95}));
       
       travel = -(wheelPosition.r_rel[3] - rWC[3]);
 // positive = bump
       toe = -side*wheelAngles.angles[1]; // positive = toe-in (including steer)
       camber = side*wheelAngles.angles[2];
+  connect(tieRodInner, tieRod.frame_a) annotation(
+          Line(points = {{-100, -40}, {-62, -40}}));
+  connect(wheelPosition.frame_a, chassisConnect) annotation(
+          Line(points = {{-58, -100}, {-100, -100}, {-100, 0}}, color = {95, 95, 95}));
       end PartialUprightCorner;
 
       model RigidCorner
@@ -392,44 +392,44 @@ package AlyssaModel
         final parameter SI.Length sDesign = Modelica.Math.Vectors.norm(rSpringArm - rSpringChassis) "coilover length at design";
         parameter Real motionRatio = if isFront then 0.665 else 0.713 "placeholder; measure on the rig";
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation ucaMount(r = Functions.mirrorY(rUCApivot, side))  annotation(
-          Placement(transformation(origin = {-18, 12}, extent = {{-10, -10}, {10, 10}})));
+          Placement(transformation(origin = {-68, 60}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Mechanics.MultiBody.Joints.Revolute ucaPivot(n = Functions.mirrorY(normalize(rUCAr - rUCAf), side), stateSelect = StateSelect.always, phi(start = 0, fixed = true), w(start = 0, fixed = true))  annotation(
-          Placement(transformation(origin = {8, 12}, extent = {{-10, -10}, {10, 10}})));
+          Placement(transformation(origin = {-32, 60}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation uca(r = Functions.mirrorY(rUBJ - rUCApivot, side))  annotation(
-          Placement(transformation(origin = {38, 12}, extent = {{-10, -10}, {10, 10}})));
+          Placement(transformation(origin = {-4, 60}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation lcaMount(r = Functions.mirrorY(rLCApivot, side))  annotation(
-          Placement(transformation(origin = {-22, -64}, extent = {{-10, -10}, {10, 10}})));
+          Placement(transformation(origin = {-64, -66}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR jointUSR(n1_a = Functions.mirrorY(normalize(rUCAr - rUCAf), side), n_b = Functions.mirrorY(normalize(rLCAr - rLCAf), side), rRod1_ia = Functions.mirrorY(rLBJ - rUBJ, side), rRod2_ib = Functions.mirrorY(rLBJ - rLCApivot, side), phi_guess = 0)  annotation(
-          Placement(transformation(origin = {48, -66}, extent = {{-20, -20}, {20, 20}}, rotation = 180)));
+          Placement(transformation(origin = {38, 40}, extent = {{-20, -20}, {20, 20}}, rotation = -90)));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation springChassis(r = Functions.mirrorY(rSpringChassis, side))  annotation(
-          Placement(transformation(origin = {-20, -26}, extent = {{-10, -10}, {10, 10}})));
+          Placement(transformation(origin = {-56, 80}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Mechanics.MultiBody.Parts.FixedTranslation springArm(r = Functions.mirrorY(rSpringArm - rLCApivot, side))  annotation(
-          Placement(transformation(origin = {48, -26}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
+          Placement(transformation(origin = {-34, 4}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
   Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel coilover(c = kWheel/motionRatio^2, s_unstretched = sDesign + F0*motionRatio/kWheel, d = dWheel/motionRatio^2)  annotation(
-          Placement(transformation(origin = {12, -26}, extent = {{-10, -10}, {10, 10}})));
+          Placement(transformation(origin = {-36, 32}, extent = {{-10, -10}, {10, 10}})));
       equation
   connect(chassisConnect, ucaMount.frame_a) annotation(
-          Line(points = {{-100, 0}, {-100, 12}, {-28, 12}}));
+          Line(points = {{-100, 0}, {-100, 60}, {-78, 60}}));
   connect(ucaMount.frame_b, ucaPivot.frame_a) annotation(
-          Line(points = {{-8, 12}, {-8, 11}, {-2, 11}, {-2, 12}}, color = {95, 95, 95}));
+          Line(points = {{-58, 60}, {-58, 61}, {-42, 61}, {-42, 60}}, color = {95, 95, 95}));
   connect(ucaPivot.frame_b, uca.frame_a) annotation(
-          Line(points = {{18, 12}, {28, 12}}, color = {95, 95, 95}));
+          Line(points = {{-22, 60}, {-14, 60}}, color = {95, 95, 95}));
   connect(chassisConnect, lcaMount.frame_a) annotation(
-          Line(points = {{-100, 0}, {-84, 0}, {-84, -64}, {-32, -64}}));
+          Line(points = {{-100, 0}, {-84, 0}, {-84, -66}, {-74, -66}}));
   connect(lcaMount.frame_b, jointUSR.frame_b) annotation(
-          Line(points = {{-12, -64}, {8, -64}, {8, -66}, {28, -66}}, color = {95, 95, 95}));
+          Line(points = {{-54, -66}, {8, -66}, {8, 20}, {38, 20}}, color = {95, 95, 95}));
   connect(uca.frame_b, jointUSR.frame_a) annotation(
-          Line(points = {{48, 12}, {48, -26}, {68, -26}, {68, -66}}, color = {95, 95, 95}));
-  connect(jointUSR.frame_ia, tieRod.frame_b) annotation(
-          Line(points = {{64, -86}, {64, 38}, {-36, 38}}, color = {95, 95, 95}));
+          Line(points = {{6, 60}, {38, 60}}, color = {95, 95, 95}));
   connect(chassisConnect, springChassis.frame_a) annotation(
-          Line(points = {{-100, 0}, {-98, 0}, {-98, -26}, {-30, -26}}));
+          Line(points = {{-100, 0}, {-99, 0}, {-99, 80}, {-66, 80}}));
   connect(jointUSR.frame_ib, springArm.frame_a) annotation(
-          Line(points = {{32, -86}, {45, -86}, {45, -74}, {58, -74}, {58, -26}}, color = {95, 95, 95}));
+          Line(points = {{58, 24}, {58, 12}, {8, 12}, {8, 11}, {-24, 11}, {-24, 4}}, color = {95, 95, 95}));
   connect(springChassis.frame_b, coilover.frame_a) annotation(
-          Line(points = {{-10, -26}, {-10, -27}, {2, -27}, {2, -26}}, color = {95, 95, 95}));
+          Line(points = {{-46, 80}, {-46, 32}}, color = {95, 95, 95}));
   connect(coilover.frame_b, springArm.frame_b) annotation(
-          Line(points = {{22, -26}, {38, -26}}, color = {95, 95, 95}));
+          Line(points = {{-26, 32}, {-26, 17}, {-44, 17}, {-44, 4}}, color = {95, 95, 95}));
+  connect(jointUSR.frame_ia, tieRod.frame_b) annotation(
+          Line(points = {{58, 56}, {72, 56}, {72, -40}, {-22, -40}}, color = {95, 95, 95}));
       end DoubleWishboneCorner;
     end Suspension;
 
@@ -508,53 +508,6 @@ package AlyssaModel
   end Components;
 
   package Wheels
-    model MFForces
-      import Modelica.Units.SI.Force;
-      Modelica.Blocks.Interfaces.RealInput kappa annotation(
-        Placement(transformation(origin = {-100, 80}, extent = {{-8, -8}, {8, 8}}), iconTransformation(origin = {-100, 75}, extent = {{-20, -20}, {20, 20}})));
-      Modelica.Blocks.Interfaces.RealInput alpha(unit = "rad") annotation(
-        Placement(transformation(origin = {-100, 22}, extent = {{-8, -8}, {8, 8}}), iconTransformation(origin = {-100, 25}, extent = {{-20, -20}, {20, 20}})));
-      Modelica.Blocks.Interfaces.RealInput fz(unit = "N") annotation(
-        Placement(transformation(origin = {-100, -19}, extent = {{-8, -8}, {8, 8}}), iconTransformation(origin = {-100, -25}, extent = {{-20, -20}, {20, 20}})));
-      Modelica.Blocks.Interfaces.RealInput mu annotation(
-        Placement(transformation(origin = {-100, -81}, extent = {{-8, -8}, {8, 8}}), iconTransformation(origin = {-100, -75}, extent = {{-20, -20}, {20, 20}})));
-      Modelica.Blocks.Interfaces.RealOutput fx(unit = "N") annotation(
-        Placement(transformation(origin = {99, 79}, extent = {{-9, -9}, {9, 9}}), iconTransformation(origin = {100, 75}, extent = {{-10, -10}, {10, 10}})));
-      Modelica.Blocks.Interfaces.RealOutput fy(unit = "N") annotation(
-        Placement(transformation(origin = {99, 61}, extent = {{-9, -9}, {9, 9}}), iconTransformation(origin = {100, 25}, extent = {{-10, -10}, {10, 10}})));
-      Modelica.Blocks.Interfaces.RealOutput mz(unit = "N.m") annotation(
-        Placement(transformation(origin = {99, 41}, extent = {{-9, -9}, {9, 9}}), iconTransformation(origin = {100, -25}, extent = {{-10, -10}, {10, 10}})));
-      Force fzEff;
-      Real muXMax;
-      Real muYMax;
-      Real kappaMax;
-      Real alphaMax;
-      Real kappaN;
-      Real alphaN;
-      Real rho;
-      final parameter Real sx = tan(Modelica.Constants.pi/(2.0*params.qx));
-      final parameter Real sy = tan(Modelica.Constants.pi/(2.0*params.qy));
-      Real muX;
-      Real muY;
-      parameters params annotation(
-        Placement(transformation(origin = {120, 90}, extent = {{-10, -10}, {10, 10}})));
-    equation
-      fzEff = Functions.smoothMax(fz, 0.0);
-      muXMax = Functions.interpLoad(fzEff, params.fzRef1, params.fzRef2, params.muXMax1, params.muXMax2)*mu;
-      muYMax = Functions.interpLoad(fzEff, params.fzRef1, params.fzRef2, params.muYMax1, params.muYMax2)*mu;
-      kappaMax = Functions.interpLoad(fzEff, params.fzRef1, params.fzRef2, params.kappaMax1, params.kappaMax2);
-      alphaMax = Functions.interpLoad(fzEff, params.fzRef1, params.fzRef2, params.alphaMax1, params.alphaMax2);
-      kappaN = kappa/(kappaMax + params.smoothingEpsilon);
-      alphaN = alpha/(alphaMax + params.smoothingEpsilon);
-      rho = sqrt(kappaN^2 + alphaN^2 + params.smoothingEpsilon^2);
-// always >= 0 so sqrt should be ok
-      muX = muXMax*sin(params.qx*atan(sx*rho));
-      muY = muYMax*sin(params.qy*atan(sy*rho));
-      fx = muX*fzEff*(kappaN/rho);
-      fy = -muY*fzEff*(alphaN/rho);
-      mz = 0.0*fx;
-// Mz is zero for now
-    end MFForces;
 
     model OptimalControlWheel
       import Modelica.Units.SI;
@@ -564,7 +517,7 @@ package AlyssaModel
         Placement(transformation(origin = {99, -1}, extent = {{-13, -13}, {13, 13}}), iconTransformation(origin = {100, -4}, extent = {{-10, -10}, {10, 10}})));
       Modelica.Blocks.Interfaces.RealInput mu annotation(
         Placement(transformation(origin = {-100, 69}, extent = {{-8, -8}, {8, 8}}), iconTransformation(origin = {-80, 70}, extent = {{-20, -20}, {20, 20}})));
-      MFForces slipForces annotation(
+      replaceable TireForces.BrushForces slipForces constrainedby TireForces.BaseTireForces annotation(
         Placement(transformation(origin = {0, 40}, extent = {{-20, -20}, {20, 20}})));
       Modelica.Blocks.Interfaces.RealOutput fx(unit = "N") annotation(
         Placement(transformation(origin = {100, 70}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {90, 50}, extent = {{-10, -10}, {10, 10}})));
@@ -623,6 +576,10 @@ package AlyssaModel
         Line(points = {{-52, -28}, {-80, -28}, {-80, 56}}, color = {0, 0, 127}));
       connect(rim.omega, omega) annotation(
         Line(points = {{78, 50}, {100, 50}, {100, -72}}, color = {0, 0, 127}));
+  connect(contactPatch.gamma, slipForces.gamma) annotation(
+        Line(points = {{-52, -54}, {0, -54}, {0, 14}}, color = {0, 0, 127}));
+  connect(slipDynamics.vxAbs, slipForces.vxAbs) annotation(
+        Line(points = {{-42, 38}, {2, 38}, {2, 12}}, color = {0, 0, 127}));
       annotation(
         Icon(coordinateSystem(preserveAspectRatio = true, extent = {{-100, -100}, {100, 100}}), graphics = {Rectangle(extent = {{-100, -100}, {100, 100}}, lineColor = {0, 0, 0}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid), Bitmap(extent = {{-90, -90}, {90, 90}}, fileName = "modelica://AlyssaModel/Resources/Images/f1 red wheel.png"), Text(extent = {{-100, -135}, {100, -105}}, textString = "%name")}));
     end OptimalControlWheel;
@@ -708,11 +665,12 @@ package AlyssaModel
       Modelica.Blocks.Interfaces.RealInput vRim(unit = "m/s") "rim speed" annotation(
         Placement(transformation(origin = {-101, -12}, extent = {{-12, -12}, {12, 12}}), iconTransformation(origin = {-100, -25}, extent = {{-20, -20}, {20, 20}})));
       Modelica.Blocks.Interfaces.RealOutput kappa(start = 0, fixed = false, nominal = 0.1, stateSelect = StateSelect.always) annotation(
-        Placement(transformation(origin = {100, 70}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {110, 30}, extent = {{-10, -10}, {10, 10}})));
+        Placement(transformation(origin = {100, 80}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {110, 30}, extent = {{-10, -10}, {10, 10}})));
       Modelica.Blocks.Interfaces.RealOutput alpha(unit = "rad") annotation(
-        Placement(transformation(origin = {100, 30}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {88, 2}, extent = {{-10, -10}, {10, 10}})));
+        Placement(transformation(origin = {100, 60}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {88, 2}, extent = {{-10, -10}, {10, 10}})));
       Real tanAlpha(start = 0, fixed = false, nominal = 0.15, stateSelect = StateSelect.always);
-      SI.Velocity vxAbs;
+  Modelica.Blocks.Interfaces.RealOutput vxAbs(unit = "m/s") annotation(
+        Placement(transformation(origin = {100, 41}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {92, -9}, extent = {{-10, -10}, {10, 10}})));
     initial equation
       tanAlpha = 0;
       if initRollingFree then
@@ -741,22 +699,25 @@ package AlyssaModel
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a "hub frame, SAE coordinates" annotation(
         Placement(transformation(origin = {-100, 0}, extent = {{-16, -16}, {16, 16}}), iconTransformation(origin = {-82, 0}, extent = {{-16, -16}, {16, 16}})));
       Modelica.Blocks.Interfaces.RealOutput vx(unit = "m/s") annotation(
-        Placement(transformation(origin = {100, 28}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {100, 75}, extent = {{-10, -10}, {10, 10}})));
+        Placement(transformation(origin = {100, 80}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {100, 75}, extent = {{-10, -10}, {10, 10}})));
       Modelica.Blocks.Interfaces.RealOutput vy(unit = "m/s") annotation(
-        Placement(transformation(origin = {100, -12}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {100, 25}, extent = {{-10, -10}, {10, 10}})));
+        Placement(transformation(origin = {100, 60}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {100, 25}, extent = {{-10, -10}, {10, 10}})));
       Modelica.Blocks.Interfaces.RealInput fx(unit = "N") annotation(
         Placement(transformation(origin = {-100, 70}, extent = {{-12, -12}, {12, 12}}), iconTransformation(origin = {-100, 70}, extent = {{-20, -20}, {20, 20}})));
       Modelica.Blocks.Interfaces.RealInput fy(unit = "N") annotation(
         Placement(transformation(origin = {-100, 49}, extent = {{-12, -12}, {12, 12}}), iconTransformation(origin = {-100, 40}, extent = {{-20, -20}, {20, 20}})));
       Modelica.Blocks.Interfaces.RealOutput fz(unit = "N") annotation(
-        Placement(transformation(origin = {100, -50}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {100, -50}, extent = {{-10, -10}, {10, 10}})));
+        Placement(transformation(origin = {100, 40}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {100, -50}, extent = {{-10, -10}, {10, 10}})));
       outer Roads.BaseRoad road annotation(
         Placement(transformation(origin = {-70, -88}, extent = {{-10, -10}, {10, 10}})));
     protected
       SI.Velocity vHub[3];
       SI.AngularVelocity wLoc[3];
       SI.Velocity vC[3] "contact patch velocity";
-    equation
+    public
+  Modelica.Blocks.Interfaces.RealOutput gamma(unit="rad") annotation(
+        Placement(transformation(origin = {100, 20}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {100, -50}, extent = {{-10, -10}, {10, 10}})));
+  equation
 // pen = Functions.smoothMax(r0 + frame_a.r_0[3], 0.0);
       zRoad = road.z0 + road.height(frame_a.r_0[1], frame_a.r_0[2]);
       pen = Functions.smoothMax(r0 + frame_a.r_0[3] - zRoad, 0.0);
@@ -771,7 +732,144 @@ package AlyssaModel
       vC = vHub + cross(wLoc, {0, 0, rEff}) "contact below hub = +z in SAE";
       vx = vC[1];
       vy = vC[2];
+      gamma = asin(frame_a.R.T[2, 3]);
     end ContactPatch;
+
+    package TireForces
+    partial model BaseTireForces
+        Modelica.Blocks.Interfaces.RealInput kappa annotation(
+          Placement(transformation(origin = {-100, 79}, extent = {{-8, -8}, {8, 8}}), iconTransformation(origin = {-22, 26}, extent = {{-20, -20}, {20, 20}})));
+        Modelica.Blocks.Interfaces.RealInput alpha(unit = "rad") annotation(
+          Placement(transformation(origin = {-100, 59}, extent = {{-8, -8}, {8, 8}}), iconTransformation(origin = {-22, -24}, extent = {{-20, -20}, {20, 20}})));
+        Modelica.Blocks.Interfaces.RealInput fz(unit = "N") annotation(
+          Placement(transformation(origin = {-100, 40}, extent = {{-8, -8}, {8, 8}}), iconTransformation(origin = {-22, -74}, extent = {{-20, -20}, {20, 20}})));
+        Modelica.Blocks.Interfaces.RealInput mu annotation(
+          Placement(transformation(origin = {-100, 20}, extent = {{-8, -8}, {8, 8}}), iconTransformation(origin = {-22, -124}, extent = {{-20, -20}, {20, 20}})));
+        Modelica.Blocks.Interfaces.RealInput gamma(unit = "rad") annotation(
+          Placement(transformation(origin = {-100, 0}, extent = {{-8, -8}, {8, 8}}), iconTransformation(origin = {-4, -128}, extent = {{-20, -20}, {20, 20}})));
+        Modelica.Blocks.Interfaces.RealInput vxAbs(unit = "m/s") annotation(
+          Placement(transformation(origin = {-100, -21}, extent = {{-8, -8}, {8, 8}}), iconTransformation(origin = {10, -145}, extent = {{-20, -20}, {20, 20}})));
+        Modelica.Blocks.Interfaces.RealOutput fx(unit = "N") annotation(
+          Placement(transformation(origin = {99, 82}, extent = {{-9, -9}, {9, 9}}), iconTransformation(origin = {38, 54}, extent = {{-10, -10}, {10, 10}})));
+        Modelica.Blocks.Interfaces.RealOutput fy(unit = "N") annotation(
+          Placement(transformation(origin = {99, 64}, extent = {{-9, -9}, {9, 9}}), iconTransformation(origin = {38, 4}, extent = {{-10, -10}, {10, 10}})));
+        Modelica.Blocks.Interfaces.RealOutput mz(unit = "N.m") annotation(
+          Placement(transformation(origin = {99, 44}, extent = {{-9, -9}, {9, 9}}), iconTransformation(origin = {38, -46}, extent = {{-10, -10}, {10, 10}})));
+        Modelica.Blocks.Interfaces.RealOutput pFric(unit = "W") annotation(
+          Placement(transformation(origin = {101, 20}, extent = {{-9, -9}, {9, 9}}), iconTransformation(origin = {46, -60}, extent = {{-10, -10}, {10, 10}})));
+      equation
+        pFric = vxAbs*(fx*kappa - fy*tan(alpha));
+      end BaseTireForces;
+
+      model MFForces
+        extends AlyssaModel.Wheels.TireForces.BaseTireForces;
+        
+        Modelica.Units.SI.Force fzEff;
+        
+        Real muXMax;
+        Real muYMax;
+        Real kappaMax;
+        Real alphaMax;
+        Real kappaN;
+        Real alphaN;
+        Real rho;
+        final parameter Real sx = tan(Modelica.Constants.pi/(2.0*params.qx));
+        final parameter Real sy = tan(Modelica.Constants.pi/(2.0*params.qy));
+        Real muX;
+        Real muY;
+        parameters params annotation(
+          Placement(transformation(origin = {120, 90}, extent = {{-10, -10}, {10, 10}})));
+      equation
+        fzEff = Functions.smoothMax(fz, 0.0);
+        muXMax = Functions.interpLoad(fzEff, params.fzRef1, params.fzRef2, params.muXMax1, params.muXMax2)*mu;
+        muYMax = Functions.interpLoad(fzEff, params.fzRef1, params.fzRef2, params.muYMax1, params.muYMax2)*mu;
+        kappaMax = Functions.interpLoad(fzEff, params.fzRef1, params.fzRef2, params.kappaMax1, params.kappaMax2);
+        alphaMax = Functions.interpLoad(fzEff, params.fzRef1, params.fzRef2, params.alphaMax1, params.alphaMax2);
+        kappaN = kappa/(kappaMax + params.smoothingEpsilon);
+        alphaN = alpha/(alphaMax + params.smoothingEpsilon);
+        rho = sqrt(kappaN^2 + alphaN^2 + params.smoothingEpsilon^2);
+      // always >= 0 so sqrt should be ok
+        muX = muXMax*sin(params.qx*atan(sx*rho));
+        muY = muYMax*sin(params.qy*atan(sy*rho));
+        fx = muX*fzEff*(kappaN/rho);
+        fy = -muY*fzEff*(alphaN/rho);
+        mz = 0.0*fx;
+      // Mz is zero for now
+
+      end MFForces;
+
+      model BrushForces
+        import Modelica.Units.SI;
+        extends AlyssaModel.Wheels.TireForces.BaseTireForces;
+        
+        SI.Force fzEff;
+        Real mu_greek "load-dependent friction";
+        SI.Length a "load-dependent contact length";
+        Real C(unit = "N") "cornering stiffness (per unit theoretical slip)";
+        
+        // theoretical slip
+        Real sigma_x;
+        Real sigma_y;
+        Real d;
+        Real abs_sigma;
+        
+        // normalized slip
+        Real lambda;
+        Real theta;
+        
+        // smooth saturation
+        Real p;
+        SI.Force F;
+        
+  BrushParameters brushParams annotation(
+          Placement(transformation(origin = {130, 90}, extent = {{-10, -10}, {10, 10}})));
+      equation
+        // effective load
+        fzEff = Functions.smoothMax(fz, brushParams.fzMin);
+        
+        // load-dependent friction and contact length
+        mu_greek = mu*brushParams.mu0*(fzEff/brushParams.Fz0)^(brushParams.n_mu - 1);
+        a = brushParams.a0*(fzEff/brushParams.Fz0)^(brushParams.na);
+        
+        // cornering stiffness
+        C = 2*brushParams.c_p*(a^2);
+        
+  // theoretical slip
+        sigma_x = kappa/d;
+        sigma_y = tan(alpha)/d;
+        d = Functions.smoothMax(1 + kappa, brushParams.d_min);
+        abs_sigma = sqrt(sigma_x^2 + sigma_y^2 + brushParams.eps_sigma^2);
+// normalized slip
+        lambda = theta*abs_sigma;
+        theta = C/(3*mu_greek*fzEff);
+        
+        // smooth saturation
+        p = 0.5*((1 - lambda) + sqrt((1 - lambda)^2 + brushParams.eps_lambda^2));
+        F = mu_greek*fzEff*(1 - p^3);
+        
+        // force direction
+        fx = F*(sigma_x/abs_sigma);
+        fy = -F*(sigma_y/abs_sigma);
+        
+        // aligning moment
+        mz = mu_greek*fzEff*a*lambda*(p^3)*(sigma_y/abs_sigma);
+      end BrushForces;
+
+      record BrushParameters
+        import Modelica.Units.SI;
+        
+        parameter SI.Force Fz0 = 4000 "reference load";
+        parameter Real mu0 = 1.6 "friction at Fz0";
+        parameter Real n_mu = 0.85 "load-sensitivity exponent";
+        parameter SI.Length a0 = 0.08 "contact half-length at Fz0";
+        parameter Real na = 0.4 "contact-length exponent";
+        parameter Real c_p(unit = "N/m2") = 1.2e7 "bristle stiffness per unit contact length";
+        parameter Real d_min = 0.05;
+        parameter Real eps_sigma = 1e-4;
+        parameter Real eps_lambda = 1e-3;
+        parameter SI.Force fzMin = 100;
+      end BrushParameters;
+    end TireForces;
   end Wheels;
 
   package Functions
@@ -840,8 +938,8 @@ package AlyssaModel
     parameter Real qx = 1.9;
     parameter Real qy = 1.9;
     parameter Real smoothingEpsilon = 1e-6;
+  
     // vehicle parameters
-    // TODO: add vehicle mass, inertias (currently live in VehicleBody)
     parameter SI.Mass vehicleMass = 768;
     parameter SI.Mass mUnsprungFront = 25 "per corner";
     parameter SI.Mass mUnsprungRear = 25 "per corner";
@@ -1149,7 +1247,7 @@ package AlyssaModel
     model FlatRoadSim
       OptimalControl optimalControl annotation(
         Placement(transformation(origin = {2, 0}, extent = {{-10, -10}, {10, 10}})));
-      Modelica.Blocks.Sources.Constant throttleInput(k = 0.2) annotation(
+      Modelica.Blocks.Sources.Constant throttleInput(k = 0.5) annotation(
         Placement(transformation(origin = {-84, 20}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Sources.RealExpression steerInput(y = 0.03*exp(-((time - 1)/0.2)^2))  annotation(
         Placement(transformation(origin = {-84, -22}, extent = {{-10, -10}, {10, 10}})));

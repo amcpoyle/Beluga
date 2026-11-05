@@ -3,7 +3,7 @@
 import casadi as ca
 import numpy as np
 
-from laptime_core.vehicle import MPC_ALPHA_MAX, MPC_KAPPA_MAX
+from laptime_core.vehicle import MPC_SIGMA_MAX, combined_slip_sq
 
 from .actuation import RateActuator
 
@@ -27,7 +27,7 @@ class TimePlant:
         # slip_stop=False treats combined slip as a recorded performance measure
         # (thesis Sec. 7.3.1) instead of a run-ending limit; other checks still stop.
         self.slip_stop = slip_stop
-        self.slip_peak = (MPC_KAPPA_MAX, float(np.tan(MPC_ALPHA_MAX)))   # (kappa, tan alpha) of rho = 1
+        self.slip_peak = (MPC_SIGMA_MAX, MPC_SIGMA_MAX)   # brush |sigma| of rho = 1 (laptime_core/vehicle.py)
         self.nx = vehicle.nx + 2
         self.names = vehicle.names + ["s", "n"]
         x, u, dt = ca.MX.sym("plant_x", self.nx), ca.MX.sym("plant_u", 3), ca.MX.sym("dt")
@@ -46,7 +46,7 @@ class TimePlant:
 
     def metrics(self, x):
         i, s, n = self.vehicle.i, x[-2], x[-1]
-        rho = np.array([np.hypot(x[i[f"kappa{w}"]] / self.slip_peak[0], x[i[f"tanAlpha{w}"]] / self.slip_peak[1])
+        rho = np.array([np.sqrt(combined_slip_sq(x[i[f"kappa{w}"]], x[i[f"tanAlpha{w}"]], self.slip_peak))
                         for w in ("FL", "FR", "RL", "RR")])
         drive, brake = x[i["drive"]], x[i["brake"]]
         return dict(rho=rho, track_violation=max(0.0, n - float(self.track.w_left(s)) + self.car_half_width + self.track_margin,

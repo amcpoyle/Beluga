@@ -191,20 +191,18 @@
   },
   "plant_tire": {
     "tire": {
-      "fzRef1": 2000.0,
-      "fzRef2": 6000.0,
-      "muXMax1": 1.75,
-      "muXMax2": 1.4,
-      "muYMax1": 1.8,
-      "muYMax2": 1.45,
-      "kappaMax1": 0.11,
-      "kappaMax2": 0.1,
-      "alphaMax1": 0.15707963267948966,
-      "alphaMax2": 0.13962634015954636,
-      "qx": 1.9,
-      "qy": 1.9
+      "Fz0": 4000.0,
+      "mu0": 1.6,
+      "n_mu": 0.85,
+      "a0": 0.08,
+      "na": 0.4,
+      "c_p": 1.2e7,
+      "d_min": 0.05,
+      "eps_sigma": 1e-4,
+      "eps_lambda": 1e-3,
+      "fzMin": 100.0
     },
-    "source": "compiled plant MFForces constants (fmu modelDescription)"
+    "source": "plant BrushParameters defaults (AlyssaModel.mo TireForces.BrushParameters); MF constants in git history"
   },
   "wheel_dynamics": {
     "J": 1.2,

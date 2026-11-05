@@ -18,8 +18,8 @@ Constraints:
     track tube      the lateral offset stays inside the track corridor (track width minus car half-width
                     and the plant's margin); hard, or an exact L1 penalty with Settings.tube_penalty
     Frenet          1 - kappa*n >= 0.05, so the path coordinates stay valid
-    slip            hard: rho^2 = (kappa/kappa_peak)^2 + (tan(alpha)/tan_alpha_peak)^2
-                    <= slip_limit^2 per wheel at every collocation point (Limits; None = off), from the
+    slip            hard: rho^2 = ((kappa/kappa_peak)^2 + (tan(alpha)/tan_alpha_peak)^2) / (1+kappa)^2
+                    (brush |sigma|^2 / sigma_max^2, laptime_core/vehicle.py) <= slip_limit^2 per wheel at every collocation point (Limits; None = off), from the
                     predictor's slip; Settings.slip_recovery relaxes it while a wheel is already over;
                     Settings.slip_penalty makes it soft (an exact L1 penalty), for run_mpc's fallback solve
     bounds          minimum speed, steering angle, pedal and rate limits
@@ -40,7 +40,7 @@ import time
 import casadi as ca
 import numpy as np
 
-from laptime_core.vehicle import MPC_ALPHA_MAX, MPC_KAPPA_MAX
+from laptime_core.vehicle import MPC_SIGMA_MAX, SLIP_MODEL, combined_slip_sq
 
 BUILD = Path(__file__).resolve().parent/"build"
 GCC = Path(os.environ.get("BELUGA_GCC") or shutil.which("gcc") or "C:/msys64/mingw64/bin/gcc.exe")
@@ -114,11 +114,12 @@ class Limits:
     margin: float = .2
     tube_buffer: float = 0.  # MPC corridor only, inside the plant's checked corridor (half-width + margin)
     corridor_window: float = 0.  # archived corridor envelope (OCModelica: ThesisMPC/docs/archive/code/ThesisMPC/simple/road.py); must stay 0
-    # combined-slip limit, wider than the lap-time OCP's (laptime_core/vehicle.py MPC_KAPPA_MAX, MPC_ALPHA_MAX);
-    # slip_limit None = no slip rows
+    # combined-slip limit, same as the lap-time OCP's (laptime_core/vehicle.py MPC_SIGMA_MAX); kappa_peak and
+    # tan_alpha_peak are both the brush |sigma| scale. slip_limit None = no slip rows
     slip_limit: float | None = 1.
-    kappa_peak: float = MPC_KAPPA_MAX
-    tan_alpha_peak: float = float(np.tan(MPC_ALPHA_MAX))
+    kappa_peak: float = MPC_SIGMA_MAX
+    tan_alpha_peak: float = MPC_SIGMA_MAX
+    slip_model: str = SLIP_MODEL  # recorded so plots use the right formula; runs without it are MF
 
 
 @dataclass(frozen=True)
@@ -213,7 +214,7 @@ class MPC:
         def combined_slip(x, u):
             """rho^2 per wheel as the lap-time OCP defines it, from the predictor's kappa and tan(alpha)."""
             kt = model.slip_kappa_tan_alpha(x, u, road.kappa(x[3]))
-            return (kt[:4]/lim.kappa_peak)**2+(kt[4:]/lim.tan_alpha_peak)**2
+            return combined_slip_sq(kt[:4], kt[4:], (lim.kappa_peak, lim.tan_alpha_peak))
 
         def add(rows, expr, lo, hi, label, idx):
             expr = ca.vec(expr)

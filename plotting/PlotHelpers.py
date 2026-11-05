@@ -627,30 +627,54 @@ def plot_defects_vs_s(data, topN=6, threshold=0.1, ax=None):
     return fig, ax
 
 
+def slip_rho2_mf(kappa, tan_alpha, sp):
+    """MF-tire runs: ellipse (kappa/kappa_max)^2 + (tanA/tanA_max)^2, sp = (kappa_max, tanA_max, ...)."""
+    return (kappa/sp[0])**2 + (tan_alpha/sp[1])**2
+
+
+def slip_rho2_brush(kappa, tan_alpha, sp):
+    """Brush-tire runs: |sigma|^2 / sigma_max^2 with sigma = (kappa, tanA)/(1 + kappa), sp = (sigma_max, sigma_max, ...)
+    (laptime_core/vehicle.py combined_slip_sq, 1 + kappa floored at 0.05 like BrushForces)."""
+    d = np.maximum(1 + kappa, 0.05)
+    return ((kappa/sp[0])**2 + (tan_alpha/sp[1])**2) / d**2
+
+
+SLIP_RHO2 = {"mf": slip_rho2_mf, "brush": slip_rho2_brush}
+
+
+def slip_model(cfg):
+    """The run's tire model for the slip formula: config constraints.slip_model; runs without it are MF."""
+    return cfg.get("constraints", {}).get("slip_model") or "mf"
+
+
 def plot_slip_utilisation(data, ax=None):
     """
-    Combined normalised slip rho = sqrt((kappa/kappa_pk)^2 + (tanAlpha/tanAlpha_pk)^2)
-    per wheel at the final mesh points, against the configured limit. rho = 1
-    is the tire's friction peak; sitting on the limit through corners is
+    Combined normalised slip rho per wheel at the final mesh points, against the configured limit,
+    with the formula of the run's tire model (slip_model):
+        mf     rho = sqrt((kappa/kappa_max)^2 + (tanAlpha/tanAlpha_max)^2)
+        brush  rho = |sigma| / sigma_max, sigma = (kappa, tanAlpha) / (1 + kappa)
+    rho = 1 is the configured slip limit scale; sitting on the limit through corners is
     expected, sitting on it in traction zones is where defects come from.
     """
     sp = data["meta"]["config"].get("constraints", {}).get("slip_peak")
     if sp is None:
         raise ValueError("run config has no slip_peak")
+    model = slip_model(data["meta"]["config"])
+    rho2_fn = SLIP_RHO2[model]
     s = np.asarray(data["s"])
     if ax is None:
         fig, ax = plt.subplots(figsize=(13, 4))
     else:
         fig = ax.figure
     for w in ("FL", "FR", "RL", "RR"):
-        rho = np.hypot(signal(data, "kappa" + w)/sp[0], signal(data, "tanAlpha" + w)/sp[1])
+        rho = np.sqrt(rho2_fn(np.asarray(signal(data, "kappa" + w)), np.asarray(signal(data, "tanAlpha" + w)), sp))
         ax.plot(s, rho, lw=1.0, label=w)
     if sp[2] is None:
         ax.axhline(1.0, color="k", lw=1.0, ls="--", label="tire peak (no limit)")
     else:
         ax.axhline(sp[2], color="k", lw=1.0, label="limit %.2f" % sp[2])
     ax.set_xlabel("s [m]"); ax.set_ylabel("combined slip / peak")
-    ax.set_title("%s  --  tire slip utilisation" % data["meta"]["track"])
+    ax.set_title("%s  --  tire slip utilisation (%s tire)" % (data["meta"]["track"], "brush" if model == "brush" else "MF"))
     ax.grid(alpha=0.25); ax.legend(ncol=5, fontsize=8); ax.margins(x=0)
     fig.tight_layout()
     return fig, ax
@@ -744,8 +768,8 @@ def _chatter(data, X):
     if sp is not None and sp[2] is not None:
         for w in ("FL", "FR", "RL", "RR"):
             if "kappa" + w in names:
-                rho2 = ((X[:, :, names.index("kappa" + w)]/sp[0])**2
-                        + (X[:, :, names.index("tanAlpha" + w)]/sp[1])**2)
+                rho2 = SLIP_RHO2[slip_model(cfg)](X[:, :, names.index("kappa" + w)],
+                                                  X[:, :, names.index("tanAlpha" + w)], sp)
                 flips += count("slip " + w, rho2 > 0.98*sp[2]**2)
     labels = list(by)
     if not labels:

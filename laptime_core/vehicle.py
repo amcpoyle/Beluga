@@ -72,15 +72,42 @@ def state_names(fmu_x):
 # {"rigController.driveBrakeTorque.tEps": 1.0}
 DEFAULT_PARAMS = {}
 PEDAL_RATE_PARAM = "rigController.pedalSmoothing.vehicleParams.maxPedalRate"  # [1/s]
-# Combined-slip limits per wheel: (kappa/kappa_max)^2 + (tan(alpha)/tan(alpha_max))^2 <= 1, each maximum with the other slip zero.
-# The tire model peaks at kappa 0.10-0.11 and alpha 8-9 deg depending on load (AlyssaModel.mo MFForces). The lap-time OCP stays
-# at the high-load peak, so its line is one the MPC can follow; past the peak the wheel-spin dynamics are unstable, and limits
-# of 0.15 and 0.18 rad gave a line with slip spikes that the MPC could not finish a lap on. The MPC's own limits are wider, so
-# that it has slip to recover with when the plant is off the line.
-OCP_KAPPA_MAX = 0.10
-OCP_ALPHA_MAX = float(np.radians(8.0))   # [rad]
-MPC_KAPPA_MAX = 0.15
-MPC_ALPHA_MAX = 0.18                     # [rad]
+# Combined-slip limit per wheel, brush tire (AlyssaModel.mo TireForces.BrushForces): theoretical slip
+# sigma = (kappa, tan(alpha)) / (1 + kappa); the tire is fully sliding at theta*|sigma| = 1 with
+# theta = C / (3 mu Fz) ~ 8, so |sigma| = SIGMA_SAT ~ 0.125. theta ~ Fz^-0.05, so the limit barely changes with load
+# (default BrushParameters, road mu = 1). Pure-slip peaks: brake kappa -0.111, drive kappa +0.143, alpha 7.1 deg.
+# combined_slip_sq(kappa, tanA, (s, s)) = |sigma|^2 / s^2; the OCP and MPC require it <= slip_limit^2.
+# Both run at 90% of saturation; with F = mu Fz (1 - (1 - lambda)^3) that is still 99.9% of the peak force.
+# MF tire (git history, commit 191de416): ellipse (kappa/0.10)^2 + (tanA/tan 8deg)^2 <= 1 (MPC 0.15, 0.18 rad).
+SIGMA_SAT = 0.125
+OCP_SIGMA_MAX = 0.9 * SIGMA_SAT
+MPC_SIGMA_MAX = OCP_SIGMA_MAX
+
+
+def combined_slip_sq(kappa, tan_alpha, peak):
+    """Brush combined slip squared, rho^2 = ((kappa/peak[0])^2 + (tanA/peak[1])^2) / d^2 with
+    d = smoothMax(1 + kappa, d_min = 0.05) as in BrushForces. peak = (sigma_max, sigma_max) gives
+    |sigma|^2 / sigma_max^2. Works on numpy arrays and CasADi expressions."""
+    a, b = 1 + kappa, 0.05
+    d = 0.5 * (a + b + ((a - b) ** 2 + 1e-12) ** 0.5)
+    return ((kappa / peak[0]) ** 2 + (tan_alpha / peak[1]) ** 2) / d ** 2
+
+
+def combined_slip_sq_mf(kappa, tan_alpha, peak):
+    """MF-tire combined slip squared (runs before the brush tire): ellipse
+    (kappa/peak[0])^2 + (tanA/peak[1])^2, peak = (kappa_max, tan alpha_max)."""
+    return (kappa / peak[0]) ** 2 + (tan_alpha / peak[1]) ** 2
+
+
+# the tire model a run was solved with: saved in its config (lap-time OCP: constraints.slip_model, MPC:
+# settings.limits.slip_model). Runs without the key are MF runs.
+SLIP_MODEL = "brush"
+_SLIP_FORMULAS = {"brush": combined_slip_sq, "mf": combined_slip_sq_mf}
+
+
+def combined_slip_sq_for(model, kappa, tan_alpha, peak):
+    """combined slip squared with the formula of a run's slip_model ("brush" or "mf"; None = "mf")."""
+    return _SLIP_FORMULAS[model or "mf"](kappa, tan_alpha, peak)
 
 # FMU inputs in the order used on the Python side, all rates in -1 .. 1:
 # driveRate, brakeRate: pedal rates as a fraction of maxPedalRate

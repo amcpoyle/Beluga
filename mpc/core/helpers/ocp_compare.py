@@ -20,6 +20,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from laptime_core.history import POST_DIR
+from laptime_core.vehicle import combined_slip_sq_for
 
 from ..case import ocp_plant_state
 from ..plant.reference import LapReference
@@ -64,9 +65,10 @@ def load_ocp(name, run):
 
 
 def _slip_scale(run):
-    """(kappa, tan alpha) of rho = 1 in the run's saved settings: the scale of its recorded plant rho."""
+    """(kappa, tan alpha) of rho = 1 in the run's saved settings, the scale of its recorded plant rho, and the
+    slip formula it used ("brush" or "mf"; runs before the brush tire have no slip_model: "mf")."""
     limits = run.report["settings"]["limits"]
-    return limits["kappa_peak"], limits["tan_alpha_peak"]
+    return limits["kappa_peak"], limits["tan_alpha_peak"], limits.get("slip_model", "mf")
 
 
 def _ocp_states(ocp, s0, s1, slip_scale):
@@ -83,7 +85,8 @@ def _ocp_states(ocp, s0, s1, slip_scale):
         row = ocp.ref.project(state)
         row[3] += lap*L
         x.append(row)
-        rho.append([np.hypot(state[plant.i["kappa"+w]]/slip_scale[0], state[plant.i["tanAlpha"+w]]/slip_scale[1])
+        rho.append([np.sqrt(combined_slip_sq_for(slip_scale[2], state[plant.i["kappa"+w]], state[plant.i["tanAlpha"+w]],
+                                                 slip_scale[:2]))
                     for w in WHEELS])
     return np.array(x), np.array(rho)
 
@@ -267,8 +270,10 @@ def plot_traces(c):
         if mpc is None:
             n = len(run.plant_rho)
             ax.plot(x[1:n+1, 3], run.plant_rho.max(axis=1), color=MPC_COLOR, lw=.9, label="MPC")
-            kappa, tan_alpha = _slip_scale(run)
-            ax.axhline(1, color=INK, ls="--", lw=.8, label=f"rho = 1 (kappa {kappa:.3g}, alpha {np.arctan(tan_alpha):.3g} rad)")
+            kappa, tan_alpha, model = _slip_scale(run)
+            scale = (f"brush |sigma| {kappa:.3g}" if model == "brush"
+                     else f"MF kappa {kappa:.3g}, alpha {np.arctan(tan_alpha):.3g} rad")
+            ax.axhline(1, color=INK, ls="--", lw=.8, label=f"rho = 1 ({scale})")
         else:
             ax.plot(x[:, 3], mpc, color=MPC_COLOR, lw=.9, label="MPC")
         ax.set_ylabel(name, fontsize=9, color=TRACK_EDGE)

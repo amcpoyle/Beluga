@@ -18,6 +18,8 @@ Get it? Beluga... like the whale?
 - Note: you need OpenModelica installed
 - Build the FMU (from the fmu folder): "omc build_fmu.mos"
 - Running a minimum lap time sim for FMU converted to CasADi: python -m omc2casadi_opt.run_min_laptime
+- Look at the finished lap time run: "python -B omc2casadi_opt/build_run_notebook.py [run name]" (no name = newest in post/);
+omc2casadi_opt/notebooks/ResultsLog.ipynb will contain the plots
 - Running the MPC:
 1) "python -m mpc.workflows.run_mpc" (specify settings in run_mpc)
 2) look at the finished run: "python -B mpc/diagnostics/build_run_notebook.py"

@@ -81,11 +81,11 @@ MPC_SETTINGS = Settings(
     tube_extra=True,                     # also enforce the tube midway between collocation points
     # Physical limits: corridor = track width - car half-width 1.0 - margin 0.2 m,
     # steering 0.35 rad and 5 rad/s, pedals 10 /s, combined slip with
-    # rho^2 = (kappa/kappa_max)^2 + (tan(alpha)/tan(alpha_max))^2, wider than the lap-time OCP's limits (the Limits
-    # defaults, laptime_core/vehicle.py). The plant's track corridor is checked against these; its slip is only
-    # recorded, on this scale. The MPC plans with margins for the plant not following the predictor exactly:
-    # 5 cm inside the corridor and rho <= 0.95.
-    limits=Limits(tube_buffer=.05, slip_limit=.95),
+    # brush rho = |sigma| / sigma_max <= 1, the same limit as the lap-time OCP (the Limits defaults,
+    # laptime_core/vehicle.py). The plant's track corridor is checked against these; its slip is only
+    # recorded, on this scale. The MPC plans 5 cm inside the corridor for the plant not following the predictor
+    # exactly. (MF runs used slip_limit=.95 on a wider ellipse.)
+    limits=Limits(tube_buffer=.05, slip_limit=1.),
     # Slip rows as exact L1-penalised soft constraints (penalty per unit of rho^2 excess at each wheel and
     # collocation point): the hard rows' plan whenever one exists (the penalty exceeds the hard rows' multipliers,
     # at most ~1e3 in the failed updates), else the plan with the least excess. FATROP has no adaptive barrier and

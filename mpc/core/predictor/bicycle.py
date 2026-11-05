@@ -12,8 +12,9 @@ Every force law is transcribed from AlyssaModel.mo with its compiled constants:
     torques      DriveBrakeTorque: brake bias, equal per side, rear drive min(T_max, P/omega_rear)
     slip         SlipDynamics at steady state (relaxation lengths 0.3/0.5 m are ~5 ms at speed):
                  kappa = (vw - vx_w)/|vx_w|, tan(alpha) = -vy_w/|vx_w|   (vMin = 1 m/s floor)
-    tire         MFForces: kN = kappa/kappaMax(Fz), aN = alpha/alphaMax(Fz), rho = |(kN, aN)|,
-                 Fx = muX(Fz) Fz sin(qx atan(sx rho)) kN/rho, Fy likewise with aN
+    tire         BrushForces: sigma = (kappa, tan alpha)/smoothMax(1+kappa, d_min), theta = C/(3 mu Fz),
+                 lambda = theta |sigma|, F = mu Fz (1 - p^3) with p = smoothMax(1 - lambda, 0),
+                 (Fx, Fy) = F sigma/|sigma|; mu, C load dependent (mu0, n_mu, a0, na, c_p)
     aero         VehicleAero drag 0.5 rho A Cd vx^2; downforce enters the loads
     loads        quasi-static per wheel (axle_loads) with the plant aero geometry and fitted
                  lateral transfer (left = axle/2 - k m ay), two passes: torque-based ax and
@@ -70,7 +71,7 @@ class WheelBicycle:
     def __init__(self, vehicle, actuator, constants, tire, wheel, smoothing=.02):
         """vehicle: mass, yaw_inertia, lf, lr, gravity; actuator: plant brake/drive torques, brake bias
         and engine power; constants: plant aero and geometry plus the fitted lateral load transfer;
-        tire: plant MFForces constants; wheel: plant Rim/SlipDynamics constants (and OPTIONAL);
+        tire: plant BrushParameters constants; wheel: plant Rim/SlipDynamics constants (and OPTIONAL);
         smoothing: width of the smooth drive/brake split at the pedal sign change."""
         self.vehicle = v = SimpleNamespace(**{k: float(vehicle[k]) for k in VEHICLE_KEYS})
         self.actuator = a = {k: float(actuator[k]) for k in ACTUATOR_KEYS}
@@ -93,10 +94,9 @@ class WheelBicycle:
         position = [(lf, half[0]), (lf, -half[1]), (-lr, half[2]), (-lr, -half[3])]
         toe = w["rear_toe"]                     # static toe-in (rad): RL points right, RR left
         steer = [delta, delta, -toe, toe]
-        sx, sy = np.tan(np.pi/(2*t["qx"])), np.tan(np.pi/(2*t["qy"]))
 
-        def interp(name, fz):
-            return t[name+"1"]+(t[name+"2"]-t[name+"1"])*(fz-t["fzRef1"])/(t["fzRef2"]-t["fzRef1"])
+        def smooth_max(a, b, eps=1e-6):             # AlyssaModel.mo Functions.smoothMax
+            return .5*(a+b+ca.sqrt((a-b)**2+eps**2))
 
         def smooth_sign(value, eps):
             return value/ca.sqrt(value**2+eps**2)
@@ -111,13 +111,22 @@ class WheelBicycle:
             tan_alphas.append(-wy/speed)
 
         def tire_forces(loads):
+            # BrushForces (road mu = 1). tan_a = -wy/speed is the plant's tanAlpha (SAE y right), so the
+            # plant's fy = -F sigma_y/|sigma| (y right) is +F sigma_y/|sigma| here (y left).
+            # rho is the slip use lambda = theta |sigma| (1 = fully sliding).
             out = []
-            for (kappa, alpha), fz in zip(slips, loads):
-                kn, an = kappa/interp("kappaMax", fz), alpha/interp("alphaMax", fz)
-                rho = ca.sqrt(kn**2+an**2+1e-8)
-                fx = interp("muXMax", fz)*fz*ca.sin(t["qx"]*ca.atan(sx*rho))*kn/rho
-                fy = interp("muYMax", fz)*fz*ca.sin(t["qy"]*ca.atan(sy*rho))*an/rho
-                out.append((fx, fy, rho))
+            for (kappa, _), tan_a, fz in zip(slips, tan_alphas, loads):
+                fz_eff = smooth_max(fz, t["fzMin"])
+                mu = t["mu0"]*(fz_eff/t["Fz0"])**(t["n_mu"]-1)
+                a = t["a0"]*(fz_eff/t["Fz0"])**t["na"]
+                theta = 2*t["c_p"]*a**2/(3*mu*fz_eff)
+                d = smooth_max(1+kappa, t["d_min"])
+                sig_x, sig_y = kappa/d, tan_a/d
+                sig = ca.sqrt(sig_x**2+sig_y**2+t["eps_sigma"]**2)
+                lam = theta*sig
+                p = .5*((1-lam)+ca.sqrt((1-lam)**2+t["eps_lambda"]**2))
+                force = mu*fz_eff*(1-p**3)
+                out.append((force*sig_x/sig, force*sig_y/sig, lam))
             return out
 
         def body(forces):

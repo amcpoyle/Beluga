@@ -31,7 +31,7 @@ from .ocp import LapTimeOCP
 from .solver_config import load_solver_config
 from .paths import REPO
 from .track import Track
-from .vehicle import CONTROLS, DEFAULT_PARAMS, OCP_ALPHA_MAX, OCP_KAPPA_MAX, PEDAL_RATE_PARAM
+from .vehicle import CONTROLS, DEFAULT_PARAMS, OCP_SIGMA_MAX, PEDAL_RATE_PARAM, combined_slip_sq
 
 # ------------------------------------------------------------------------------ default run settings
 DEFAULTS = dict(
@@ -56,9 +56,8 @@ DEFAULTS = dict(
                                 # velocity u, v and wheel speed relative to rolling dwXX (see ocp.py)
     margin=0.3,               # [m] the line stays this far inside the track, on top of the car's half-width 1.0 m. The MPC
                               # plant stops at 0.2 m (mpc/config/plant.json), so the plant has 0.1 m of room to miss the line
-    kappa_max=OCP_KAPPA_MAX,  # max slip ratio [-] with no slip angle (laptime_core/vehicle.py)
-    alpha_max=OCP_ALPHA_MAX,  # max slip angle [rad] with no slip ratio
-    slip_limit=1.0,           # max combined normalized slip (kappa/kappa_max)^2 + (tanA/tan alpha_max)^2 <= slip_limit^2;
+    sigma_max=OCP_SIGMA_MAX,  # brush theoretical slip |sigma| = |(kappa, tanA)| / (1 + kappa) of rho = 1 (laptime_core/vehicle.py)
+    slip_limit=1.0,           # max combined normalized slip rho = |sigma| / sigma_max <= slip_limit;
     slip_soft=False,          # True: enforce slip_limit with the smooth penalty
     w_slip=10.0,              # soft-limit weight [s]: a hard-limit multiplier of 1e-2 s balances at
     fmu_params={},            # FMU parameter overrides on top of laptime_core.vehicle.DEFAULT_PARAMS,
@@ -107,7 +106,7 @@ def build_ocp(args, veh, track, threads=None, segment=None):
     """LapTimeOCP with the settings' formulation on the uniform ds mesh; segment: an open segment
     (OCModelica: ThesisMPC/docs/archive/code/laptime/schwarz.py) instead of the closed lap. threads: None = args.threads."""
     return LapTimeOCP(veh, track, ds=args.ds, degree=args.degree, margin=args.margin, pedal_rate_max=args.pedal_rate,
-                      slip_peak=(args.kappa_max, np.tan(args.alpha_max), args.slip_limit),
+                      slip_peak=(args.sigma_max, args.sigma_max, args.slip_limit),
                       w_straight=args.w_straight, w_overlap=args.w_overlap, w_du=(args.w_du,) * 3,
                       w_rate=(args.w_pedal_rate, args.w_pedal_rate, args.w_steer_rate),
                       change_of_variables=args.change_of_variables, slip_soft=args.slip_soft, w_slip=args.w_slip,
@@ -252,9 +251,10 @@ def main(settings, build_vehicle, **overrides):
     overlap = np.minimum(res["pedals"][0], res["pedals"][1])
     print(f"drive/brake overlap  max {overlap.max():.3f}, at {int(np.sum(overlap > 0.01))} of {ocp.N} mesh points (> 0.01)")
     print(f"LAP TIME          {res['lap_time']:.3f} s   (initial guess {res0['lap_time']:.2f} s)")
-    rho = {w: np.hypot(res["x"][veh.i[f"kappa{w}"]] / args.kappa_max, res["x"][veh.i[f"tanAlpha{w}"]] / np.tan(args.alpha_max))
+    sp = (args.sigma_max, args.sigma_max)
+    rho = {w: np.sqrt(combined_slip_sq(res["x"][veh.i[f"kappa{w}"]], res["x"][veh.i[f"tanAlpha{w}"]], sp))
            for w in ("FL", "FR", "RL", "RR")}
-    print(f"combined slip / (kappa {args.kappa_max:g}, alpha {args.alpha_max:g} rad), max per wheel: " + ", ".join(f"{w} {r.max():.2f}" for w, r in rho.items())
+    print(f"combined slip |sigma| / {args.sigma_max:g}, max per wheel: " + ", ".join(f"{w} {r.max():.2f}" for w, r in rho.items())
           + f"  (limit {args.slip_limit}, {'soft' if args.slip_soft else 'hard'})")
     pen = [float(p) * 1e3 for p in ocp.penalty_fn(w)]
     print("penalties [ms]    " + ", ".join(f"{k} {p:.2f}" for k, p in zip(ocp.penalty_names, pen))

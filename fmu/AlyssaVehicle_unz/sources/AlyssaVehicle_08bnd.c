@@ -6,14 +6,14 @@ extern "C" {
 
 
 /*
-equation index: 10546
+equation index: 10568
 type: SIMPLE_ASSIGN
 $START.rig.motion.heave.s = rig.motion.zChassis0
 */
-static void AlyssaVehicle_eqFunction_10546(DATA *data, threadData_t *threadData)
+static void AlyssaVehicle_eqFunction_10568(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
-  const int equationIndexes[2] = {1,10546};
+  const int equationIndexes[2] = {1,10568};
   (data->modelData->realVarsData[0] /* rig.motion.heave.s STATE(1,rig.motion.heave.v) */).attribute .start = (data->simulationInfo->realParameter[219] /* rig.motion.zChassis0 PARAM */);
     (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[0]] /* rig.motion.heave.s STATE(1,rig.motion.heave.v) */) = (data->modelData->realVarsData[0] /* rig.motion.heave.s STATE(1,rig.motion.heave.v) */).attribute .start;
     infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[0].info /* rig.motion.heave.s */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[0]] /* rig.motion.heave.s STATE(1,rig.motion.heave.v) */));
@@ -21,514 +21,514 @@ static void AlyssaVehicle_eqFunction_10546(DATA *data, threadData_t *threadData)
 }
 
 /*
-equation index: 10547
-type: SIMPLE_ASSIGN
-$START.vehicle.rearSuspension.cornerL.upright.z_a[3] = vehicle.rearSuspension.cornerL.upright.z_0_start[3]
-*/
-static void AlyssaVehicle_eqFunction_10547(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,10547};
-  (data->modelData->realVarsData[3998] /* vehicle.rearSuspension.cornerL.upright.z_a[3] variable */).attribute .start = (data->simulationInfo->realParameter[2511] /* vehicle.rearSuspension.cornerL.upright.z_0_start[3] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3998]] /* vehicle.rearSuspension.cornerL.upright.z_a[3] variable */) = (data->modelData->realVarsData[3998] /* vehicle.rearSuspension.cornerL.upright.z_a[3] variable */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[3998].info /* vehicle.rearSuspension.cornerL.upright.z_a[3] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3998]] /* vehicle.rearSuspension.cornerL.upright.z_a[3] variable */));
-  TRACE_POP
-}
-
-/*
-equation index: 10548
-type: SIMPLE_ASSIGN
-$START.vehicle.rearSuspension.cornerL.upright.z_a[2] = vehicle.rearSuspension.cornerL.upright.z_0_start[2]
-*/
-static void AlyssaVehicle_eqFunction_10548(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,10548};
-  (data->modelData->realVarsData[3997] /* vehicle.rearSuspension.cornerL.upright.z_a[2] variable */).attribute .start = (data->simulationInfo->realParameter[2510] /* vehicle.rearSuspension.cornerL.upright.z_0_start[2] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3997]] /* vehicle.rearSuspension.cornerL.upright.z_a[2] variable */) = (data->modelData->realVarsData[3997] /* vehicle.rearSuspension.cornerL.upright.z_a[2] variable */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[3997].info /* vehicle.rearSuspension.cornerL.upright.z_a[2] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3997]] /* vehicle.rearSuspension.cornerL.upright.z_a[2] variable */));
-  TRACE_POP
-}
-
-/*
-equation index: 10549
-type: SIMPLE_ASSIGN
-$START.vehicle.rearSuspension.cornerL.upright.z_a[1] = vehicle.rearSuspension.cornerL.upright.z_0_start[1]
-*/
-static void AlyssaVehicle_eqFunction_10549(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,10549};
-  (data->modelData->realVarsData[3996] /* vehicle.rearSuspension.cornerL.upright.z_a[1] variable */).attribute .start = (data->simulationInfo->realParameter[2509] /* vehicle.rearSuspension.cornerL.upright.z_0_start[1] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3996]] /* vehicle.rearSuspension.cornerL.upright.z_a[1] variable */) = (data->modelData->realVarsData[3996] /* vehicle.rearSuspension.cornerL.upright.z_a[1] variable */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[3996].info /* vehicle.rearSuspension.cornerL.upright.z_a[1] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3996]] /* vehicle.rearSuspension.cornerL.upright.z_a[1] variable */));
-  TRACE_POP
-}
-
-/*
-equation index: 10550
-type: SIMPLE_ASSIGN
-$START.vehicle.rearSuspension.cornerL.upright.w_a[3] = vehicle.rearSuspension.cornerL.upright.w_0_start[3]
-*/
-static void AlyssaVehicle_eqFunction_10550(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,10550};
-  (data->modelData->realVarsData[3995] /* vehicle.rearSuspension.cornerL.upright.w_a[3] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[2508] /* vehicle.rearSuspension.cornerL.upright.w_0_start[3] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3995]] /* vehicle.rearSuspension.cornerL.upright.w_a[3] DUMMY_STATE */) = (data->modelData->realVarsData[3995] /* vehicle.rearSuspension.cornerL.upright.w_a[3] DUMMY_STATE */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[3995].info /* vehicle.rearSuspension.cornerL.upright.w_a[3] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3995]] /* vehicle.rearSuspension.cornerL.upright.w_a[3] DUMMY_STATE */));
-  TRACE_POP
-}
-
-/*
-equation index: 10551
-type: SIMPLE_ASSIGN
-$START.vehicle.rearSuspension.cornerL.upright.w_a[2] = vehicle.rearSuspension.cornerL.upright.w_0_start[2]
-*/
-static void AlyssaVehicle_eqFunction_10551(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,10551};
-  (data->modelData->realVarsData[3994] /* vehicle.rearSuspension.cornerL.upright.w_a[2] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[2507] /* vehicle.rearSuspension.cornerL.upright.w_0_start[2] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3994]] /* vehicle.rearSuspension.cornerL.upright.w_a[2] DUMMY_STATE */) = (data->modelData->realVarsData[3994] /* vehicle.rearSuspension.cornerL.upright.w_a[2] DUMMY_STATE */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[3994].info /* vehicle.rearSuspension.cornerL.upright.w_a[2] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3994]] /* vehicle.rearSuspension.cornerL.upright.w_a[2] DUMMY_STATE */));
-  TRACE_POP
-}
-
-/*
-equation index: 10552
-type: SIMPLE_ASSIGN
-$START.vehicle.rearSuspension.cornerL.upright.w_a[1] = vehicle.rearSuspension.cornerL.upright.w_0_start[1]
-*/
-static void AlyssaVehicle_eqFunction_10552(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,10552};
-  (data->modelData->realVarsData[3993] /* vehicle.rearSuspension.cornerL.upright.w_a[1] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[2506] /* vehicle.rearSuspension.cornerL.upright.w_0_start[1] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3993]] /* vehicle.rearSuspension.cornerL.upright.w_a[1] DUMMY_STATE */) = (data->modelData->realVarsData[3993] /* vehicle.rearSuspension.cornerL.upright.w_a[1] DUMMY_STATE */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[3993].info /* vehicle.rearSuspension.cornerL.upright.w_a[1] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3993]] /* vehicle.rearSuspension.cornerL.upright.w_a[1] DUMMY_STATE */));
-  TRACE_POP
-}
-
-/*
-equation index: 10553
-type: SIMPLE_ASSIGN
-$START.vehicle.rearSuspension.cornerR.upright.z_a[3] = vehicle.rearSuspension.cornerR.upright.z_0_start[3]
-*/
-static void AlyssaVehicle_eqFunction_10553(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,10553};
-  (data->modelData->realVarsData[4858] /* vehicle.rearSuspension.cornerR.upright.z_a[3] variable */).attribute .start = (data->simulationInfo->realParameter[3158] /* vehicle.rearSuspension.cornerR.upright.z_0_start[3] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4858]] /* vehicle.rearSuspension.cornerR.upright.z_a[3] variable */) = (data->modelData->realVarsData[4858] /* vehicle.rearSuspension.cornerR.upright.z_a[3] variable */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[4858].info /* vehicle.rearSuspension.cornerR.upright.z_a[3] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4858]] /* vehicle.rearSuspension.cornerR.upright.z_a[3] variable */));
-  TRACE_POP
-}
-
-/*
-equation index: 10554
-type: SIMPLE_ASSIGN
-$START.vehicle.rearSuspension.cornerR.upright.z_a[2] = vehicle.rearSuspension.cornerR.upright.z_0_start[2]
-*/
-static void AlyssaVehicle_eqFunction_10554(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,10554};
-  (data->modelData->realVarsData[4857] /* vehicle.rearSuspension.cornerR.upright.z_a[2] variable */).attribute .start = (data->simulationInfo->realParameter[3157] /* vehicle.rearSuspension.cornerR.upright.z_0_start[2] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4857]] /* vehicle.rearSuspension.cornerR.upright.z_a[2] variable */) = (data->modelData->realVarsData[4857] /* vehicle.rearSuspension.cornerR.upright.z_a[2] variable */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[4857].info /* vehicle.rearSuspension.cornerR.upright.z_a[2] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4857]] /* vehicle.rearSuspension.cornerR.upright.z_a[2] variable */));
-  TRACE_POP
-}
-
-/*
-equation index: 10555
-type: SIMPLE_ASSIGN
-$START.vehicle.rearSuspension.cornerR.upright.z_a[1] = vehicle.rearSuspension.cornerR.upright.z_0_start[1]
-*/
-static void AlyssaVehicle_eqFunction_10555(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,10555};
-  (data->modelData->realVarsData[4856] /* vehicle.rearSuspension.cornerR.upright.z_a[1] variable */).attribute .start = (data->simulationInfo->realParameter[3156] /* vehicle.rearSuspension.cornerR.upright.z_0_start[1] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4856]] /* vehicle.rearSuspension.cornerR.upright.z_a[1] variable */) = (data->modelData->realVarsData[4856] /* vehicle.rearSuspension.cornerR.upright.z_a[1] variable */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[4856].info /* vehicle.rearSuspension.cornerR.upright.z_a[1] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4856]] /* vehicle.rearSuspension.cornerR.upright.z_a[1] variable */));
-  TRACE_POP
-}
-
-/*
-equation index: 10556
-type: SIMPLE_ASSIGN
-$START.vehicle.rearSuspension.cornerR.upright.w_a[3] = vehicle.rearSuspension.cornerR.upright.w_0_start[3]
-*/
-static void AlyssaVehicle_eqFunction_10556(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,10556};
-  (data->modelData->realVarsData[4855] /* vehicle.rearSuspension.cornerR.upright.w_a[3] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[3155] /* vehicle.rearSuspension.cornerR.upright.w_0_start[3] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4855]] /* vehicle.rearSuspension.cornerR.upright.w_a[3] DUMMY_STATE */) = (data->modelData->realVarsData[4855] /* vehicle.rearSuspension.cornerR.upright.w_a[3] DUMMY_STATE */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[4855].info /* vehicle.rearSuspension.cornerR.upright.w_a[3] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4855]] /* vehicle.rearSuspension.cornerR.upright.w_a[3] DUMMY_STATE */));
-  TRACE_POP
-}
-
-/*
-equation index: 10557
-type: SIMPLE_ASSIGN
-$START.vehicle.rearSuspension.cornerR.upright.w_a[2] = vehicle.rearSuspension.cornerR.upright.w_0_start[2]
-*/
-static void AlyssaVehicle_eqFunction_10557(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,10557};
-  (data->modelData->realVarsData[4854] /* vehicle.rearSuspension.cornerR.upright.w_a[2] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[3154] /* vehicle.rearSuspension.cornerR.upright.w_0_start[2] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4854]] /* vehicle.rearSuspension.cornerR.upright.w_a[2] DUMMY_STATE */) = (data->modelData->realVarsData[4854] /* vehicle.rearSuspension.cornerR.upright.w_a[2] DUMMY_STATE */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[4854].info /* vehicle.rearSuspension.cornerR.upright.w_a[2] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4854]] /* vehicle.rearSuspension.cornerR.upright.w_a[2] DUMMY_STATE */));
-  TRACE_POP
-}
-
-/*
-equation index: 10558
-type: SIMPLE_ASSIGN
-$START.vehicle.rearSuspension.cornerR.upright.w_a[1] = vehicle.rearSuspension.cornerR.upright.w_0_start[1]
-*/
-static void AlyssaVehicle_eqFunction_10558(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,10558};
-  (data->modelData->realVarsData[4853] /* vehicle.rearSuspension.cornerR.upright.w_a[1] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[3153] /* vehicle.rearSuspension.cornerR.upright.w_0_start[1] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4853]] /* vehicle.rearSuspension.cornerR.upright.w_a[1] DUMMY_STATE */) = (data->modelData->realVarsData[4853] /* vehicle.rearSuspension.cornerR.upright.w_a[1] DUMMY_STATE */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[4853].info /* vehicle.rearSuspension.cornerR.upright.w_a[1] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4853]] /* vehicle.rearSuspension.cornerR.upright.w_a[1] DUMMY_STATE */));
-  TRACE_POP
-}
-
-/*
-equation index: 10559
-type: SIMPLE_ASSIGN
-$START.vehicle.frontSuspension.cornerL.upright.z_a[3] = vehicle.frontSuspension.cornerL.upright.z_0_start[3]
-*/
-static void AlyssaVehicle_eqFunction_10559(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,10559};
-  (data->modelData->realVarsData[2120] /* vehicle.frontSuspension.cornerL.upright.z_a[3] variable */).attribute .start = (data->simulationInfo->realParameter[1004] /* vehicle.frontSuspension.cornerL.upright.z_0_start[3] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2120]] /* vehicle.frontSuspension.cornerL.upright.z_a[3] variable */) = (data->modelData->realVarsData[2120] /* vehicle.frontSuspension.cornerL.upright.z_a[3] variable */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2120].info /* vehicle.frontSuspension.cornerL.upright.z_a[3] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2120]] /* vehicle.frontSuspension.cornerL.upright.z_a[3] variable */));
-  TRACE_POP
-}
-
-/*
-equation index: 10560
-type: SIMPLE_ASSIGN
-$START.vehicle.frontSuspension.cornerL.upright.z_a[2] = vehicle.frontSuspension.cornerL.upright.z_0_start[2]
-*/
-static void AlyssaVehicle_eqFunction_10560(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,10560};
-  (data->modelData->realVarsData[2119] /* vehicle.frontSuspension.cornerL.upright.z_a[2] variable */).attribute .start = (data->simulationInfo->realParameter[1003] /* vehicle.frontSuspension.cornerL.upright.z_0_start[2] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2119]] /* vehicle.frontSuspension.cornerL.upright.z_a[2] variable */) = (data->modelData->realVarsData[2119] /* vehicle.frontSuspension.cornerL.upright.z_a[2] variable */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2119].info /* vehicle.frontSuspension.cornerL.upright.z_a[2] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2119]] /* vehicle.frontSuspension.cornerL.upright.z_a[2] variable */));
-  TRACE_POP
-}
-
-/*
-equation index: 10561
-type: SIMPLE_ASSIGN
-$START.vehicle.frontSuspension.cornerL.upright.z_a[1] = vehicle.frontSuspension.cornerL.upright.z_0_start[1]
-*/
-static void AlyssaVehicle_eqFunction_10561(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,10561};
-  (data->modelData->realVarsData[2118] /* vehicle.frontSuspension.cornerL.upright.z_a[1] variable */).attribute .start = (data->simulationInfo->realParameter[1002] /* vehicle.frontSuspension.cornerL.upright.z_0_start[1] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2118]] /* vehicle.frontSuspension.cornerL.upright.z_a[1] variable */) = (data->modelData->realVarsData[2118] /* vehicle.frontSuspension.cornerL.upright.z_a[1] variable */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2118].info /* vehicle.frontSuspension.cornerL.upright.z_a[1] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2118]] /* vehicle.frontSuspension.cornerL.upright.z_a[1] variable */));
-  TRACE_POP
-}
-
-/*
-equation index: 10562
-type: SIMPLE_ASSIGN
-$START.vehicle.frontSuspension.cornerL.upright.w_a[3] = vehicle.frontSuspension.cornerL.upright.w_0_start[3]
-*/
-static void AlyssaVehicle_eqFunction_10562(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,10562};
-  (data->modelData->realVarsData[2117] /* vehicle.frontSuspension.cornerL.upright.w_a[3] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[1001] /* vehicle.frontSuspension.cornerL.upright.w_0_start[3] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2117]] /* vehicle.frontSuspension.cornerL.upright.w_a[3] DUMMY_STATE */) = (data->modelData->realVarsData[2117] /* vehicle.frontSuspension.cornerL.upright.w_a[3] DUMMY_STATE */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2117].info /* vehicle.frontSuspension.cornerL.upright.w_a[3] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2117]] /* vehicle.frontSuspension.cornerL.upright.w_a[3] DUMMY_STATE */));
-  TRACE_POP
-}
-
-/*
-equation index: 10563
-type: SIMPLE_ASSIGN
-$START.vehicle.frontSuspension.cornerL.upright.w_a[2] = vehicle.frontSuspension.cornerL.upright.w_0_start[2]
-*/
-static void AlyssaVehicle_eqFunction_10563(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,10563};
-  (data->modelData->realVarsData[2116] /* vehicle.frontSuspension.cornerL.upright.w_a[2] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[1000] /* vehicle.frontSuspension.cornerL.upright.w_0_start[2] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2116]] /* vehicle.frontSuspension.cornerL.upright.w_a[2] DUMMY_STATE */) = (data->modelData->realVarsData[2116] /* vehicle.frontSuspension.cornerL.upright.w_a[2] DUMMY_STATE */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2116].info /* vehicle.frontSuspension.cornerL.upright.w_a[2] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2116]] /* vehicle.frontSuspension.cornerL.upright.w_a[2] DUMMY_STATE */));
-  TRACE_POP
-}
-
-/*
-equation index: 10564
-type: SIMPLE_ASSIGN
-$START.vehicle.frontSuspension.cornerL.upright.w_a[1] = vehicle.frontSuspension.cornerL.upright.w_0_start[1]
-*/
-static void AlyssaVehicle_eqFunction_10564(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,10564};
-  (data->modelData->realVarsData[2115] /* vehicle.frontSuspension.cornerL.upright.w_a[1] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[999] /* vehicle.frontSuspension.cornerL.upright.w_0_start[1] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2115]] /* vehicle.frontSuspension.cornerL.upright.w_a[1] DUMMY_STATE */) = (data->modelData->realVarsData[2115] /* vehicle.frontSuspension.cornerL.upright.w_a[1] DUMMY_STATE */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2115].info /* vehicle.frontSuspension.cornerL.upright.w_a[1] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2115]] /* vehicle.frontSuspension.cornerL.upright.w_a[1] DUMMY_STATE */));
-  TRACE_POP
-}
-
-/*
-equation index: 10565
-type: SIMPLE_ASSIGN
-$START.vehicle.frontSuspension.cornerR.upright.z_a[3] = vehicle.frontSuspension.cornerR.upright.z_0_start[3]
-*/
-static void AlyssaVehicle_eqFunction_10565(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,10565};
-  (data->modelData->realVarsData[2974] /* vehicle.frontSuspension.cornerR.upright.z_a[3] variable */).attribute .start = (data->simulationInfo->realParameter[1651] /* vehicle.frontSuspension.cornerR.upright.z_0_start[3] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2974]] /* vehicle.frontSuspension.cornerR.upright.z_a[3] variable */) = (data->modelData->realVarsData[2974] /* vehicle.frontSuspension.cornerR.upright.z_a[3] variable */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2974].info /* vehicle.frontSuspension.cornerR.upright.z_a[3] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2974]] /* vehicle.frontSuspension.cornerR.upright.z_a[3] variable */));
-  TRACE_POP
-}
-
-/*
-equation index: 10566
-type: SIMPLE_ASSIGN
-$START.vehicle.frontSuspension.cornerR.upright.z_a[2] = vehicle.frontSuspension.cornerR.upright.z_0_start[2]
-*/
-static void AlyssaVehicle_eqFunction_10566(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,10566};
-  (data->modelData->realVarsData[2973] /* vehicle.frontSuspension.cornerR.upright.z_a[2] variable */).attribute .start = (data->simulationInfo->realParameter[1650] /* vehicle.frontSuspension.cornerR.upright.z_0_start[2] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2973]] /* vehicle.frontSuspension.cornerR.upright.z_a[2] variable */) = (data->modelData->realVarsData[2973] /* vehicle.frontSuspension.cornerR.upright.z_a[2] variable */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2973].info /* vehicle.frontSuspension.cornerR.upright.z_a[2] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2973]] /* vehicle.frontSuspension.cornerR.upright.z_a[2] variable */));
-  TRACE_POP
-}
-
-/*
-equation index: 10567
-type: SIMPLE_ASSIGN
-$START.vehicle.frontSuspension.cornerR.upright.z_a[1] = vehicle.frontSuspension.cornerR.upright.z_0_start[1]
-*/
-static void AlyssaVehicle_eqFunction_10567(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,10567};
-  (data->modelData->realVarsData[2972] /* vehicle.frontSuspension.cornerR.upright.z_a[1] variable */).attribute .start = (data->simulationInfo->realParameter[1649] /* vehicle.frontSuspension.cornerR.upright.z_0_start[1] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2972]] /* vehicle.frontSuspension.cornerR.upright.z_a[1] variable */) = (data->modelData->realVarsData[2972] /* vehicle.frontSuspension.cornerR.upright.z_a[1] variable */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2972].info /* vehicle.frontSuspension.cornerR.upright.z_a[1] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2972]] /* vehicle.frontSuspension.cornerR.upright.z_a[1] variable */));
-  TRACE_POP
-}
-
-/*
-equation index: 10568
-type: SIMPLE_ASSIGN
-$START.vehicle.frontSuspension.cornerR.upright.w_a[3] = vehicle.frontSuspension.cornerR.upright.w_0_start[3]
-*/
-static void AlyssaVehicle_eqFunction_10568(DATA *data, threadData_t *threadData)
-{
-  TRACE_PUSH
-  const int equationIndexes[2] = {1,10568};
-  (data->modelData->realVarsData[2971] /* vehicle.frontSuspension.cornerR.upright.w_a[3] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[1648] /* vehicle.frontSuspension.cornerR.upright.w_0_start[3] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2971]] /* vehicle.frontSuspension.cornerR.upright.w_a[3] DUMMY_STATE */) = (data->modelData->realVarsData[2971] /* vehicle.frontSuspension.cornerR.upright.w_a[3] DUMMY_STATE */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2971].info /* vehicle.frontSuspension.cornerR.upright.w_a[3] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2971]] /* vehicle.frontSuspension.cornerR.upright.w_a[3] DUMMY_STATE */));
-  TRACE_POP
-}
-
-/*
 equation index: 10569
 type: SIMPLE_ASSIGN
-$START.vehicle.frontSuspension.cornerR.upright.w_a[2] = vehicle.frontSuspension.cornerR.upright.w_0_start[2]
+$START.vehicle.rearSuspension.cornerL.upright.z_a[3] = vehicle.rearSuspension.cornerL.upright.z_0_start[3]
 */
 static void AlyssaVehicle_eqFunction_10569(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,10569};
-  (data->modelData->realVarsData[2970] /* vehicle.frontSuspension.cornerR.upright.w_a[2] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[1647] /* vehicle.frontSuspension.cornerR.upright.w_0_start[2] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2970]] /* vehicle.frontSuspension.cornerR.upright.w_a[2] DUMMY_STATE */) = (data->modelData->realVarsData[2970] /* vehicle.frontSuspension.cornerR.upright.w_a[2] DUMMY_STATE */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2970].info /* vehicle.frontSuspension.cornerR.upright.w_a[2] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2970]] /* vehicle.frontSuspension.cornerR.upright.w_a[2] DUMMY_STATE */));
+  (data->modelData->realVarsData[3985] /* vehicle.rearSuspension.cornerL.upright.z_a[3] variable */).attribute .start = (data->simulationInfo->realParameter[2511] /* vehicle.rearSuspension.cornerL.upright.z_0_start[3] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3985]] /* vehicle.rearSuspension.cornerL.upright.z_a[3] variable */) = (data->modelData->realVarsData[3985] /* vehicle.rearSuspension.cornerL.upright.z_a[3] variable */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[3985].info /* vehicle.rearSuspension.cornerL.upright.z_a[3] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3985]] /* vehicle.rearSuspension.cornerL.upright.z_a[3] variable */));
   TRACE_POP
 }
 
 /*
 equation index: 10570
 type: SIMPLE_ASSIGN
-$START.vehicle.frontSuspension.cornerR.upright.w_a[1] = vehicle.frontSuspension.cornerR.upright.w_0_start[1]
+$START.vehicle.rearSuspension.cornerL.upright.z_a[2] = vehicle.rearSuspension.cornerL.upright.z_0_start[2]
 */
 static void AlyssaVehicle_eqFunction_10570(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,10570};
-  (data->modelData->realVarsData[2969] /* vehicle.frontSuspension.cornerR.upright.w_a[1] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[1646] /* vehicle.frontSuspension.cornerR.upright.w_0_start[1] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2969]] /* vehicle.frontSuspension.cornerR.upright.w_a[1] DUMMY_STATE */) = (data->modelData->realVarsData[2969] /* vehicle.frontSuspension.cornerR.upright.w_a[1] DUMMY_STATE */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2969].info /* vehicle.frontSuspension.cornerR.upright.w_a[1] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2969]] /* vehicle.frontSuspension.cornerR.upright.w_a[1] DUMMY_STATE */));
+  (data->modelData->realVarsData[3984] /* vehicle.rearSuspension.cornerL.upright.z_a[2] variable */).attribute .start = (data->simulationInfo->realParameter[2510] /* vehicle.rearSuspension.cornerL.upright.z_0_start[2] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3984]] /* vehicle.rearSuspension.cornerL.upright.z_a[2] variable */) = (data->modelData->realVarsData[3984] /* vehicle.rearSuspension.cornerL.upright.z_a[2] variable */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[3984].info /* vehicle.rearSuspension.cornerL.upright.z_a[2] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3984]] /* vehicle.rearSuspension.cornerL.upright.z_a[2] variable */));
   TRACE_POP
 }
 
 /*
 equation index: 10571
 type: SIMPLE_ASSIGN
-$START.vehicle.vehicleBody.body.z_a[3] = vehicle.vehicleBody.body.z_0_start[3]
+$START.vehicle.rearSuspension.cornerL.upright.z_a[1] = vehicle.rearSuspension.cornerL.upright.z_0_start[1]
 */
 static void AlyssaVehicle_eqFunction_10571(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,10571};
-  (data->modelData->realVarsData[5053] /* vehicle.vehicleBody.body.z_a[3] variable */).attribute .start = (data->simulationInfo->realParameter[3452] /* vehicle.vehicleBody.body.z_0_start[3] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5053]] /* vehicle.vehicleBody.body.z_a[3] variable */) = (data->modelData->realVarsData[5053] /* vehicle.vehicleBody.body.z_a[3] variable */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[5053].info /* vehicle.vehicleBody.body.z_a[3] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5053]] /* vehicle.vehicleBody.body.z_a[3] variable */));
+  (data->modelData->realVarsData[3983] /* vehicle.rearSuspension.cornerL.upright.z_a[1] variable */).attribute .start = (data->simulationInfo->realParameter[2509] /* vehicle.rearSuspension.cornerL.upright.z_0_start[1] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3983]] /* vehicle.rearSuspension.cornerL.upright.z_a[1] variable */) = (data->modelData->realVarsData[3983] /* vehicle.rearSuspension.cornerL.upright.z_a[1] variable */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[3983].info /* vehicle.rearSuspension.cornerL.upright.z_a[1] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3983]] /* vehicle.rearSuspension.cornerL.upright.z_a[1] variable */));
   TRACE_POP
 }
 
 /*
 equation index: 10572
 type: SIMPLE_ASSIGN
-$START.vehicle.vehicleBody.body.z_a[2] = vehicle.vehicleBody.body.z_0_start[2]
+$START.vehicle.rearSuspension.cornerL.upright.w_a[3] = vehicle.rearSuspension.cornerL.upright.w_0_start[3]
 */
 static void AlyssaVehicle_eqFunction_10572(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,10572};
-  (data->modelData->realVarsData[5052] /* vehicle.vehicleBody.body.z_a[2] variable */).attribute .start = (data->simulationInfo->realParameter[3451] /* vehicle.vehicleBody.body.z_0_start[2] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5052]] /* vehicle.vehicleBody.body.z_a[2] variable */) = (data->modelData->realVarsData[5052] /* vehicle.vehicleBody.body.z_a[2] variable */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[5052].info /* vehicle.vehicleBody.body.z_a[2] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5052]] /* vehicle.vehicleBody.body.z_a[2] variable */));
+  (data->modelData->realVarsData[3982] /* vehicle.rearSuspension.cornerL.upright.w_a[3] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[2508] /* vehicle.rearSuspension.cornerL.upright.w_0_start[3] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3982]] /* vehicle.rearSuspension.cornerL.upright.w_a[3] DUMMY_STATE */) = (data->modelData->realVarsData[3982] /* vehicle.rearSuspension.cornerL.upright.w_a[3] DUMMY_STATE */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[3982].info /* vehicle.rearSuspension.cornerL.upright.w_a[3] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3982]] /* vehicle.rearSuspension.cornerL.upright.w_a[3] DUMMY_STATE */));
   TRACE_POP
 }
 
 /*
 equation index: 10573
 type: SIMPLE_ASSIGN
-$START.vehicle.vehicleBody.body.z_a[1] = vehicle.vehicleBody.body.z_0_start[1]
+$START.vehicle.rearSuspension.cornerL.upright.w_a[2] = vehicle.rearSuspension.cornerL.upright.w_0_start[2]
 */
 static void AlyssaVehicle_eqFunction_10573(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,10573};
-  (data->modelData->realVarsData[5051] /* vehicle.vehicleBody.body.z_a[1] variable */).attribute .start = (data->simulationInfo->realParameter[3450] /* vehicle.vehicleBody.body.z_0_start[1] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5051]] /* vehicle.vehicleBody.body.z_a[1] variable */) = (data->modelData->realVarsData[5051] /* vehicle.vehicleBody.body.z_a[1] variable */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[5051].info /* vehicle.vehicleBody.body.z_a[1] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5051]] /* vehicle.vehicleBody.body.z_a[1] variable */));
+  (data->modelData->realVarsData[3981] /* vehicle.rearSuspension.cornerL.upright.w_a[2] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[2507] /* vehicle.rearSuspension.cornerL.upright.w_0_start[2] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3981]] /* vehicle.rearSuspension.cornerL.upright.w_a[2] DUMMY_STATE */) = (data->modelData->realVarsData[3981] /* vehicle.rearSuspension.cornerL.upright.w_a[2] DUMMY_STATE */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[3981].info /* vehicle.rearSuspension.cornerL.upright.w_a[2] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3981]] /* vehicle.rearSuspension.cornerL.upright.w_a[2] DUMMY_STATE */));
   TRACE_POP
 }
 
 /*
 equation index: 10574
 type: SIMPLE_ASSIGN
-$START.vehicle.vehicleBody.body.w_a[3] = vehicle.vehicleBody.body.w_0_start[3]
+$START.vehicle.rearSuspension.cornerL.upright.w_a[1] = vehicle.rearSuspension.cornerL.upright.w_0_start[1]
 */
 static void AlyssaVehicle_eqFunction_10574(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,10574};
-  (data->modelData->realVarsData[5050] /* vehicle.vehicleBody.body.w_a[3] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[3449] /* vehicle.vehicleBody.body.w_0_start[3] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5050]] /* vehicle.vehicleBody.body.w_a[3] DUMMY_STATE */) = (data->modelData->realVarsData[5050] /* vehicle.vehicleBody.body.w_a[3] DUMMY_STATE */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[5050].info /* vehicle.vehicleBody.body.w_a[3] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5050]] /* vehicle.vehicleBody.body.w_a[3] DUMMY_STATE */));
+  (data->modelData->realVarsData[3980] /* vehicle.rearSuspension.cornerL.upright.w_a[1] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[2506] /* vehicle.rearSuspension.cornerL.upright.w_0_start[1] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3980]] /* vehicle.rearSuspension.cornerL.upright.w_a[1] DUMMY_STATE */) = (data->modelData->realVarsData[3980] /* vehicle.rearSuspension.cornerL.upright.w_a[1] DUMMY_STATE */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[3980].info /* vehicle.rearSuspension.cornerL.upright.w_a[1] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3980]] /* vehicle.rearSuspension.cornerL.upright.w_a[1] DUMMY_STATE */));
   TRACE_POP
 }
 
 /*
 equation index: 10575
 type: SIMPLE_ASSIGN
-$START.vehicle.vehicleBody.body.w_a[2] = vehicle.vehicleBody.body.w_0_start[2]
+$START.vehicle.rearSuspension.cornerR.upright.z_a[3] = vehicle.rearSuspension.cornerR.upright.z_0_start[3]
 */
 static void AlyssaVehicle_eqFunction_10575(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,10575};
-  (data->modelData->realVarsData[5049] /* vehicle.vehicleBody.body.w_a[2] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[3448] /* vehicle.vehicleBody.body.w_0_start[2] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5049]] /* vehicle.vehicleBody.body.w_a[2] DUMMY_STATE */) = (data->modelData->realVarsData[5049] /* vehicle.vehicleBody.body.w_a[2] DUMMY_STATE */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[5049].info /* vehicle.vehicleBody.body.w_a[2] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5049]] /* vehicle.vehicleBody.body.w_a[2] DUMMY_STATE */));
+  (data->modelData->realVarsData[4845] /* vehicle.rearSuspension.cornerR.upright.z_a[3] variable */).attribute .start = (data->simulationInfo->realParameter[3158] /* vehicle.rearSuspension.cornerR.upright.z_0_start[3] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4845]] /* vehicle.rearSuspension.cornerR.upright.z_a[3] variable */) = (data->modelData->realVarsData[4845] /* vehicle.rearSuspension.cornerR.upright.z_a[3] variable */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[4845].info /* vehicle.rearSuspension.cornerR.upright.z_a[3] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4845]] /* vehicle.rearSuspension.cornerR.upright.z_a[3] variable */));
   TRACE_POP
 }
 
 /*
 equation index: 10576
 type: SIMPLE_ASSIGN
-$START.vehicle.vehicleBody.body.w_a[1] = vehicle.vehicleBody.body.w_0_start[1]
+$START.vehicle.rearSuspension.cornerR.upright.z_a[2] = vehicle.rearSuspension.cornerR.upright.z_0_start[2]
 */
 static void AlyssaVehicle_eqFunction_10576(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,10576};
-  (data->modelData->realVarsData[5048] /* vehicle.vehicleBody.body.w_a[1] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[3447] /* vehicle.vehicleBody.body.w_0_start[1] PARAM */);
-    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5048]] /* vehicle.vehicleBody.body.w_a[1] DUMMY_STATE */) = (data->modelData->realVarsData[5048] /* vehicle.vehicleBody.body.w_a[1] DUMMY_STATE */).attribute .start;
-    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[5048].info /* vehicle.vehicleBody.body.w_a[1] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5048]] /* vehicle.vehicleBody.body.w_a[1] DUMMY_STATE */));
+  (data->modelData->realVarsData[4844] /* vehicle.rearSuspension.cornerR.upright.z_a[2] variable */).attribute .start = (data->simulationInfo->realParameter[3157] /* vehicle.rearSuspension.cornerR.upright.z_0_start[2] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4844]] /* vehicle.rearSuspension.cornerR.upright.z_a[2] variable */) = (data->modelData->realVarsData[4844] /* vehicle.rearSuspension.cornerR.upright.z_a[2] variable */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[4844].info /* vehicle.rearSuspension.cornerR.upright.z_a[2] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4844]] /* vehicle.rearSuspension.cornerR.upright.z_a[2] variable */));
   TRACE_POP
 }
+
 /*
 equation index: 10577
 type: SIMPLE_ASSIGN
-vehicle.wheelRL.rim.damper.phi_rel = if vehicle.wheelRL.rim.damper.phi_nominal >= 1e-15 then vehicle.wheelRL.rim.damper.phi_nominal else 1.0
+$START.vehicle.rearSuspension.cornerR.upright.z_a[1] = vehicle.rearSuspension.cornerR.upright.z_0_start[1]
 */
 static void AlyssaVehicle_eqFunction_10577(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,10577};
-  data->modelData->realVarsData[5302].attribute /* vehicle.wheelRL.rim.damper.phi_rel */.nominal = (((data->simulationInfo->realParameter[3796] /* vehicle.wheelRL.rim.damper.phi_nominal PARAM */) >= 1e-15)?(data->simulationInfo->realParameter[3796] /* vehicle.wheelRL.rim.damper.phi_nominal PARAM */):1.0);
-  infoStreamPrint(OMC_LOG_INIT_V, 0, "%s(nominal=%g)", data->modelData->realVarsData[5302].info /* vehicle.wheelRL.rim.damper.phi_rel */.name,
-        (modelica_real) data->modelData->realVarsData[5302].attribute /* vehicle.wheelRL.rim.damper.phi_rel */.nominal);
+  (data->modelData->realVarsData[4843] /* vehicle.rearSuspension.cornerR.upright.z_a[1] variable */).attribute .start = (data->simulationInfo->realParameter[3156] /* vehicle.rearSuspension.cornerR.upright.z_0_start[1] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4843]] /* vehicle.rearSuspension.cornerR.upright.z_a[1] variable */) = (data->modelData->realVarsData[4843] /* vehicle.rearSuspension.cornerR.upright.z_a[1] variable */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[4843].info /* vehicle.rearSuspension.cornerR.upright.z_a[1] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4843]] /* vehicle.rearSuspension.cornerR.upright.z_a[1] variable */));
   TRACE_POP
 }
-
 
 /*
 equation index: 10578
 type: SIMPLE_ASSIGN
-vehicle.wheelRR.rim.damper.phi_rel = if vehicle.wheelRR.rim.damper.phi_nominal >= 1e-15 then vehicle.wheelRR.rim.damper.phi_nominal else 1.0
+$START.vehicle.rearSuspension.cornerR.upright.w_a[3] = vehicle.rearSuspension.cornerR.upright.w_0_start[3]
 */
 static void AlyssaVehicle_eqFunction_10578(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,10578};
-  data->modelData->realVarsData[5395].attribute /* vehicle.wheelRR.rim.damper.phi_rel */.nominal = (((data->simulationInfo->realParameter[3913] /* vehicle.wheelRR.rim.damper.phi_nominal PARAM */) >= 1e-15)?(data->simulationInfo->realParameter[3913] /* vehicle.wheelRR.rim.damper.phi_nominal PARAM */):1.0);
-  infoStreamPrint(OMC_LOG_INIT_V, 0, "%s(nominal=%g)", data->modelData->realVarsData[5395].info /* vehicle.wheelRR.rim.damper.phi_rel */.name,
-        (modelica_real) data->modelData->realVarsData[5395].attribute /* vehicle.wheelRR.rim.damper.phi_rel */.nominal);
+  (data->modelData->realVarsData[4842] /* vehicle.rearSuspension.cornerR.upright.w_a[3] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[3155] /* vehicle.rearSuspension.cornerR.upright.w_0_start[3] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4842]] /* vehicle.rearSuspension.cornerR.upright.w_a[3] DUMMY_STATE */) = (data->modelData->realVarsData[4842] /* vehicle.rearSuspension.cornerR.upright.w_a[3] DUMMY_STATE */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[4842].info /* vehicle.rearSuspension.cornerR.upright.w_a[3] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4842]] /* vehicle.rearSuspension.cornerR.upright.w_a[3] DUMMY_STATE */));
   TRACE_POP
 }
-
 
 /*
 equation index: 10579
 type: SIMPLE_ASSIGN
-vehicle.wheelFL.rim.damper.phi_rel = if vehicle.wheelFL.rim.damper.phi_nominal >= 1e-15 then vehicle.wheelFL.rim.damper.phi_nominal else 1.0
+$START.vehicle.rearSuspension.cornerR.upright.w_a[2] = vehicle.rearSuspension.cornerR.upright.w_0_start[2]
 */
 static void AlyssaVehicle_eqFunction_10579(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,10579};
-  data->modelData->realVarsData[5116].attribute /* vehicle.wheelFL.rim.damper.phi_rel */.nominal = (((data->simulationInfo->realParameter[3562] /* vehicle.wheelFL.rim.damper.phi_nominal PARAM */) >= 1e-15)?(data->simulationInfo->realParameter[3562] /* vehicle.wheelFL.rim.damper.phi_nominal PARAM */):1.0);
-  infoStreamPrint(OMC_LOG_INIT_V, 0, "%s(nominal=%g)", data->modelData->realVarsData[5116].info /* vehicle.wheelFL.rim.damper.phi_rel */.name,
-        (modelica_real) data->modelData->realVarsData[5116].attribute /* vehicle.wheelFL.rim.damper.phi_rel */.nominal);
+  (data->modelData->realVarsData[4841] /* vehicle.rearSuspension.cornerR.upright.w_a[2] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[3154] /* vehicle.rearSuspension.cornerR.upright.w_0_start[2] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4841]] /* vehicle.rearSuspension.cornerR.upright.w_a[2] DUMMY_STATE */) = (data->modelData->realVarsData[4841] /* vehicle.rearSuspension.cornerR.upright.w_a[2] DUMMY_STATE */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[4841].info /* vehicle.rearSuspension.cornerR.upright.w_a[2] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4841]] /* vehicle.rearSuspension.cornerR.upright.w_a[2] DUMMY_STATE */));
   TRACE_POP
 }
-
 
 /*
 equation index: 10580
 type: SIMPLE_ASSIGN
-vehicle.wheelFR.rim.damper.phi_rel = if vehicle.wheelFR.rim.damper.phi_nominal >= 1e-15 then vehicle.wheelFR.rim.damper.phi_nominal else 1.0
+$START.vehicle.rearSuspension.cornerR.upright.w_a[1] = vehicle.rearSuspension.cornerR.upright.w_0_start[1]
 */
 static void AlyssaVehicle_eqFunction_10580(DATA *data, threadData_t *threadData)
 {
   TRACE_PUSH
   const int equationIndexes[2] = {1,10580};
-  data->modelData->realVarsData[5209].attribute /* vehicle.wheelFR.rim.damper.phi_rel */.nominal = (((data->simulationInfo->realParameter[3679] /* vehicle.wheelFR.rim.damper.phi_nominal PARAM */) >= 1e-15)?(data->simulationInfo->realParameter[3679] /* vehicle.wheelFR.rim.damper.phi_nominal PARAM */):1.0);
-  infoStreamPrint(OMC_LOG_INIT_V, 0, "%s(nominal=%g)", data->modelData->realVarsData[5209].info /* vehicle.wheelFR.rim.damper.phi_rel */.name,
-        (modelica_real) data->modelData->realVarsData[5209].attribute /* vehicle.wheelFR.rim.damper.phi_rel */.nominal);
+  (data->modelData->realVarsData[4840] /* vehicle.rearSuspension.cornerR.upright.w_a[1] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[3153] /* vehicle.rearSuspension.cornerR.upright.w_0_start[1] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4840]] /* vehicle.rearSuspension.cornerR.upright.w_a[1] DUMMY_STATE */) = (data->modelData->realVarsData[4840] /* vehicle.rearSuspension.cornerR.upright.w_a[1] DUMMY_STATE */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[4840].info /* vehicle.rearSuspension.cornerR.upright.w_a[1] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4840]] /* vehicle.rearSuspension.cornerR.upright.w_a[1] DUMMY_STATE */));
+  TRACE_POP
+}
+
+/*
+equation index: 10581
+type: SIMPLE_ASSIGN
+$START.vehicle.frontSuspension.cornerL.upright.z_a[3] = vehicle.frontSuspension.cornerL.upright.z_0_start[3]
+*/
+static void AlyssaVehicle_eqFunction_10581(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,10581};
+  (data->modelData->realVarsData[2107] /* vehicle.frontSuspension.cornerL.upright.z_a[3] variable */).attribute .start = (data->simulationInfo->realParameter[1004] /* vehicle.frontSuspension.cornerL.upright.z_0_start[3] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2107]] /* vehicle.frontSuspension.cornerL.upright.z_a[3] variable */) = (data->modelData->realVarsData[2107] /* vehicle.frontSuspension.cornerL.upright.z_a[3] variable */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2107].info /* vehicle.frontSuspension.cornerL.upright.z_a[3] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2107]] /* vehicle.frontSuspension.cornerL.upright.z_a[3] variable */));
+  TRACE_POP
+}
+
+/*
+equation index: 10582
+type: SIMPLE_ASSIGN
+$START.vehicle.frontSuspension.cornerL.upright.z_a[2] = vehicle.frontSuspension.cornerL.upright.z_0_start[2]
+*/
+static void AlyssaVehicle_eqFunction_10582(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,10582};
+  (data->modelData->realVarsData[2106] /* vehicle.frontSuspension.cornerL.upright.z_a[2] variable */).attribute .start = (data->simulationInfo->realParameter[1003] /* vehicle.frontSuspension.cornerL.upright.z_0_start[2] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2106]] /* vehicle.frontSuspension.cornerL.upright.z_a[2] variable */) = (data->modelData->realVarsData[2106] /* vehicle.frontSuspension.cornerL.upright.z_a[2] variable */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2106].info /* vehicle.frontSuspension.cornerL.upright.z_a[2] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2106]] /* vehicle.frontSuspension.cornerL.upright.z_a[2] variable */));
+  TRACE_POP
+}
+
+/*
+equation index: 10583
+type: SIMPLE_ASSIGN
+$START.vehicle.frontSuspension.cornerL.upright.z_a[1] = vehicle.frontSuspension.cornerL.upright.z_0_start[1]
+*/
+static void AlyssaVehicle_eqFunction_10583(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,10583};
+  (data->modelData->realVarsData[2105] /* vehicle.frontSuspension.cornerL.upright.z_a[1] variable */).attribute .start = (data->simulationInfo->realParameter[1002] /* vehicle.frontSuspension.cornerL.upright.z_0_start[1] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2105]] /* vehicle.frontSuspension.cornerL.upright.z_a[1] variable */) = (data->modelData->realVarsData[2105] /* vehicle.frontSuspension.cornerL.upright.z_a[1] variable */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2105].info /* vehicle.frontSuspension.cornerL.upright.z_a[1] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2105]] /* vehicle.frontSuspension.cornerL.upright.z_a[1] variable */));
+  TRACE_POP
+}
+
+/*
+equation index: 10584
+type: SIMPLE_ASSIGN
+$START.vehicle.frontSuspension.cornerL.upright.w_a[3] = vehicle.frontSuspension.cornerL.upright.w_0_start[3]
+*/
+static void AlyssaVehicle_eqFunction_10584(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,10584};
+  (data->modelData->realVarsData[2104] /* vehicle.frontSuspension.cornerL.upright.w_a[3] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[1001] /* vehicle.frontSuspension.cornerL.upright.w_0_start[3] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2104]] /* vehicle.frontSuspension.cornerL.upright.w_a[3] DUMMY_STATE */) = (data->modelData->realVarsData[2104] /* vehicle.frontSuspension.cornerL.upright.w_a[3] DUMMY_STATE */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2104].info /* vehicle.frontSuspension.cornerL.upright.w_a[3] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2104]] /* vehicle.frontSuspension.cornerL.upright.w_a[3] DUMMY_STATE */));
+  TRACE_POP
+}
+
+/*
+equation index: 10585
+type: SIMPLE_ASSIGN
+$START.vehicle.frontSuspension.cornerL.upright.w_a[2] = vehicle.frontSuspension.cornerL.upright.w_0_start[2]
+*/
+static void AlyssaVehicle_eqFunction_10585(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,10585};
+  (data->modelData->realVarsData[2103] /* vehicle.frontSuspension.cornerL.upright.w_a[2] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[1000] /* vehicle.frontSuspension.cornerL.upright.w_0_start[2] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2103]] /* vehicle.frontSuspension.cornerL.upright.w_a[2] DUMMY_STATE */) = (data->modelData->realVarsData[2103] /* vehicle.frontSuspension.cornerL.upright.w_a[2] DUMMY_STATE */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2103].info /* vehicle.frontSuspension.cornerL.upright.w_a[2] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2103]] /* vehicle.frontSuspension.cornerL.upright.w_a[2] DUMMY_STATE */));
+  TRACE_POP
+}
+
+/*
+equation index: 10586
+type: SIMPLE_ASSIGN
+$START.vehicle.frontSuspension.cornerL.upright.w_a[1] = vehicle.frontSuspension.cornerL.upright.w_0_start[1]
+*/
+static void AlyssaVehicle_eqFunction_10586(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,10586};
+  (data->modelData->realVarsData[2102] /* vehicle.frontSuspension.cornerL.upright.w_a[1] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[999] /* vehicle.frontSuspension.cornerL.upright.w_0_start[1] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2102]] /* vehicle.frontSuspension.cornerL.upright.w_a[1] DUMMY_STATE */) = (data->modelData->realVarsData[2102] /* vehicle.frontSuspension.cornerL.upright.w_a[1] DUMMY_STATE */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2102].info /* vehicle.frontSuspension.cornerL.upright.w_a[1] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2102]] /* vehicle.frontSuspension.cornerL.upright.w_a[1] DUMMY_STATE */));
+  TRACE_POP
+}
+
+/*
+equation index: 10587
+type: SIMPLE_ASSIGN
+$START.vehicle.frontSuspension.cornerR.upright.z_a[3] = vehicle.frontSuspension.cornerR.upright.z_0_start[3]
+*/
+static void AlyssaVehicle_eqFunction_10587(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,10587};
+  (data->modelData->realVarsData[2961] /* vehicle.frontSuspension.cornerR.upright.z_a[3] variable */).attribute .start = (data->simulationInfo->realParameter[1651] /* vehicle.frontSuspension.cornerR.upright.z_0_start[3] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2961]] /* vehicle.frontSuspension.cornerR.upright.z_a[3] variable */) = (data->modelData->realVarsData[2961] /* vehicle.frontSuspension.cornerR.upright.z_a[3] variable */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2961].info /* vehicle.frontSuspension.cornerR.upright.z_a[3] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2961]] /* vehicle.frontSuspension.cornerR.upright.z_a[3] variable */));
+  TRACE_POP
+}
+
+/*
+equation index: 10588
+type: SIMPLE_ASSIGN
+$START.vehicle.frontSuspension.cornerR.upright.z_a[2] = vehicle.frontSuspension.cornerR.upright.z_0_start[2]
+*/
+static void AlyssaVehicle_eqFunction_10588(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,10588};
+  (data->modelData->realVarsData[2960] /* vehicle.frontSuspension.cornerR.upright.z_a[2] variable */).attribute .start = (data->simulationInfo->realParameter[1650] /* vehicle.frontSuspension.cornerR.upright.z_0_start[2] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2960]] /* vehicle.frontSuspension.cornerR.upright.z_a[2] variable */) = (data->modelData->realVarsData[2960] /* vehicle.frontSuspension.cornerR.upright.z_a[2] variable */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2960].info /* vehicle.frontSuspension.cornerR.upright.z_a[2] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2960]] /* vehicle.frontSuspension.cornerR.upright.z_a[2] variable */));
+  TRACE_POP
+}
+
+/*
+equation index: 10589
+type: SIMPLE_ASSIGN
+$START.vehicle.frontSuspension.cornerR.upright.z_a[1] = vehicle.frontSuspension.cornerR.upright.z_0_start[1]
+*/
+static void AlyssaVehicle_eqFunction_10589(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,10589};
+  (data->modelData->realVarsData[2959] /* vehicle.frontSuspension.cornerR.upright.z_a[1] variable */).attribute .start = (data->simulationInfo->realParameter[1649] /* vehicle.frontSuspension.cornerR.upright.z_0_start[1] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2959]] /* vehicle.frontSuspension.cornerR.upright.z_a[1] variable */) = (data->modelData->realVarsData[2959] /* vehicle.frontSuspension.cornerR.upright.z_a[1] variable */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2959].info /* vehicle.frontSuspension.cornerR.upright.z_a[1] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2959]] /* vehicle.frontSuspension.cornerR.upright.z_a[1] variable */));
+  TRACE_POP
+}
+
+/*
+equation index: 10590
+type: SIMPLE_ASSIGN
+$START.vehicle.frontSuspension.cornerR.upright.w_a[3] = vehicle.frontSuspension.cornerR.upright.w_0_start[3]
+*/
+static void AlyssaVehicle_eqFunction_10590(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,10590};
+  (data->modelData->realVarsData[2958] /* vehicle.frontSuspension.cornerR.upright.w_a[3] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[1648] /* vehicle.frontSuspension.cornerR.upright.w_0_start[3] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2958]] /* vehicle.frontSuspension.cornerR.upright.w_a[3] DUMMY_STATE */) = (data->modelData->realVarsData[2958] /* vehicle.frontSuspension.cornerR.upright.w_a[3] DUMMY_STATE */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2958].info /* vehicle.frontSuspension.cornerR.upright.w_a[3] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2958]] /* vehicle.frontSuspension.cornerR.upright.w_a[3] DUMMY_STATE */));
+  TRACE_POP
+}
+
+/*
+equation index: 10591
+type: SIMPLE_ASSIGN
+$START.vehicle.frontSuspension.cornerR.upright.w_a[2] = vehicle.frontSuspension.cornerR.upright.w_0_start[2]
+*/
+static void AlyssaVehicle_eqFunction_10591(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,10591};
+  (data->modelData->realVarsData[2957] /* vehicle.frontSuspension.cornerR.upright.w_a[2] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[1647] /* vehicle.frontSuspension.cornerR.upright.w_0_start[2] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2957]] /* vehicle.frontSuspension.cornerR.upright.w_a[2] DUMMY_STATE */) = (data->modelData->realVarsData[2957] /* vehicle.frontSuspension.cornerR.upright.w_a[2] DUMMY_STATE */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2957].info /* vehicle.frontSuspension.cornerR.upright.w_a[2] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2957]] /* vehicle.frontSuspension.cornerR.upright.w_a[2] DUMMY_STATE */));
+  TRACE_POP
+}
+
+/*
+equation index: 10592
+type: SIMPLE_ASSIGN
+$START.vehicle.frontSuspension.cornerR.upright.w_a[1] = vehicle.frontSuspension.cornerR.upright.w_0_start[1]
+*/
+static void AlyssaVehicle_eqFunction_10592(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,10592};
+  (data->modelData->realVarsData[2956] /* vehicle.frontSuspension.cornerR.upright.w_a[1] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[1646] /* vehicle.frontSuspension.cornerR.upright.w_0_start[1] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2956]] /* vehicle.frontSuspension.cornerR.upright.w_a[1] DUMMY_STATE */) = (data->modelData->realVarsData[2956] /* vehicle.frontSuspension.cornerR.upright.w_a[1] DUMMY_STATE */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[2956].info /* vehicle.frontSuspension.cornerR.upright.w_a[1] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2956]] /* vehicle.frontSuspension.cornerR.upright.w_a[1] DUMMY_STATE */));
+  TRACE_POP
+}
+
+/*
+equation index: 10593
+type: SIMPLE_ASSIGN
+$START.vehicle.vehicleBody.body.z_a[3] = vehicle.vehicleBody.body.z_0_start[3]
+*/
+static void AlyssaVehicle_eqFunction_10593(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,10593};
+  (data->modelData->realVarsData[5040] /* vehicle.vehicleBody.body.z_a[3] variable */).attribute .start = (data->simulationInfo->realParameter[3452] /* vehicle.vehicleBody.body.z_0_start[3] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5040]] /* vehicle.vehicleBody.body.z_a[3] variable */) = (data->modelData->realVarsData[5040] /* vehicle.vehicleBody.body.z_a[3] variable */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[5040].info /* vehicle.vehicleBody.body.z_a[3] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5040]] /* vehicle.vehicleBody.body.z_a[3] variable */));
+  TRACE_POP
+}
+
+/*
+equation index: 10594
+type: SIMPLE_ASSIGN
+$START.vehicle.vehicleBody.body.z_a[2] = vehicle.vehicleBody.body.z_0_start[2]
+*/
+static void AlyssaVehicle_eqFunction_10594(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,10594};
+  (data->modelData->realVarsData[5039] /* vehicle.vehicleBody.body.z_a[2] variable */).attribute .start = (data->simulationInfo->realParameter[3451] /* vehicle.vehicleBody.body.z_0_start[2] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5039]] /* vehicle.vehicleBody.body.z_a[2] variable */) = (data->modelData->realVarsData[5039] /* vehicle.vehicleBody.body.z_a[2] variable */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[5039].info /* vehicle.vehicleBody.body.z_a[2] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5039]] /* vehicle.vehicleBody.body.z_a[2] variable */));
+  TRACE_POP
+}
+
+/*
+equation index: 10595
+type: SIMPLE_ASSIGN
+$START.vehicle.vehicleBody.body.z_a[1] = vehicle.vehicleBody.body.z_0_start[1]
+*/
+static void AlyssaVehicle_eqFunction_10595(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,10595};
+  (data->modelData->realVarsData[5038] /* vehicle.vehicleBody.body.z_a[1] variable */).attribute .start = (data->simulationInfo->realParameter[3450] /* vehicle.vehicleBody.body.z_0_start[1] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5038]] /* vehicle.vehicleBody.body.z_a[1] variable */) = (data->modelData->realVarsData[5038] /* vehicle.vehicleBody.body.z_a[1] variable */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[5038].info /* vehicle.vehicleBody.body.z_a[1] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5038]] /* vehicle.vehicleBody.body.z_a[1] variable */));
+  TRACE_POP
+}
+
+/*
+equation index: 10596
+type: SIMPLE_ASSIGN
+$START.vehicle.vehicleBody.body.w_a[3] = vehicle.vehicleBody.body.w_0_start[3]
+*/
+static void AlyssaVehicle_eqFunction_10596(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,10596};
+  (data->modelData->realVarsData[5037] /* vehicle.vehicleBody.body.w_a[3] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[3449] /* vehicle.vehicleBody.body.w_0_start[3] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5037]] /* vehicle.vehicleBody.body.w_a[3] DUMMY_STATE */) = (data->modelData->realVarsData[5037] /* vehicle.vehicleBody.body.w_a[3] DUMMY_STATE */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[5037].info /* vehicle.vehicleBody.body.w_a[3] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5037]] /* vehicle.vehicleBody.body.w_a[3] DUMMY_STATE */));
+  TRACE_POP
+}
+
+/*
+equation index: 10597
+type: SIMPLE_ASSIGN
+$START.vehicle.vehicleBody.body.w_a[2] = vehicle.vehicleBody.body.w_0_start[2]
+*/
+static void AlyssaVehicle_eqFunction_10597(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,10597};
+  (data->modelData->realVarsData[5036] /* vehicle.vehicleBody.body.w_a[2] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[3448] /* vehicle.vehicleBody.body.w_0_start[2] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5036]] /* vehicle.vehicleBody.body.w_a[2] DUMMY_STATE */) = (data->modelData->realVarsData[5036] /* vehicle.vehicleBody.body.w_a[2] DUMMY_STATE */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[5036].info /* vehicle.vehicleBody.body.w_a[2] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5036]] /* vehicle.vehicleBody.body.w_a[2] DUMMY_STATE */));
+  TRACE_POP
+}
+
+/*
+equation index: 10598
+type: SIMPLE_ASSIGN
+$START.vehicle.vehicleBody.body.w_a[1] = vehicle.vehicleBody.body.w_0_start[1]
+*/
+static void AlyssaVehicle_eqFunction_10598(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,10598};
+  (data->modelData->realVarsData[5035] /* vehicle.vehicleBody.body.w_a[1] DUMMY_STATE */).attribute .start = (data->simulationInfo->realParameter[3447] /* vehicle.vehicleBody.body.w_0_start[1] PARAM */);
+    (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5035]] /* vehicle.vehicleBody.body.w_a[1] DUMMY_STATE */) = (data->modelData->realVarsData[5035] /* vehicle.vehicleBody.body.w_a[1] DUMMY_STATE */).attribute .start;
+    infoStreamPrint(OMC_LOG_INIT_V, 0, "updated start value: %s(start=%g)", data->modelData->realVarsData[5035].info /* vehicle.vehicleBody.body.w_a[1] */.name, (modelica_real) (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5035]] /* vehicle.vehicleBody.body.w_a[1] DUMMY_STATE */));
+  TRACE_POP
+}
+/*
+equation index: 10599
+type: SIMPLE_ASSIGN
+vehicle.wheelRL.rim.damper.phi_rel = if vehicle.wheelRL.rim.damper.phi_nominal >= 1e-15 then vehicle.wheelRL.rim.damper.phi_nominal else 1.0
+*/
+static void AlyssaVehicle_eqFunction_10599(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,10599};
+  data->modelData->realVarsData[5299].attribute /* vehicle.wheelRL.rim.damper.phi_rel */.nominal = (((data->simulationInfo->realParameter[3708] /* vehicle.wheelRL.rim.damper.phi_nominal PARAM */) >= 1e-15)?(data->simulationInfo->realParameter[3708] /* vehicle.wheelRL.rim.damper.phi_nominal PARAM */):1.0);
+  infoStreamPrint(OMC_LOG_INIT_V, 0, "%s(nominal=%g)", data->modelData->realVarsData[5299].info /* vehicle.wheelRL.rim.damper.phi_rel */.name,
+        (modelica_real) data->modelData->realVarsData[5299].attribute /* vehicle.wheelRL.rim.damper.phi_rel */.nominal);
+  TRACE_POP
+}
+
+
+/*
+equation index: 10600
+type: SIMPLE_ASSIGN
+vehicle.wheelRR.rim.damper.phi_rel = if vehicle.wheelRR.rim.damper.phi_nominal >= 1e-15 then vehicle.wheelRR.rim.damper.phi_nominal else 1.0
+*/
+static void AlyssaVehicle_eqFunction_10600(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,10600};
+  data->modelData->realVarsData[5396].attribute /* vehicle.wheelRR.rim.damper.phi_rel */.nominal = (((data->simulationInfo->realParameter[3781] /* vehicle.wheelRR.rim.damper.phi_nominal PARAM */) >= 1e-15)?(data->simulationInfo->realParameter[3781] /* vehicle.wheelRR.rim.damper.phi_nominal PARAM */):1.0);
+  infoStreamPrint(OMC_LOG_INIT_V, 0, "%s(nominal=%g)", data->modelData->realVarsData[5396].info /* vehicle.wheelRR.rim.damper.phi_rel */.name,
+        (modelica_real) data->modelData->realVarsData[5396].attribute /* vehicle.wheelRR.rim.damper.phi_rel */.nominal);
+  TRACE_POP
+}
+
+
+/*
+equation index: 10601
+type: SIMPLE_ASSIGN
+vehicle.wheelFL.rim.damper.phi_rel = if vehicle.wheelFL.rim.damper.phi_nominal >= 1e-15 then vehicle.wheelFL.rim.damper.phi_nominal else 1.0
+*/
+static void AlyssaVehicle_eqFunction_10601(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,10601};
+  data->modelData->realVarsData[5105].attribute /* vehicle.wheelFL.rim.damper.phi_rel */.nominal = (((data->simulationInfo->realParameter[3562] /* vehicle.wheelFL.rim.damper.phi_nominal PARAM */) >= 1e-15)?(data->simulationInfo->realParameter[3562] /* vehicle.wheelFL.rim.damper.phi_nominal PARAM */):1.0);
+  infoStreamPrint(OMC_LOG_INIT_V, 0, "%s(nominal=%g)", data->modelData->realVarsData[5105].info /* vehicle.wheelFL.rim.damper.phi_rel */.name,
+        (modelica_real) data->modelData->realVarsData[5105].attribute /* vehicle.wheelFL.rim.damper.phi_rel */.nominal);
+  TRACE_POP
+}
+
+
+/*
+equation index: 10602
+type: SIMPLE_ASSIGN
+vehicle.wheelFR.rim.damper.phi_rel = if vehicle.wheelFR.rim.damper.phi_nominal >= 1e-15 then vehicle.wheelFR.rim.damper.phi_nominal else 1.0
+*/
+static void AlyssaVehicle_eqFunction_10602(DATA *data, threadData_t *threadData)
+{
+  TRACE_PUSH
+  const int equationIndexes[2] = {1,10602};
+  data->modelData->realVarsData[5202].attribute /* vehicle.wheelFR.rim.damper.phi_rel */.nominal = (((data->simulationInfo->realParameter[3635] /* vehicle.wheelFR.rim.damper.phi_nominal PARAM */) >= 1e-15)?(data->simulationInfo->realParameter[3635] /* vehicle.wheelFR.rim.damper.phi_nominal PARAM */):1.0);
+  infoStreamPrint(OMC_LOG_INIT_V, 0, "%s(nominal=%g)", data->modelData->realVarsData[5202].info /* vehicle.wheelFR.rim.damper.phi_rel */.name,
+        (modelica_real) data->modelData->realVarsData[5202].attribute /* vehicle.wheelFR.rim.damper.phi_rel */.nominal);
   TRACE_POP
 }
 
@@ -546,58 +546,14 @@ int AlyssaVehicle_updateBoundVariableAttributes(DATA *data, threadData_t *thread
   
   /* nominal **************************************************** */
   infoStreamPrint(OMC_LOG_INIT, 1, "updating nominal-values");
-  AlyssaVehicle_eqFunction_10577(data, threadData);
-  AlyssaVehicle_eqFunction_10578(data, threadData);
-  AlyssaVehicle_eqFunction_10579(data, threadData);
-  AlyssaVehicle_eqFunction_10580(data, threadData);
+  AlyssaVehicle_eqFunction_10599(data, threadData);
+  AlyssaVehicle_eqFunction_10600(data, threadData);
+  AlyssaVehicle_eqFunction_10601(data, threadData);
+  AlyssaVehicle_eqFunction_10602(data, threadData);
   if (OMC_ACTIVE_STREAM(OMC_LOG_INIT)) messageClose(OMC_LOG_INIT);
   
   /* start ****************************************************** */
   infoStreamPrint(OMC_LOG_INIT, 1, "updating primary start-values");
-  AlyssaVehicle_eqFunction_10546(data, threadData);
-
-  AlyssaVehicle_eqFunction_10547(data, threadData);
-
-  AlyssaVehicle_eqFunction_10548(data, threadData);
-
-  AlyssaVehicle_eqFunction_10549(data, threadData);
-
-  AlyssaVehicle_eqFunction_10550(data, threadData);
-
-  AlyssaVehicle_eqFunction_10551(data, threadData);
-
-  AlyssaVehicle_eqFunction_10552(data, threadData);
-
-  AlyssaVehicle_eqFunction_10553(data, threadData);
-
-  AlyssaVehicle_eqFunction_10554(data, threadData);
-
-  AlyssaVehicle_eqFunction_10555(data, threadData);
-
-  AlyssaVehicle_eqFunction_10556(data, threadData);
-
-  AlyssaVehicle_eqFunction_10557(data, threadData);
-
-  AlyssaVehicle_eqFunction_10558(data, threadData);
-
-  AlyssaVehicle_eqFunction_10559(data, threadData);
-
-  AlyssaVehicle_eqFunction_10560(data, threadData);
-
-  AlyssaVehicle_eqFunction_10561(data, threadData);
-
-  AlyssaVehicle_eqFunction_10562(data, threadData);
-
-  AlyssaVehicle_eqFunction_10563(data, threadData);
-
-  AlyssaVehicle_eqFunction_10564(data, threadData);
-
-  AlyssaVehicle_eqFunction_10565(data, threadData);
-
-  AlyssaVehicle_eqFunction_10566(data, threadData);
-
-  AlyssaVehicle_eqFunction_10567(data, threadData);
-
   AlyssaVehicle_eqFunction_10568(data, threadData);
 
   AlyssaVehicle_eqFunction_10569(data, threadData);
@@ -615,6 +571,50 @@ int AlyssaVehicle_updateBoundVariableAttributes(DATA *data, threadData_t *thread
   AlyssaVehicle_eqFunction_10575(data, threadData);
 
   AlyssaVehicle_eqFunction_10576(data, threadData);
+
+  AlyssaVehicle_eqFunction_10577(data, threadData);
+
+  AlyssaVehicle_eqFunction_10578(data, threadData);
+
+  AlyssaVehicle_eqFunction_10579(data, threadData);
+
+  AlyssaVehicle_eqFunction_10580(data, threadData);
+
+  AlyssaVehicle_eqFunction_10581(data, threadData);
+
+  AlyssaVehicle_eqFunction_10582(data, threadData);
+
+  AlyssaVehicle_eqFunction_10583(data, threadData);
+
+  AlyssaVehicle_eqFunction_10584(data, threadData);
+
+  AlyssaVehicle_eqFunction_10585(data, threadData);
+
+  AlyssaVehicle_eqFunction_10586(data, threadData);
+
+  AlyssaVehicle_eqFunction_10587(data, threadData);
+
+  AlyssaVehicle_eqFunction_10588(data, threadData);
+
+  AlyssaVehicle_eqFunction_10589(data, threadData);
+
+  AlyssaVehicle_eqFunction_10590(data, threadData);
+
+  AlyssaVehicle_eqFunction_10591(data, threadData);
+
+  AlyssaVehicle_eqFunction_10592(data, threadData);
+
+  AlyssaVehicle_eqFunction_10593(data, threadData);
+
+  AlyssaVehicle_eqFunction_10594(data, threadData);
+
+  AlyssaVehicle_eqFunction_10595(data, threadData);
+
+  AlyssaVehicle_eqFunction_10596(data, threadData);
+
+  AlyssaVehicle_eqFunction_10597(data, threadData);
+
+  AlyssaVehicle_eqFunction_10598(data, threadData);
   if (OMC_ACTIVE_STREAM(OMC_LOG_INIT)) messageClose(OMC_LOG_INIT);
   
   TRACE_POP
@@ -936,432 +936,432 @@ int AlyssaVehicle_updateBoundParameters(DATA *data, threadData_t *threadData)
   data->modelData->integerParameterData[118].time_unvarying = 1;
   (data->simulationInfo->integerParameter[119] /* world.z_label.n PARAM */) = ((modelica_integer) 3);
   data->modelData->integerParameterData[119].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1101]] /* rig.hubFrameFL.frame.f[1] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1088]] /* rig.hubFrameFL.frame.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[1088].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1089]] /* rig.hubFrameFL.frame.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[1089].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1090]] /* rig.hubFrameFL.frame.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[1090].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1091]] /* rig.hubFrameFL.frame.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[1091].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1092]] /* rig.hubFrameFL.frame.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[1092].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1093]] /* rig.hubFrameFR.frame.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[1093].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1094]] /* rig.hubFrameFR.frame.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[1094].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1095]] /* rig.hubFrameFR.frame.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[1095].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1096]] /* rig.hubFrameFR.frame.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[1096].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1097]] /* rig.hubFrameFR.frame.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[1097].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1098]] /* rig.hubFrameRL.frame.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[1098].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1099]] /* rig.hubFrameRL.frame.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[1099].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1100]] /* rig.hubFrameRL.frame.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[1100].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1101]] /* rig.hubFrameRL.frame.t[1] variable */) = -0.0;
   data->modelData->realVarsData[1101].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1102]] /* rig.hubFrameFL.frame.f[2] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1102]] /* rig.hubFrameRL.frame.t[3] variable */) = -0.0;
   data->modelData->realVarsData[1102].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1103]] /* rig.hubFrameFL.frame.f[3] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1103]] /* rig.hubFrameRR.frame.f[1] variable */) = -0.0;
   data->modelData->realVarsData[1103].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1104]] /* rig.hubFrameFL.frame.t[1] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1104]] /* rig.hubFrameRR.frame.f[2] variable */) = -0.0;
   data->modelData->realVarsData[1104].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1105]] /* rig.hubFrameFL.frame.t[3] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1105]] /* rig.hubFrameRR.frame.f[3] variable */) = -0.0;
   data->modelData->realVarsData[1105].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1106]] /* rig.hubFrameFR.frame.f[1] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1106]] /* rig.hubFrameRR.frame.t[1] variable */) = -0.0;
   data->modelData->realVarsData[1106].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1107]] /* rig.hubFrameFR.frame.f[2] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1107]] /* rig.hubFrameRR.frame.t[3] variable */) = -0.0;
   data->modelData->realVarsData[1107].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1108]] /* rig.hubFrameFR.frame.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[1108].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1109]] /* rig.hubFrameFR.frame.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[1109].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1110]] /* rig.hubFrameFR.frame.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[1110].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1111]] /* rig.hubFrameRL.frame.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[1111].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1112]] /* rig.hubFrameRL.frame.f[2] variable */) = -0.0;
-  data->modelData->realVarsData[1112].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1113]] /* rig.hubFrameRL.frame.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[1113].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1114]] /* rig.hubFrameRL.frame.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[1114].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1115]] /* rig.hubFrameRL.frame.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[1115].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1116]] /* rig.hubFrameRR.frame.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[1116].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1117]] /* rig.hubFrameRR.frame.f[2] variable */) = -0.0;
-  data->modelData->realVarsData[1117].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1118]] /* rig.hubFrameRR.frame.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[1118].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1119]] /* rig.hubFrameRR.frame.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[1119].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1120]] /* rig.hubFrameRR.frame.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[1120].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1490]] /* vehicle.frontSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[1490].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1491]] /* vehicle.frontSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
-  data->modelData->realVarsData[1491].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1492]] /* vehicle.frontSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[1492].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1496]] /* vehicle.frontSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[1496].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1497]] /* vehicle.frontSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[1497].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1498]] /* vehicle.frontSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[1498].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1741]] /* vehicle.frontSuspension.cornerL.springArm.frame_b.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[1741].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1742]] /* vehicle.frontSuspension.cornerL.springArm.frame_b.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[1742].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1743]] /* vehicle.frontSuspension.cornerL.springArm.frame_b.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[1743].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1762]] /* vehicle.frontSuspension.cornerL.springChassis.frame_b.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[1762].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1763]] /* vehicle.frontSuspension.cornerL.springChassis.frame_b.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[1763].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1764]] /* vehicle.frontSuspension.cornerL.springChassis.frame_b.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[1764].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1799]] /* vehicle.frontSuspension.cornerL.tieRod.frame_a.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[1799].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1842]] /* vehicle.frontSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[1842].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1843]] /* vehicle.frontSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
-  data->modelData->realVarsData[1843].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1844]] /* vehicle.frontSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[1844].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1848]] /* vehicle.frontSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[1848].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1849]] /* vehicle.frontSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[1849].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1850]] /* vehicle.frontSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[1850].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1988]] /* vehicle.frontSuspension.cornerL.tieRodInner.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[1988].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2178]] /* vehicle.frontSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[2178].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2179]] /* vehicle.frontSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
-  data->modelData->realVarsData[2179].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2180]] /* vehicle.frontSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[2180].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2184]] /* vehicle.frontSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[2184].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2185]] /* vehicle.frontSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[2185].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2186]] /* vehicle.frontSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[2186].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2344]] /* vehicle.frontSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[2344].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2345]] /* vehicle.frontSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
-  data->modelData->realVarsData[2345].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2346]] /* vehicle.frontSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[2346].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2350]] /* vehicle.frontSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[2350].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2351]] /* vehicle.frontSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[2351].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2352]] /* vehicle.frontSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[2352].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2595]] /* vehicle.frontSuspension.cornerR.springArm.frame_b.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[2595].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2596]] /* vehicle.frontSuspension.cornerR.springArm.frame_b.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[2596].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2597]] /* vehicle.frontSuspension.cornerR.springArm.frame_b.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[2597].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2616]] /* vehicle.frontSuspension.cornerR.springChassis.frame_b.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[2616].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2617]] /* vehicle.frontSuspension.cornerR.springChassis.frame_b.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[2617].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2618]] /* vehicle.frontSuspension.cornerR.springChassis.frame_b.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[2618].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2653]] /* vehicle.frontSuspension.cornerR.tieRod.frame_a.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[2653].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2696]] /* vehicle.frontSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[2696].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2697]] /* vehicle.frontSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
-  data->modelData->realVarsData[2697].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2698]] /* vehicle.frontSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[2698].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2702]] /* vehicle.frontSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[2702].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2703]] /* vehicle.frontSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[2703].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2704]] /* vehicle.frontSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[2704].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2842]] /* vehicle.frontSuspension.cornerR.tieRodInner.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[2842].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3032]] /* vehicle.frontSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[3032].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3033]] /* vehicle.frontSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
-  data->modelData->realVarsData[3033].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3034]] /* vehicle.frontSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[3034].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3038]] /* vehicle.frontSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[3038].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3039]] /* vehicle.frontSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[3039].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3040]] /* vehicle.frontSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[3040].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3071]] /* vehicle.frontSuspension.steering.endL.frame_a.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[3071].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3073]] /* vehicle.frontSuspension.steering.endL.frame_b.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[3073].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3074]] /* vehicle.frontSuspension.steering.endL.frame_b.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[3074].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3091]] /* vehicle.frontSuspension.steering.endR.frame_a.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[3091].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3093]] /* vehicle.frontSuspension.steering.endR.frame_b.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[3093].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3094]] /* vehicle.frontSuspension.steering.endR.frame_b.t[3] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1477]] /* vehicle.frontSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[1477].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1478]] /* vehicle.frontSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[1478].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1479]] /* vehicle.frontSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[1479].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1483]] /* vehicle.frontSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[1483].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1484]] /* vehicle.frontSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[1484].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1485]] /* vehicle.frontSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[1485].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1728]] /* vehicle.frontSuspension.cornerL.springArm.frame_b.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[1728].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1729]] /* vehicle.frontSuspension.cornerL.springArm.frame_b.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[1729].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1730]] /* vehicle.frontSuspension.cornerL.springArm.frame_b.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[1730].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1749]] /* vehicle.frontSuspension.cornerL.springChassis.frame_b.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[1749].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1750]] /* vehicle.frontSuspension.cornerL.springChassis.frame_b.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[1750].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1751]] /* vehicle.frontSuspension.cornerL.springChassis.frame_b.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[1751].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1786]] /* vehicle.frontSuspension.cornerL.tieRod.frame_a.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[1786].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1829]] /* vehicle.frontSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[1829].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1830]] /* vehicle.frontSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[1830].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1831]] /* vehicle.frontSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[1831].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1835]] /* vehicle.frontSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[1835].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1836]] /* vehicle.frontSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[1836].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1837]] /* vehicle.frontSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[1837].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[1975]] /* vehicle.frontSuspension.cornerL.tieRodInner.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[1975].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2165]] /* vehicle.frontSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[2165].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2166]] /* vehicle.frontSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[2166].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2167]] /* vehicle.frontSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[2167].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2171]] /* vehicle.frontSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[2171].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2172]] /* vehicle.frontSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[2172].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2173]] /* vehicle.frontSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[2173].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2331]] /* vehicle.frontSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[2331].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2332]] /* vehicle.frontSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[2332].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2333]] /* vehicle.frontSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[2333].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2337]] /* vehicle.frontSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[2337].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2338]] /* vehicle.frontSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[2338].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2339]] /* vehicle.frontSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[2339].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2582]] /* vehicle.frontSuspension.cornerR.springArm.frame_b.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[2582].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2583]] /* vehicle.frontSuspension.cornerR.springArm.frame_b.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[2583].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2584]] /* vehicle.frontSuspension.cornerR.springArm.frame_b.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[2584].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2603]] /* vehicle.frontSuspension.cornerR.springChassis.frame_b.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[2603].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2604]] /* vehicle.frontSuspension.cornerR.springChassis.frame_b.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[2604].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2605]] /* vehicle.frontSuspension.cornerR.springChassis.frame_b.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[2605].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2640]] /* vehicle.frontSuspension.cornerR.tieRod.frame_a.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[2640].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2683]] /* vehicle.frontSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[2683].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2684]] /* vehicle.frontSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[2684].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2685]] /* vehicle.frontSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[2685].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2689]] /* vehicle.frontSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[2689].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2690]] /* vehicle.frontSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[2690].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2691]] /* vehicle.frontSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[2691].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[2829]] /* vehicle.frontSuspension.cornerR.tieRodInner.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[2829].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3019]] /* vehicle.frontSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[3019].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3020]] /* vehicle.frontSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[3020].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3021]] /* vehicle.frontSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[3021].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3025]] /* vehicle.frontSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[3025].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3026]] /* vehicle.frontSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[3026].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3027]] /* vehicle.frontSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[3027].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3058]] /* vehicle.frontSuspension.steering.endL.frame_a.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[3058].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3060]] /* vehicle.frontSuspension.steering.endL.frame_b.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[3060].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3061]] /* vehicle.frontSuspension.steering.endL.frame_b.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[3061].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3078]] /* vehicle.frontSuspension.steering.endR.frame_a.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[3078].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3080]] /* vehicle.frontSuspension.steering.endR.frame_b.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[3080].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3081]] /* vehicle.frontSuspension.steering.endR.frame_b.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[3081].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3094]] /* vehicle.frontSuspension.steering.housing.frame_b.t[2] variable */) = -0.0;
   data->modelData->realVarsData[3094].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3107]] /* vehicle.frontSuspension.steering.housing.frame_b.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[3107].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3146]] /* vehicle.frontSuspension.steering.rack.frame_b.t[2] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3133]] /* vehicle.frontSuspension.steering.rack.frame_b.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[3133].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3140]] /* vehicle.frontSuspension.steering.tieRodInnerL.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[3140].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3142]] /* vehicle.frontSuspension.steering.tieRodInnerL.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[3142].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3146]] /* vehicle.frontSuspension.steering.tieRodInnerR.t[1] variable */) = -0.0;
   data->modelData->realVarsData[3146].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3153]] /* vehicle.frontSuspension.steering.tieRodInnerL.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[3153].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3155]] /* vehicle.frontSuspension.steering.tieRodInnerL.t[3] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3148]] /* vehicle.frontSuspension.steering.tieRodInnerR.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[3148].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3154]] /* vehicle.hubFL.bearingFrame.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[3154].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3155]] /* vehicle.hubFL.bearingFrame.f[2] variable */) = -0.0;
   data->modelData->realVarsData[3155].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3159]] /* vehicle.frontSuspension.steering.tieRodInnerR.t[1] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3156]] /* vehicle.hubFL.bearingFrame.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[3156].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3157]] /* vehicle.hubFL.bearingFrame.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[3157].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3158]] /* vehicle.hubFL.bearingFrame.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[3158].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3159]] /* vehicle.hubFR.bearingFrame.f[1] variable */) = -0.0;
   data->modelData->realVarsData[3159].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3161]] /* vehicle.frontSuspension.steering.tieRodInnerR.t[3] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3160]] /* vehicle.hubFR.bearingFrame.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[3160].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3161]] /* vehicle.hubFR.bearingFrame.f[3] variable */) = -0.0;
   data->modelData->realVarsData[3161].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3167]] /* vehicle.hubFL.bearingFrame.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[3167].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3168]] /* vehicle.hubFL.bearingFrame.f[2] variable */) = -0.0;
-  data->modelData->realVarsData[3168].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3169]] /* vehicle.hubFL.bearingFrame.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[3169].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3170]] /* vehicle.hubFL.bearingFrame.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[3170].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3171]] /* vehicle.hubFL.bearingFrame.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[3171].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3172]] /* vehicle.hubFR.bearingFrame.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[3172].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3173]] /* vehicle.hubFR.bearingFrame.f[2] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3162]] /* vehicle.hubFR.bearingFrame.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[3162].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3163]] /* vehicle.hubFR.bearingFrame.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[3163].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3173]] /* vehicle.hubRL.bearingFrame.f[1] variable */) = -0.0;
   data->modelData->realVarsData[3173].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3174]] /* vehicle.hubFR.bearingFrame.f[3] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3174]] /* vehicle.hubRL.bearingFrame.f[2] variable */) = -0.0;
   data->modelData->realVarsData[3174].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3175]] /* vehicle.hubFR.bearingFrame.t[1] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3175]] /* vehicle.hubRL.bearingFrame.f[3] variable */) = -0.0;
   data->modelData->realVarsData[3175].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3176]] /* vehicle.hubFR.bearingFrame.t[3] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3176]] /* vehicle.hubRL.bearingFrame.t[1] variable */) = -0.0;
   data->modelData->realVarsData[3176].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3186]] /* vehicle.hubRL.bearingFrame.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[3186].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3187]] /* vehicle.hubRL.bearingFrame.f[2] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3177]] /* vehicle.hubRL.bearingFrame.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[3177].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3187]] /* vehicle.hubRR.bearingFrame.f[1] variable */) = -0.0;
   data->modelData->realVarsData[3187].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3188]] /* vehicle.hubRL.bearingFrame.f[3] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3188]] /* vehicle.hubRR.bearingFrame.f[2] variable */) = -0.0;
   data->modelData->realVarsData[3188].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3189]] /* vehicle.hubRL.bearingFrame.t[1] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3189]] /* vehicle.hubRR.bearingFrame.f[3] variable */) = -0.0;
   data->modelData->realVarsData[3189].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3190]] /* vehicle.hubRL.bearingFrame.t[3] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3190]] /* vehicle.hubRR.bearingFrame.t[1] variable */) = -0.0;
   data->modelData->realVarsData[3190].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3200]] /* vehicle.hubRR.bearingFrame.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[3200].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3201]] /* vehicle.hubRR.bearingFrame.f[2] variable */) = -0.0;
-  data->modelData->realVarsData[3201].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3202]] /* vehicle.hubRR.bearingFrame.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[3202].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3203]] /* vehicle.hubRR.bearingFrame.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[3203].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3204]] /* vehicle.hubRR.bearingFrame.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[3204].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3361]] /* vehicle.rearSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[3361].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3362]] /* vehicle.rearSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
-  data->modelData->realVarsData[3362].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3363]] /* vehicle.rearSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[3363].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3367]] /* vehicle.rearSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[3367].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3368]] /* vehicle.rearSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[3368].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3369]] /* vehicle.rearSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[3369].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3398]] /* vehicle.rearSuspension.cornerL.jointUSR.revolute.e_r_b variable */) = -0.0;
-  data->modelData->realVarsData[3398].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3535]] /* vehicle.rearSuspension.cornerL.jointUSR.rod2.frame_b.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[3535].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3608]] /* vehicle.rearSuspension.cornerL.springArm.frame_b.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[3608].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3609]] /* vehicle.rearSuspension.cornerL.springArm.frame_b.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[3609].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3610]] /* vehicle.rearSuspension.cornerL.springArm.frame_b.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[3610].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3629]] /* vehicle.rearSuspension.cornerL.springChassis.frame_b.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[3629].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3630]] /* vehicle.rearSuspension.cornerL.springChassis.frame_b.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[3630].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3631]] /* vehicle.rearSuspension.cornerL.springChassis.frame_b.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[3631].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3666]] /* vehicle.rearSuspension.cornerL.tieRod.frame_a.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[3666].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3667]] /* vehicle.rearSuspension.cornerL.tieRod.frame_a.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[3667].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3668]] /* vehicle.rearSuspension.cornerL.tieRod.frame_a.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[3668].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3711]] /* vehicle.rearSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[3711].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3712]] /* vehicle.rearSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
-  data->modelData->realVarsData[3712].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3713]] /* vehicle.rearSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[3713].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3717]] /* vehicle.rearSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[3717].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3718]] /* vehicle.rearSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[3718].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3719]] /* vehicle.rearSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[3719].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3856]] /* vehicle.rearSuspension.cornerL.tieRodInner.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[3856].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3857]] /* vehicle.rearSuspension.cornerL.tieRodInner.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[3857].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3858]] /* vehicle.rearSuspension.cornerL.tieRodInner.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[3858].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4056]] /* vehicle.rearSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[4056].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4057]] /* vehicle.rearSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
-  data->modelData->realVarsData[4057].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4058]] /* vehicle.rearSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[4058].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4062]] /* vehicle.rearSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[4062].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4063]] /* vehicle.rearSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[4063].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4064]] /* vehicle.rearSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[4064].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4221]] /* vehicle.rearSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[4221].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4222]] /* vehicle.rearSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
-  data->modelData->realVarsData[4222].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4223]] /* vehicle.rearSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[4223].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4227]] /* vehicle.rearSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[4227].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4228]] /* vehicle.rearSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[4228].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4229]] /* vehicle.rearSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[4229].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4258]] /* vehicle.rearSuspension.cornerR.jointUSR.revolute.e_r_b variable */) = -0.0;
-  data->modelData->realVarsData[4258].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4395]] /* vehicle.rearSuspension.cornerR.jointUSR.rod2.frame_b.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[4395].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4468]] /* vehicle.rearSuspension.cornerR.springArm.frame_b.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[4468].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4469]] /* vehicle.rearSuspension.cornerR.springArm.frame_b.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[4469].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4470]] /* vehicle.rearSuspension.cornerR.springArm.frame_b.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[4470].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4489]] /* vehicle.rearSuspension.cornerR.springChassis.frame_b.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[4489].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4490]] /* vehicle.rearSuspension.cornerR.springChassis.frame_b.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[4490].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4491]] /* vehicle.rearSuspension.cornerR.springChassis.frame_b.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[4491].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4526]] /* vehicle.rearSuspension.cornerR.tieRod.frame_a.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[4526].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4527]] /* vehicle.rearSuspension.cornerR.tieRod.frame_a.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[4527].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4528]] /* vehicle.rearSuspension.cornerR.tieRod.frame_a.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[4528].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4571]] /* vehicle.rearSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[4571].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4572]] /* vehicle.rearSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
-  data->modelData->realVarsData[4572].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4573]] /* vehicle.rearSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[4573].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4577]] /* vehicle.rearSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[4577].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4578]] /* vehicle.rearSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[4578].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4579]] /* vehicle.rearSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[4579].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4716]] /* vehicle.rearSuspension.cornerR.tieRodInner.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[4716].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4717]] /* vehicle.rearSuspension.cornerR.tieRodInner.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[4717].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4718]] /* vehicle.rearSuspension.cornerR.tieRodInner.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[4718].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4916]] /* vehicle.rearSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[4916].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4917]] /* vehicle.rearSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
-  data->modelData->realVarsData[4917].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4918]] /* vehicle.rearSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[4918].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4922]] /* vehicle.rearSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[4922].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4923]] /* vehicle.rearSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
-  data->modelData->realVarsData[4923].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4924]] /* vehicle.rearSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[4924].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5104]] /* vehicle.wheelFL.hubFlange.bearingFrame.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[5104].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5105]] /* vehicle.wheelFL.hubFlange.bearingFrame.f[2] variable */) = -0.0;
-  data->modelData->realVarsData[5105].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5106]] /* vehicle.wheelFL.hubFlange.bearingFrame.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[5106].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5107]] /* vehicle.wheelFL.hubFlange.bearingFrame.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[5107].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5108]] /* vehicle.wheelFL.hubFlange.bearingFrame.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[5108].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5109]] /* vehicle.wheelFL.rim.adaptor.flangeAndFrame.bearingFrame.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[5109].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5110]] /* vehicle.wheelFL.rim.adaptor.flangeAndFrame.bearingFrame.f[2] variable */) = -0.0;
-  data->modelData->realVarsData[5110].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5111]] /* vehicle.wheelFL.rim.adaptor.flangeAndFrame.bearingFrame.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[5111].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5112]] /* vehicle.wheelFL.rim.adaptor.flangeAndFrame.bearingFrame.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[5112].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5113]] /* vehicle.wheelFL.rim.adaptor.flangeAndFrame.bearingFrame.t[3] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3191]] /* vehicle.hubRR.bearingFrame.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[3191].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3348]] /* vehicle.rearSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[3348].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3349]] /* vehicle.rearSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[3349].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3350]] /* vehicle.rearSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[3350].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3354]] /* vehicle.rearSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[3354].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3355]] /* vehicle.rearSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[3355].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3356]] /* vehicle.rearSuspension.cornerL.jointUSR.relativePosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[3356].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3385]] /* vehicle.rearSuspension.cornerL.jointUSR.revolute.e_r_b variable */) = -0.0;
+  data->modelData->realVarsData[3385].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3522]] /* vehicle.rearSuspension.cornerL.jointUSR.rod2.frame_b.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[3522].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3595]] /* vehicle.rearSuspension.cornerL.springArm.frame_b.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[3595].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3596]] /* vehicle.rearSuspension.cornerL.springArm.frame_b.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[3596].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3597]] /* vehicle.rearSuspension.cornerL.springArm.frame_b.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[3597].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3616]] /* vehicle.rearSuspension.cornerL.springChassis.frame_b.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[3616].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3617]] /* vehicle.rearSuspension.cornerL.springChassis.frame_b.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[3617].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3618]] /* vehicle.rearSuspension.cornerL.springChassis.frame_b.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[3618].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3653]] /* vehicle.rearSuspension.cornerL.tieRod.frame_a.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[3653].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3654]] /* vehicle.rearSuspension.cornerL.tieRod.frame_a.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[3654].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3655]] /* vehicle.rearSuspension.cornerL.tieRod.frame_a.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[3655].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3698]] /* vehicle.rearSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[3698].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3699]] /* vehicle.rearSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[3699].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3700]] /* vehicle.rearSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[3700].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3704]] /* vehicle.rearSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[3704].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3705]] /* vehicle.rearSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[3705].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3706]] /* vehicle.rearSuspension.cornerL.tieRod.relativePosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[3706].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3843]] /* vehicle.rearSuspension.cornerL.tieRodInner.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[3843].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3844]] /* vehicle.rearSuspension.cornerL.tieRodInner.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[3844].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[3845]] /* vehicle.rearSuspension.cornerL.tieRodInner.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[3845].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4043]] /* vehicle.rearSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[4043].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4044]] /* vehicle.rearSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[4044].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4045]] /* vehicle.rearSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[4045].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4049]] /* vehicle.rearSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[4049].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4050]] /* vehicle.rearSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[4050].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4051]] /* vehicle.rearSuspension.cornerL.wheelPosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[4051].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4208]] /* vehicle.rearSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[4208].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4209]] /* vehicle.rearSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[4209].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4210]] /* vehicle.rearSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[4210].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4214]] /* vehicle.rearSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[4214].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4215]] /* vehicle.rearSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[4215].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4216]] /* vehicle.rearSuspension.cornerR.jointUSR.relativePosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[4216].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4245]] /* vehicle.rearSuspension.cornerR.jointUSR.revolute.e_r_b variable */) = -0.0;
+  data->modelData->realVarsData[4245].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4382]] /* vehicle.rearSuspension.cornerR.jointUSR.rod2.frame_b.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[4382].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4455]] /* vehicle.rearSuspension.cornerR.springArm.frame_b.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[4455].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4456]] /* vehicle.rearSuspension.cornerR.springArm.frame_b.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[4456].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4457]] /* vehicle.rearSuspension.cornerR.springArm.frame_b.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[4457].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4476]] /* vehicle.rearSuspension.cornerR.springChassis.frame_b.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[4476].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4477]] /* vehicle.rearSuspension.cornerR.springChassis.frame_b.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[4477].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4478]] /* vehicle.rearSuspension.cornerR.springChassis.frame_b.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[4478].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4513]] /* vehicle.rearSuspension.cornerR.tieRod.frame_a.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[4513].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4514]] /* vehicle.rearSuspension.cornerR.tieRod.frame_a.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[4514].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4515]] /* vehicle.rearSuspension.cornerR.tieRod.frame_a.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[4515].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4558]] /* vehicle.rearSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[4558].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4559]] /* vehicle.rearSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[4559].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4560]] /* vehicle.rearSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[4560].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4564]] /* vehicle.rearSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[4564].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4565]] /* vehicle.rearSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[4565].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4566]] /* vehicle.rearSuspension.cornerR.tieRod.relativePosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[4566].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4703]] /* vehicle.rearSuspension.cornerR.tieRodInner.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[4703].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4704]] /* vehicle.rearSuspension.cornerR.tieRodInner.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[4704].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4705]] /* vehicle.rearSuspension.cornerR.tieRodInner.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[4705].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4903]] /* vehicle.rearSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[4903].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4904]] /* vehicle.rearSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[4904].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4905]] /* vehicle.rearSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[4905].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4909]] /* vehicle.rearSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[4909].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4910]] /* vehicle.rearSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.t[2] variable */) = -0.0;
+  data->modelData->realVarsData[4910].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[4911]] /* vehicle.rearSuspension.cornerR.wheelPosition.zeroPosition.frame_resolve.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[4911].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5092]] /* vehicle.wheelFL.hubFlange.bearingFrame.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[5092].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5093]] /* vehicle.wheelFL.hubFlange.bearingFrame.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[5093].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5094]] /* vehicle.wheelFL.hubFlange.bearingFrame.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[5094].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5095]] /* vehicle.wheelFL.hubFlange.bearingFrame.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[5095].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5096]] /* vehicle.wheelFL.hubFlange.bearingFrame.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[5096].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5098]] /* vehicle.wheelFL.rim.adaptor.flangeAndFrame.bearingFrame.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[5098].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5099]] /* vehicle.wheelFL.rim.adaptor.flangeAndFrame.bearingFrame.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[5099].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5100]] /* vehicle.wheelFL.rim.adaptor.flangeAndFrame.bearingFrame.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[5100].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5101]] /* vehicle.wheelFL.rim.adaptor.flangeAndFrame.bearingFrame.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[5101].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5102]] /* vehicle.wheelFL.rim.adaptor.flangeAndFrame.bearingFrame.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[5102].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5113]] /* vehicle.wheelFL.rim.hubFlange.bearingFrame.f[1] variable */) = -0.0;
   data->modelData->realVarsData[5113].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5124]] /* vehicle.wheelFL.rim.hubFlange.bearingFrame.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[5124].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5125]] /* vehicle.wheelFL.rim.hubFlange.bearingFrame.f[2] variable */) = -0.0;
-  data->modelData->realVarsData[5125].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5126]] /* vehicle.wheelFL.rim.hubFlange.bearingFrame.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[5126].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5127]] /* vehicle.wheelFL.rim.hubFlange.bearingFrame.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[5127].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5128]] /* vehicle.wheelFL.rim.hubFlange.bearingFrame.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[5128].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5197]] /* vehicle.wheelFR.hubFlange.bearingFrame.f[1] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5114]] /* vehicle.wheelFL.rim.hubFlange.bearingFrame.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[5114].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5115]] /* vehicle.wheelFL.rim.hubFlange.bearingFrame.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[5115].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5116]] /* vehicle.wheelFL.rim.hubFlange.bearingFrame.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[5116].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5117]] /* vehicle.wheelFL.rim.hubFlange.bearingFrame.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[5117].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5189]] /* vehicle.wheelFR.hubFlange.bearingFrame.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[5189].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5190]] /* vehicle.wheelFR.hubFlange.bearingFrame.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[5190].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5191]] /* vehicle.wheelFR.hubFlange.bearingFrame.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[5191].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5192]] /* vehicle.wheelFR.hubFlange.bearingFrame.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[5192].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5193]] /* vehicle.wheelFR.hubFlange.bearingFrame.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[5193].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5195]] /* vehicle.wheelFR.rim.adaptor.flangeAndFrame.bearingFrame.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[5195].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5196]] /* vehicle.wheelFR.rim.adaptor.flangeAndFrame.bearingFrame.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[5196].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5197]] /* vehicle.wheelFR.rim.adaptor.flangeAndFrame.bearingFrame.f[3] variable */) = -0.0;
   data->modelData->realVarsData[5197].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5198]] /* vehicle.wheelFR.hubFlange.bearingFrame.f[2] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5198]] /* vehicle.wheelFR.rim.adaptor.flangeAndFrame.bearingFrame.t[1] variable */) = -0.0;
   data->modelData->realVarsData[5198].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5199]] /* vehicle.wheelFR.hubFlange.bearingFrame.f[3] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5199]] /* vehicle.wheelFR.rim.adaptor.flangeAndFrame.bearingFrame.t[3] variable */) = -0.0;
   data->modelData->realVarsData[5199].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5200]] /* vehicle.wheelFR.hubFlange.bearingFrame.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[5200].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5201]] /* vehicle.wheelFR.hubFlange.bearingFrame.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[5201].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5202]] /* vehicle.wheelFR.rim.adaptor.flangeAndFrame.bearingFrame.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[5202].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5203]] /* vehicle.wheelFR.rim.adaptor.flangeAndFrame.bearingFrame.f[2] variable */) = -0.0;
-  data->modelData->realVarsData[5203].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5204]] /* vehicle.wheelFR.rim.adaptor.flangeAndFrame.bearingFrame.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[5204].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5205]] /* vehicle.wheelFR.rim.adaptor.flangeAndFrame.bearingFrame.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[5205].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5206]] /* vehicle.wheelFR.rim.adaptor.flangeAndFrame.bearingFrame.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[5206].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5217]] /* vehicle.wheelFR.rim.hubFlange.bearingFrame.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[5217].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5218]] /* vehicle.wheelFR.rim.hubFlange.bearingFrame.f[2] variable */) = -0.0;
-  data->modelData->realVarsData[5218].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5219]] /* vehicle.wheelFR.rim.hubFlange.bearingFrame.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[5219].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5220]] /* vehicle.wheelFR.rim.hubFlange.bearingFrame.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[5220].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5221]] /* vehicle.wheelFR.rim.hubFlange.bearingFrame.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[5221].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5290]] /* vehicle.wheelRL.hubFlange.bearingFrame.f[1] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5210]] /* vehicle.wheelFR.rim.hubFlange.bearingFrame.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[5210].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5211]] /* vehicle.wheelFR.rim.hubFlange.bearingFrame.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[5211].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5212]] /* vehicle.wheelFR.rim.hubFlange.bearingFrame.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[5212].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5213]] /* vehicle.wheelFR.rim.hubFlange.bearingFrame.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[5213].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5214]] /* vehicle.wheelFR.rim.hubFlange.bearingFrame.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[5214].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5286]] /* vehicle.wheelRL.hubFlange.bearingFrame.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[5286].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5287]] /* vehicle.wheelRL.hubFlange.bearingFrame.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[5287].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5288]] /* vehicle.wheelRL.hubFlange.bearingFrame.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[5288].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5289]] /* vehicle.wheelRL.hubFlange.bearingFrame.t[1] variable */) = -0.0;
+  data->modelData->realVarsData[5289].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5290]] /* vehicle.wheelRL.hubFlange.bearingFrame.t[3] variable */) = -0.0;
   data->modelData->realVarsData[5290].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5291]] /* vehicle.wheelRL.hubFlange.bearingFrame.f[2] variable */) = -0.0;
-  data->modelData->realVarsData[5291].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5292]] /* vehicle.wheelRL.hubFlange.bearingFrame.f[3] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5292]] /* vehicle.wheelRL.rim.adaptor.flangeAndFrame.bearingFrame.f[1] variable */) = -0.0;
   data->modelData->realVarsData[5292].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5293]] /* vehicle.wheelRL.hubFlange.bearingFrame.t[1] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5293]] /* vehicle.wheelRL.rim.adaptor.flangeAndFrame.bearingFrame.f[2] variable */) = -0.0;
   data->modelData->realVarsData[5293].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5294]] /* vehicle.wheelRL.hubFlange.bearingFrame.t[3] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5294]] /* vehicle.wheelRL.rim.adaptor.flangeAndFrame.bearingFrame.f[3] variable */) = -0.0;
   data->modelData->realVarsData[5294].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5295]] /* vehicle.wheelRL.rim.adaptor.flangeAndFrame.bearingFrame.f[1] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5295]] /* vehicle.wheelRL.rim.adaptor.flangeAndFrame.bearingFrame.t[1] variable */) = -0.0;
   data->modelData->realVarsData[5295].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5296]] /* vehicle.wheelRL.rim.adaptor.flangeAndFrame.bearingFrame.f[2] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5296]] /* vehicle.wheelRL.rim.adaptor.flangeAndFrame.bearingFrame.t[3] variable */) = -0.0;
   data->modelData->realVarsData[5296].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5297]] /* vehicle.wheelRL.rim.adaptor.flangeAndFrame.bearingFrame.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[5297].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5298]] /* vehicle.wheelRL.rim.adaptor.flangeAndFrame.bearingFrame.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[5298].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5299]] /* vehicle.wheelRL.rim.adaptor.flangeAndFrame.bearingFrame.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[5299].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5310]] /* vehicle.wheelRL.rim.hubFlange.bearingFrame.f[1] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5307]] /* vehicle.wheelRL.rim.hubFlange.bearingFrame.f[1] variable */) = -0.0;
+  data->modelData->realVarsData[5307].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5308]] /* vehicle.wheelRL.rim.hubFlange.bearingFrame.f[2] variable */) = -0.0;
+  data->modelData->realVarsData[5308].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5309]] /* vehicle.wheelRL.rim.hubFlange.bearingFrame.f[3] variable */) = -0.0;
+  data->modelData->realVarsData[5309].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5310]] /* vehicle.wheelRL.rim.hubFlange.bearingFrame.t[1] variable */) = -0.0;
   data->modelData->realVarsData[5310].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5311]] /* vehicle.wheelRL.rim.hubFlange.bearingFrame.f[2] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5311]] /* vehicle.wheelRL.rim.hubFlange.bearingFrame.t[3] variable */) = -0.0;
   data->modelData->realVarsData[5311].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5312]] /* vehicle.wheelRL.rim.hubFlange.bearingFrame.f[3] variable */) = -0.0;
-  data->modelData->realVarsData[5312].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5313]] /* vehicle.wheelRL.rim.hubFlange.bearingFrame.t[1] variable */) = -0.0;
-  data->modelData->realVarsData[5313].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5314]] /* vehicle.wheelRL.rim.hubFlange.bearingFrame.t[3] variable */) = -0.0;
-  data->modelData->realVarsData[5314].time_unvarying = 1;
   (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5383]] /* vehicle.wheelRR.hubFlange.bearingFrame.f[1] variable */) = -0.0;
   data->modelData->realVarsData[5383].time_unvarying = 1;
   (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5384]] /* vehicle.wheelRR.hubFlange.bearingFrame.f[2] variable */) = -0.0;
@@ -1372,26 +1372,26 @@ int AlyssaVehicle_updateBoundParameters(DATA *data, threadData_t *threadData)
   data->modelData->realVarsData[5386].time_unvarying = 1;
   (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5387]] /* vehicle.wheelRR.hubFlange.bearingFrame.t[3] variable */) = -0.0;
   data->modelData->realVarsData[5387].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5388]] /* vehicle.wheelRR.rim.adaptor.flangeAndFrame.bearingFrame.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[5388].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5389]] /* vehicle.wheelRR.rim.adaptor.flangeAndFrame.bearingFrame.f[2] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5389]] /* vehicle.wheelRR.rim.adaptor.flangeAndFrame.bearingFrame.f[1] variable */) = -0.0;
   data->modelData->realVarsData[5389].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5390]] /* vehicle.wheelRR.rim.adaptor.flangeAndFrame.bearingFrame.f[3] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5390]] /* vehicle.wheelRR.rim.adaptor.flangeAndFrame.bearingFrame.f[2] variable */) = -0.0;
   data->modelData->realVarsData[5390].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5391]] /* vehicle.wheelRR.rim.adaptor.flangeAndFrame.bearingFrame.t[1] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5391]] /* vehicle.wheelRR.rim.adaptor.flangeAndFrame.bearingFrame.f[3] variable */) = -0.0;
   data->modelData->realVarsData[5391].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5392]] /* vehicle.wheelRR.rim.adaptor.flangeAndFrame.bearingFrame.t[3] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5392]] /* vehicle.wheelRR.rim.adaptor.flangeAndFrame.bearingFrame.t[1] variable */) = -0.0;
   data->modelData->realVarsData[5392].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5403]] /* vehicle.wheelRR.rim.hubFlange.bearingFrame.f[1] variable */) = -0.0;
-  data->modelData->realVarsData[5403].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5404]] /* vehicle.wheelRR.rim.hubFlange.bearingFrame.f[2] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5393]] /* vehicle.wheelRR.rim.adaptor.flangeAndFrame.bearingFrame.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[5393].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5404]] /* vehicle.wheelRR.rim.hubFlange.bearingFrame.f[1] variable */) = -0.0;
   data->modelData->realVarsData[5404].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5405]] /* vehicle.wheelRR.rim.hubFlange.bearingFrame.f[3] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5405]] /* vehicle.wheelRR.rim.hubFlange.bearingFrame.f[2] variable */) = -0.0;
   data->modelData->realVarsData[5405].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5406]] /* vehicle.wheelRR.rim.hubFlange.bearingFrame.t[1] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5406]] /* vehicle.wheelRR.rim.hubFlange.bearingFrame.f[3] variable */) = -0.0;
   data->modelData->realVarsData[5406].time_unvarying = 1;
-  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5407]] /* vehicle.wheelRR.rim.hubFlange.bearingFrame.t[3] variable */) = -0.0;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5407]] /* vehicle.wheelRR.rim.hubFlange.bearingFrame.t[1] variable */) = -0.0;
   data->modelData->realVarsData[5407].time_unvarying = 1;
+  (data->localData[0]->realVars[data->simulationInfo->realVarsIndex[5408]] /* vehicle.wheelRR.rim.hubFlange.bearingFrame.t[3] variable */) = -0.0;
+  data->modelData->realVarsData[5408].time_unvarying = 1;
   (data->simulationInfo->realParameter[7] /* rig.motion.heave.boxWidthDirection[1] PARAM */) = 0.0;
   data->modelData->realParameterData[7].time_unvarying = 1;
   (data->simulationInfo->realParameter[8] /* rig.motion.heave.boxWidthDirection[2] PARAM */) = 1.0;
@@ -4340,124 +4340,124 @@ int AlyssaVehicle_updateBoundParameters(DATA *data, threadData_t *threadData)
   data->modelData->realParameterData[3596].time_unvarying = 1;
   (data->simulationInfo->realParameter[3597] /* vehicle.wheelFL.rim.rotor1D.rotorWith3DEffects.n[3] PARAM */) = 0.0;
   data->modelData->realParameterData[3597].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3681] /* vehicle.wheelFR.rim.mounting1D.n[1] PARAM */) = 0.0;
-  data->modelData->realParameterData[3681].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3682] /* vehicle.wheelFR.rim.mounting1D.n[2] PARAM */) = -1.0;
-  data->modelData->realParameterData[3682].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3683] /* vehicle.wheelFR.rim.mounting1D.n[3] PARAM */) = 0.0;
-  data->modelData->realParameterData[3683].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3685] /* vehicle.wheelFR.rim.n[1] PARAM */) = 0.0;
-  data->modelData->realParameterData[3685].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3686] /* vehicle.wheelFR.rim.n[2] PARAM */) = -1.0;
-  data->modelData->realParameterData[3686].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3687] /* vehicle.wheelFR.rim.n[3] PARAM */) = 0.0;
-  data->modelData->realParameterData[3687].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3693] /* vehicle.wheelFR.rim.rotor1D.e[1] PARAM */) = 0.0;
-  data->modelData->realParameterData[3693].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3694] /* vehicle.wheelFR.rim.rotor1D.e[2] PARAM */) = -1.0;
-  data->modelData->realParameterData[3694].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3695] /* vehicle.wheelFR.rim.rotor1D.e[3] PARAM */) = 0.0;
-  data->modelData->realParameterData[3695].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3696] /* vehicle.wheelFR.rim.rotor1D.n[1] PARAM */) = 0.0;
-  data->modelData->realParameterData[3696].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3697] /* vehicle.wheelFR.rim.rotor1D.n[2] PARAM */) = -1.0;
-  data->modelData->realParameterData[3697].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3698] /* vehicle.wheelFR.rim.rotor1D.n[3] PARAM */) = 0.0;
-  data->modelData->realParameterData[3698].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3709] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.e[1] PARAM */) = 0.0;
-  data->modelData->realParameterData[3709].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3710] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.e[2] PARAM */) = -1.0;
+  (data->simulationInfo->realParameter[3637] /* vehicle.wheelFR.rim.mounting1D.n[1] PARAM */) = 0.0;
+  data->modelData->realParameterData[3637].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3638] /* vehicle.wheelFR.rim.mounting1D.n[2] PARAM */) = -1.0;
+  data->modelData->realParameterData[3638].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3639] /* vehicle.wheelFR.rim.mounting1D.n[3] PARAM */) = 0.0;
+  data->modelData->realParameterData[3639].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3641] /* vehicle.wheelFR.rim.n[1] PARAM */) = 0.0;
+  data->modelData->realParameterData[3641].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3642] /* vehicle.wheelFR.rim.n[2] PARAM */) = -1.0;
+  data->modelData->realParameterData[3642].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3643] /* vehicle.wheelFR.rim.n[3] PARAM */) = 0.0;
+  data->modelData->realParameterData[3643].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3649] /* vehicle.wheelFR.rim.rotor1D.e[1] PARAM */) = 0.0;
+  data->modelData->realParameterData[3649].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3650] /* vehicle.wheelFR.rim.rotor1D.e[2] PARAM */) = -1.0;
+  data->modelData->realParameterData[3650].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3651] /* vehicle.wheelFR.rim.rotor1D.e[3] PARAM */) = 0.0;
+  data->modelData->realParameterData[3651].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3652] /* vehicle.wheelFR.rim.rotor1D.n[1] PARAM */) = 0.0;
+  data->modelData->realParameterData[3652].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3653] /* vehicle.wheelFR.rim.rotor1D.n[2] PARAM */) = -1.0;
+  data->modelData->realParameterData[3653].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3654] /* vehicle.wheelFR.rim.rotor1D.n[3] PARAM */) = 0.0;
+  data->modelData->realParameterData[3654].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3665] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.e[1] PARAM */) = 0.0;
+  data->modelData->realParameterData[3665].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3666] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.e[2] PARAM */) = -1.0;
+  data->modelData->realParameterData[3666].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3667] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.e[3] PARAM */) = 0.0;
+  data->modelData->realParameterData[3667].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3668] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.n[1] PARAM */) = 0.0;
+  data->modelData->realParameterData[3668].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3669] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.n[2] PARAM */) = -1.0;
+  data->modelData->realParameterData[3669].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3670] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.n[3] PARAM */) = 0.0;
+  data->modelData->realParameterData[3670].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3710] /* vehicle.wheelRL.rim.mounting1D.n[1] PARAM */) = 0.0;
   data->modelData->realParameterData[3710].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3711] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.e[3] PARAM */) = 0.0;
+  (data->simulationInfo->realParameter[3711] /* vehicle.wheelRL.rim.mounting1D.n[2] PARAM */) = -1.0;
   data->modelData->realParameterData[3711].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3712] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.n[1] PARAM */) = 0.0;
+  (data->simulationInfo->realParameter[3712] /* vehicle.wheelRL.rim.mounting1D.n[3] PARAM */) = 0.0;
   data->modelData->realParameterData[3712].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3713] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.n[2] PARAM */) = -1.0;
-  data->modelData->realParameterData[3713].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3714] /* vehicle.wheelFR.rim.rotor1D.rotorWith3DEffects.n[3] PARAM */) = 0.0;
+  (data->simulationInfo->realParameter[3714] /* vehicle.wheelRL.rim.n[1] PARAM */) = 0.0;
   data->modelData->realParameterData[3714].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3798] /* vehicle.wheelRL.rim.mounting1D.n[1] PARAM */) = 0.0;
+  (data->simulationInfo->realParameter[3715] /* vehicle.wheelRL.rim.n[2] PARAM */) = -1.0;
+  data->modelData->realParameterData[3715].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3716] /* vehicle.wheelRL.rim.n[3] PARAM */) = 0.0;
+  data->modelData->realParameterData[3716].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3722] /* vehicle.wheelRL.rim.rotor1D.e[1] PARAM */) = 0.0;
+  data->modelData->realParameterData[3722].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3723] /* vehicle.wheelRL.rim.rotor1D.e[2] PARAM */) = -1.0;
+  data->modelData->realParameterData[3723].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3724] /* vehicle.wheelRL.rim.rotor1D.e[3] PARAM */) = 0.0;
+  data->modelData->realParameterData[3724].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3725] /* vehicle.wheelRL.rim.rotor1D.n[1] PARAM */) = 0.0;
+  data->modelData->realParameterData[3725].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3726] /* vehicle.wheelRL.rim.rotor1D.n[2] PARAM */) = -1.0;
+  data->modelData->realParameterData[3726].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3727] /* vehicle.wheelRL.rim.rotor1D.n[3] PARAM */) = 0.0;
+  data->modelData->realParameterData[3727].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3738] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.e[1] PARAM */) = 0.0;
+  data->modelData->realParameterData[3738].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3739] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.e[2] PARAM */) = -1.0;
+  data->modelData->realParameterData[3739].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3740] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.e[3] PARAM */) = 0.0;
+  data->modelData->realParameterData[3740].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3741] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.n[1] PARAM */) = 0.0;
+  data->modelData->realParameterData[3741].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3742] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.n[2] PARAM */) = -1.0;
+  data->modelData->realParameterData[3742].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3743] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.n[3] PARAM */) = 0.0;
+  data->modelData->realParameterData[3743].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3783] /* vehicle.wheelRR.rim.mounting1D.n[1] PARAM */) = 0.0;
+  data->modelData->realParameterData[3783].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3784] /* vehicle.wheelRR.rim.mounting1D.n[2] PARAM */) = -1.0;
+  data->modelData->realParameterData[3784].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3785] /* vehicle.wheelRR.rim.mounting1D.n[3] PARAM */) = 0.0;
+  data->modelData->realParameterData[3785].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3787] /* vehicle.wheelRR.rim.n[1] PARAM */) = 0.0;
+  data->modelData->realParameterData[3787].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3788] /* vehicle.wheelRR.rim.n[2] PARAM */) = -1.0;
+  data->modelData->realParameterData[3788].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3789] /* vehicle.wheelRR.rim.n[3] PARAM */) = 0.0;
+  data->modelData->realParameterData[3789].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3795] /* vehicle.wheelRR.rim.rotor1D.e[1] PARAM */) = 0.0;
+  data->modelData->realParameterData[3795].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3796] /* vehicle.wheelRR.rim.rotor1D.e[2] PARAM */) = -1.0;
+  data->modelData->realParameterData[3796].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3797] /* vehicle.wheelRR.rim.rotor1D.e[3] PARAM */) = 0.0;
+  data->modelData->realParameterData[3797].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3798] /* vehicle.wheelRR.rim.rotor1D.n[1] PARAM */) = 0.0;
   data->modelData->realParameterData[3798].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3799] /* vehicle.wheelRL.rim.mounting1D.n[2] PARAM */) = -1.0;
+  (data->simulationInfo->realParameter[3799] /* vehicle.wheelRR.rim.rotor1D.n[2] PARAM */) = -1.0;
   data->modelData->realParameterData[3799].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3800] /* vehicle.wheelRL.rim.mounting1D.n[3] PARAM */) = 0.0;
+  (data->simulationInfo->realParameter[3800] /* vehicle.wheelRR.rim.rotor1D.n[3] PARAM */) = 0.0;
   data->modelData->realParameterData[3800].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3802] /* vehicle.wheelRL.rim.n[1] PARAM */) = 0.0;
-  data->modelData->realParameterData[3802].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3803] /* vehicle.wheelRL.rim.n[2] PARAM */) = -1.0;
-  data->modelData->realParameterData[3803].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3804] /* vehicle.wheelRL.rim.n[3] PARAM */) = 0.0;
-  data->modelData->realParameterData[3804].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3810] /* vehicle.wheelRL.rim.rotor1D.e[1] PARAM */) = 0.0;
-  data->modelData->realParameterData[3810].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3811] /* vehicle.wheelRL.rim.rotor1D.e[2] PARAM */) = -1.0;
+  (data->simulationInfo->realParameter[3811] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.e[1] PARAM */) = 0.0;
   data->modelData->realParameterData[3811].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3812] /* vehicle.wheelRL.rim.rotor1D.e[3] PARAM */) = 0.0;
+  (data->simulationInfo->realParameter[3812] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.e[2] PARAM */) = -1.0;
   data->modelData->realParameterData[3812].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3813] /* vehicle.wheelRL.rim.rotor1D.n[1] PARAM */) = 0.0;
+  (data->simulationInfo->realParameter[3813] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.e[3] PARAM */) = 0.0;
   data->modelData->realParameterData[3813].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3814] /* vehicle.wheelRL.rim.rotor1D.n[2] PARAM */) = -1.0;
+  (data->simulationInfo->realParameter[3814] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.n[1] PARAM */) = 0.0;
   data->modelData->realParameterData[3814].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3815] /* vehicle.wheelRL.rim.rotor1D.n[3] PARAM */) = 0.0;
+  (data->simulationInfo->realParameter[3815] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.n[2] PARAM */) = -1.0;
   data->modelData->realParameterData[3815].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3826] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.e[1] PARAM */) = 0.0;
-  data->modelData->realParameterData[3826].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3827] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.e[2] PARAM */) = -1.0;
-  data->modelData->realParameterData[3827].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3828] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.e[3] PARAM */) = 0.0;
-  data->modelData->realParameterData[3828].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3829] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.n[1] PARAM */) = 0.0;
-  data->modelData->realParameterData[3829].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3830] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.n[2] PARAM */) = -1.0;
-  data->modelData->realParameterData[3830].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3831] /* vehicle.wheelRL.rim.rotor1D.rotorWith3DEffects.n[3] PARAM */) = 0.0;
-  data->modelData->realParameterData[3831].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3915] /* vehicle.wheelRR.rim.mounting1D.n[1] PARAM */) = 0.0;
-  data->modelData->realParameterData[3915].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3916] /* vehicle.wheelRR.rim.mounting1D.n[2] PARAM */) = -1.0;
-  data->modelData->realParameterData[3916].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3917] /* vehicle.wheelRR.rim.mounting1D.n[3] PARAM */) = 0.0;
-  data->modelData->realParameterData[3917].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3919] /* vehicle.wheelRR.rim.n[1] PARAM */) = 0.0;
-  data->modelData->realParameterData[3919].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3920] /* vehicle.wheelRR.rim.n[2] PARAM */) = -1.0;
-  data->modelData->realParameterData[3920].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3921] /* vehicle.wheelRR.rim.n[3] PARAM */) = 0.0;
-  data->modelData->realParameterData[3921].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3927] /* vehicle.wheelRR.rim.rotor1D.e[1] PARAM */) = 0.0;
-  data->modelData->realParameterData[3927].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3928] /* vehicle.wheelRR.rim.rotor1D.e[2] PARAM */) = -1.0;
-  data->modelData->realParameterData[3928].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3929] /* vehicle.wheelRR.rim.rotor1D.e[3] PARAM */) = 0.0;
-  data->modelData->realParameterData[3929].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3930] /* vehicle.wheelRR.rim.rotor1D.n[1] PARAM */) = 0.0;
-  data->modelData->realParameterData[3930].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3931] /* vehicle.wheelRR.rim.rotor1D.n[2] PARAM */) = -1.0;
-  data->modelData->realParameterData[3931].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3932] /* vehicle.wheelRR.rim.rotor1D.n[3] PARAM */) = 0.0;
-  data->modelData->realParameterData[3932].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3943] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.e[1] PARAM */) = 0.0;
-  data->modelData->realParameterData[3943].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3944] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.e[2] PARAM */) = -1.0;
-  data->modelData->realParameterData[3944].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3945] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.e[3] PARAM */) = 0.0;
-  data->modelData->realParameterData[3945].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3946] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.n[1] PARAM */) = 0.0;
-  data->modelData->realParameterData[3946].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3947] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.n[2] PARAM */) = -1.0;
-  data->modelData->realParameterData[3947].time_unvarying = 1;
-  (data->simulationInfo->realParameter[3948] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.n[3] PARAM */) = 0.0;
-  data->modelData->realParameterData[3948].time_unvarying = 1;
-  (data->simulationInfo->realParameter[4022] /* world.defaultBodyDiameter PARAM */) = 0.1111111111111111;
-  data->modelData->realParameterData[4022].time_unvarying = 1;
-  (data->simulationInfo->realParameter[4067] /* world.n[1] PARAM */) = 0.0;
-  data->modelData->realParameterData[4067].time_unvarying = 1;
-  (data->simulationInfo->realParameter[4068] /* world.n[2] PARAM */) = 0.0;
-  data->modelData->realParameterData[4068].time_unvarying = 1;
-  (data->simulationInfo->realParameter[4069] /* world.n[3] PARAM */) = 1.0;
-  data->modelData->realParameterData[4069].time_unvarying = 1;
-  (data->simulationInfo->realParameter[4070] /* world.nominalLength PARAM */) = 1.0;
-  data->modelData->realParameterData[4070].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3816] /* vehicle.wheelRR.rim.rotor1D.rotorWith3DEffects.n[3] PARAM */) = 0.0;
+  data->modelData->realParameterData[3816].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3846] /* world.defaultBodyDiameter PARAM */) = 0.1111111111111111;
+  data->modelData->realParameterData[3846].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3891] /* world.n[1] PARAM */) = 0.0;
+  data->modelData->realParameterData[3891].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3892] /* world.n[2] PARAM */) = 0.0;
+  data->modelData->realParameterData[3892].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3893] /* world.n[3] PARAM */) = 1.0;
+  data->modelData->realParameterData[3893].time_unvarying = 1;
+  (data->simulationInfo->realParameter[3894] /* world.nominalLength PARAM */) = 1.0;
+  data->modelData->realParameterData[3894].time_unvarying = 1;
   (data->simulationInfo->booleanParameter[0] /* rig.hubFL.includeBearingConnector PARAM */) = 1 /* true */;
   data->modelData->booleanParameterData[0].time_unvarying = 1;
   (data->simulationInfo->booleanParameter[1] /* rig.hubFR.includeBearingConnector PARAM */) = 1 /* true */;

@@ -148,8 +148,8 @@ if(NOT MSVC)
   target_link_libraries(${FMU_NAME_HASH} PRIVATE m)
 endif()
 
-set(EXTERNAL_LIBDIRECTORIES "${DOCKER_VOL_DIR}C:/Program Files/OpenModelica1.25.7-64bit/bin"
-                            "${DOCKER_VOL_DIR}C:/Program Files/OpenModelica1.25.7-64bit/lib/${CMAKE_LIBRARY_ARCHITECTURE}/omc")
+set(EXTERNAL_LIBDIRECTORIES "${DOCKER_VOL_DIR}C:/Program Files/OpenModelica1.25.4-64bit/bin"
+                            "${DOCKER_VOL_DIR}C:/Program Files/OpenModelica1.25.4-64bit/lib/${CMAKE_LIBRARY_ARCHITECTURE}/omc")
 
 # Cross-Platform CMAKE_FIND_LIBRARY_SUFFIXES
 if(WIN32)

@@ -84,7 +84,7 @@ PHONY: AlyssaVehicle_FMU
 AlyssaVehicle_FMU: nozip
 	cd .. && rm -f ../AlyssaVehicle.fmu && zip -r ../AlyssaVehicle.fmu *
 nozip: AlyssaVehicle_functions.h AlyssaVehicle_literals.h $(OFILES) $(RUNTIMEFILES) $(FMISUNDIALSFILES)
-	$(CXX) -shared -I. -o AlyssaVehicle$(DLLEXT) $(RUNTIMEFILES) $(FMISUNDIALSFILES) $(OFILES) $(CPPFLAGS) -L"C:/Users/Owner/Beluga"   $(CFLAGS) $(LDFLAGS) -llis -Wl,--kill-at
+	$(CXX) -shared -I. -o AlyssaVehicle$(DLLEXT) $(RUNTIMEFILES) $(FMISUNDIALSFILES) $(OFILES) $(CPPFLAGS) -L"C:/Users/amcpo/Beluga"   $(CFLAGS) $(LDFLAGS) -llis -Wl,--kill-at
 	mkdir.exe -p ../binaries/win64
 	dlltool -d AlyssaVehicle.def --dllname AlyssaVehicle$(DLLEXT) --output-lib AlyssaVehicle.lib --kill-at
 	cp AlyssaVehicle$(DLLEXT) AlyssaVehicle.lib AlyssaVehicle_FMU.libs ../binaries/win64/

@@ -29,7 +29,7 @@ import time
 import casadi as ca
 import numpy as np
 
-from .vehicle import CONTROLS, WHEELS
+from .vehicle import CONTROLS, OCP_SIGMA_MAX, SLIP_MODEL, WHEELS, combined_slip_sq
 
 
 # scale factors for change of variables (COV)
@@ -72,7 +72,7 @@ class LapTimeOCP:
     def __init__(self, veh, track, ds=5.0, degree=2, car_half_width=1.0, margin=0.2, pedal_rate_max=10.0,
                  delta_max=0.35, w_rate=(0.0, 0.0, 0.0), w_du=(1e-2, 1e-2, 1e-2), w_overlap=0.1,
                  w_straight=10.0, straight_kappa=2e-3, straight_window=50.0,
-                 slip_peak=(0.11, np.tan(np.radians(9.0)), 1.0), change_of_variables=False,
+                 slip_peak=(OCP_SIGMA_MAX, OCP_SIGMA_MAX, 1.0), change_of_variables=False,
                  slip_soft=False, w_slip=10.0, threads=1, segment=None):
 
         """
@@ -190,9 +190,9 @@ class LapTimeOCP:
         g.append(ca.vec(sdot_c))
         lbg += [1.0] * Ncol
         ubg += [np.inf] * Ncol
-        # combined slip rho^2 = (kappa / slip_peak[0])^2 + (tan alpha / slip_peak[1])^2 at or below slip_peak[2]^2.
-        # Past the tire's friction peak the wheel-spin and slip dynamics turn unstable, which a coarse mesh lets
-        # the optimizer exploit.
+        # combined slip rho^2 = ((kappa / slip_peak[0])^2 + (tan alpha / slip_peak[1])^2) / (1 + kappa)^2 at or below
+        # slip_peak[2]^2: brush theoretical slip |sigma| over its limit (laptime_core/vehicle.py combined_slip_sq).
+        # Past saturation the brush force is flat, so extra slip buys no grip.
         #   hard: constraint rho^2 <= limit^2 (weakly active at the peak, with tiny multipliers,
         #         which keeps IPOPT's dual infeasibility high)
         #   soft: smooth penalty on the excess instead (no multipliers)
@@ -200,7 +200,7 @@ class LapTimeOCP:
         hard = slip_peak[2] is not None and not slip_soft
         slip_pen = 0
         for w in ("FL", "FR", "RL", "RR"):
-            rho2 = (Xc_phys[i[f"kappa{w}"], :] / slip_peak[0]) ** 2 + (Xc_phys[i[f"tanAlpha{w}"], :] / slip_peak[1]) ** 2
+            rho2 = combined_slip_sq(Xc_phys[i[f"kappa{w}"], :], Xc_phys[i[f"tanAlpha{w}"], :], slip_peak)
             g.append(ca.vec(rho2))
             lbg += [0.0] * Ncol
             ubg += [slip_peak[2] ** 2 if hard else np.inf] * Ncol
@@ -298,7 +298,7 @@ class LapTimeOCP:
             "mesh": {"ds": self.ds, "N": N, "degree": d, "scheme": "radau", "segment": self.segment},
             "constraints": {"car_half_width": car_half_width, "margin": margin, "delta_max": delta_max,
                             "pedal_rate_max": pedal_rate_max, "change_of_variables": change_of_variables,
-                            "slip_peak": list(slip_peak), "slip_soft": slip_soft, "sdot_min": 1.0},
+                            "slip_peak": list(slip_peak), "slip_model": SLIP_MODEL, "slip_soft": slip_soft, "sdot_min": 1.0},
             "objective": {"w_rate": list(w_rate), "w_du": list(w_du), "w_overlap": w_overlap, "w_straight": w_straight, "w_slip": w_slip,
                           "straight_kappa": straight_kappa, "straight_window": straight_window},
             "nominals": {nm: float(v) for nm, v in zip(self.state_names, self.nom)},
